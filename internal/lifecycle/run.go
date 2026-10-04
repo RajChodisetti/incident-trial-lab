@@ -53,6 +53,7 @@ type Config struct {
 	GracePeriod    time.Duration
 	CleanupTimeout time.Duration
 	Cleanup        func(context.Context) CleanupResult
+	Started        func(int) error
 }
 
 // Run terminates the entire owned process group, waits for it, then cleans up
@@ -97,6 +98,14 @@ func Run(ctx context.Context, c Config) Result {
 		return finish()
 	}
 	r.ProcessGroupID = cmd.Process.Pid
+	if c.Started != nil {
+		if err := c.Started(cmd.Process.Pid); err != nil {
+			_ = syscall.Kill(-cmd.Process.Pid, syscall.SIGKILL)
+			_ = cmd.Wait()
+			r.Error = "persist process identity: " + err.Error()
+			return finish()
+		}
+	}
 	done := make(chan error, 1)
 	go func() { done <- cmd.Wait() }()
 	var err error
