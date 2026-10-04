@@ -125,3 +125,20 @@ login successfully. No credentials were generated or changed.
   recovery compatibility. Do not equate max-two per batch with host-wide admission.
 - Prioritize fresh experiment provenance and a narrow deterministic tool contract
   before thin MCP/agent work; defer broad distributed/outage hardening for the demo.
+
+
+## Thin local MCP surface
+
+- Pin the official Go SDK; use stdio with typed input/output schemas and no MCP
+  listener, model calls or account configuration.
+- Accept only the supported scenario, pinned candidate presets and server-owned
+  IDs. Never expose shell, file-path, arbitrary image or apply parameters.
+- Return asynchronous jobs promptly; cap eight total session jobs and one/two
+  active supervisors, retaining a slot through cleanup and provenance binding.
+- Keep lifecycle, historical business verdict, cleanup and current proof eligibility
+  distinct. Return evidence as untrusted data, with named bounded sections.
+- Explicit owned-job cancellation and process shutdown use the existing supervisor;
+  request cancellation alone does not undo already-admitted work. List all owned
+  jobs to recover IDs after response loss. Clients need a graceful shutdown allowance.
+- Preserve the local trust/restart/host-wide limitations. Next evaluate an offline
+  investigation loop; preset choice alone does not establish AI engineering depth.

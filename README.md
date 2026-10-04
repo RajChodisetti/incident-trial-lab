@@ -11,8 +11,8 @@ Milestones 1–3 supply a tested Go evidence evaluator, one reproducible faulty
 synthetic service, and deterministic comparisons of three candidate images in
 fresh dedicated local kind clusters. A Go supervisor adds bounded local cancellation/cleanup and explicit crash
 reconciliation from persisted ownership; a local queue defaults to one worker
-and permits at most two per batch. **There is no durable
-worker/controller, agent, or MCP server yet.** Nothing here claims production safety or novelty.
+and permits at most two per batch. **There is no durable worker/controller or AI agent yet.** A thin local stdio MCP
+server exposes owned, bounded operations over the verified engine. Nothing here claims production safety or novelty.
 
 Run the [baseline walkthrough](docs/milestone-2.md), then the
 [candidate comparison walkthrough](docs/milestone-3.md). Use the
@@ -21,6 +21,8 @@ and [crash reconciliation](docs/milestone-4-recovery.md) for recorded interrupte
 [Bounded workers](docs/milestone-4-concurrency.md) run independent candidate jobs;
 [Fresh provenance binding](docs/baseline-provenance.md) ties candidate receipts to
 the verified baseline, pinned identities and exact assertions.
+[Local MCP tools](docs/local-mcp.md) expose typed stdio operations with
+[verification evidence](docs/local-mcp-evidence.md).
 [MVP readiness](docs/mvp-readiness.md) separates essential next work from hardening.
 
 The eventual experiment: reproduce a synthetic Go service incident from pinned
@@ -31,7 +33,8 @@ inconclusive outcomes. Use standard telemetry, including local Prometheus.
 
 ## Development
 
-Requires Go 1.26.2. The foundation has no third-party dependencies.
+Requires Go 1.26.2. The MCP interface pins the official Go SDK v1.8.0 and
+checksummed dependencies in `go.mod`/`go.sum`.
 
 ```sh
 ./scripts/check.sh

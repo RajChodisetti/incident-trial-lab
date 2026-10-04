@@ -1,0 +1,237 @@
+{
+  "baseline": {
+    "trial_id": "75a1d33196ccb128",
+    "kind": "baseline",
+    "scenario_id": "discount-rounding",
+    "experiment_id": "00590544eb3f9b5a",
+    "state": "completed",
+    "run_id": "d42f8ca9a50699ca",
+    "verdict": "inconclusive",
+    "cleanup_verified": true,
+    "provenance_verified": true,
+    "eligible_now": true
+  },
+  "baseline_observations": {
+    "baseline_reproduced": true,
+    "observations": [
+      {
+        "name": "no-discount-control",
+        "expected_cents": 315,
+        "observed_cents": 315,
+        "http_status": 200,
+        "raw_response": "{\"total_cents\":315}\n",
+        "business_check": "pass"
+      },
+      {
+        "name": "single-unit-control",
+        "expected_cents": 94,
+        "observed_cents": 94,
+        "http_status": 200,
+        "raw_response": "{\"total_cents\":94}\n",
+        "business_check": "pass"
+      },
+      {
+        "name": "bulk-discount",
+        "expected_cents": 283,
+        "observed_cents": 282,
+        "http_status": 200,
+        "raw_response": "{\"total_cents\":282}\n",
+        "business_check": "fail"
+      }
+    ]
+  },
+  "behavior": {
+    "recovery": "passed",
+    "regressions": "passed",
+    "requests": 120
+  },
+  "catalog": {
+    "scenario_id": "discount-rounding",
+    "variants": [
+      "fixed",
+      "ineffective",
+      "misleading"
+    ],
+    "spec": {
+      "candidate_lock_sha256": "ecbdd4b138c5372d7cb3382b18cb1eacbd8cf71439491451b423be85b74236a3",
+      "baseline_fixture_sha256": "a747f28e9f56d745a687afebbe55a6ec1b1a390dffac4fe7e0ce997eb7b02d28",
+      "baseline_assertions_sha256": "b26d34326889ece22b48cb8255435fe5891e32380e4698490af35d2de65fefde",
+      "workload_sha256": "2f0cce06b2b87cc2b700d75d315b4eaaae98e5678d7914d64d2b5628068354da",
+      "assertions_sha256": "1636c3fa93fa962179462669db4075db363566dfd7fda5ebfb6d07f6caef10d1",
+      "contract_sha256": "63d1587b61a7384f9f4d1d18b7861143162f4ba89c43cbfc13fe9802e9dfc9c2",
+      "deployment_sha256": "d160a614feba2d52e8fdf026b839617c81959f406f70b6a79d04e66b880cdcae",
+      "baseline_image_digest": "sha256:8babadea39ab217d192db5dd32c43ab0d73a92eee633d6aac54a6182be558d9e",
+      "candidate_image_digests": {
+        "fixed": "sha256:8b64ff2b3599b60af1e6db9f23f4782cb76a00b8b1929fbb0a580d9ac18eec40",
+        "ineffective": "sha256:9fd3ff7bfda5386cc9c5a3a9938e65f85faf6580900b32e70560f4d39653fa8a",
+        "misleading": "sha256:2c7f5dd5f3fb9cf055d517504d308926fd6442fa53a3a95e8541e3db8379fb7e"
+      }
+    },
+    "worker_limit": 1,
+    "session_job_limit": 8,
+    "coverage": "CPU interval and two memory endpoints; no peak-memory, production-safety or improvement claim"
+  },
+  "cleanup": {
+    "complete": true,
+    "clusters": [
+      {
+        "name": "itl-baseline-a09f4040ba978a0a"
+      },
+      {
+        "name": "itl-candidate-fixed-a09f4040ba978a0a"
+      },
+      {
+        "name": "itl-candidate-ineffective-a09f4040ba978a0a"
+      },
+      {
+        "name": "itl-candidate-misleading-a09f4040ba978a0a"
+      }
+    ]
+  },
+  "comparison": {
+    "experiment_id": "00590544eb3f9b5a",
+    "candidates": [
+      {
+        "trial_id": "201eaafc7aedfbce",
+        "kind": "candidate",
+        "scenario_id": "discount-rounding",
+        "variant": "fixed",
+        "experiment_id": "00590544eb3f9b5a",
+        "state": "completed",
+        "run_id": "a09f4040ba978a0a",
+        "verdict": "passed",
+        "cleanup_verified": true,
+        "provenance_verified": true,
+        "eligible_now": true
+      },
+      {
+        "trial_id": "4c459f1fe8b87986",
+        "kind": "candidate",
+        "scenario_id": "discount-rounding",
+        "variant": "misleading",
+        "experiment_id": "00590544eb3f9b5a",
+        "state": "canceled_before_start",
+        "verdict": "inconclusive",
+        "cleanup_verified": true,
+        "provenance_verified": false,
+        "eligible_now": false
+      }
+    ],
+    "scope": "per-candidate bound business checks plus sampled resource budgets; no aggregate speedup or safety claim"
+  },
+  "fixed": {
+    "trial_id": "201eaafc7aedfbce",
+    "kind": "candidate",
+    "scenario_id": "discount-rounding",
+    "variant": "fixed",
+    "experiment_id": "00590544eb3f9b5a",
+    "state": "completed",
+    "run_id": "a09f4040ba978a0a",
+    "verdict": "passed",
+    "cleanup_verified": true,
+    "provenance_verified": true,
+    "eligible_now": true
+  },
+  "invalid_calls_refused": {
+    "cancel_trial": true,
+    "create_experiment": true,
+    "get_evidence": true
+  },
+  "listed_count": 3,
+  "mode": "real_kind_baseline_and_fixed_candidate",
+  "protocol_version": "2026-07-28",
+  "queued_cancellation": {
+    "trial_id": "4c459f1fe8b87986",
+    "kind": "candidate",
+    "scenario_id": "discount-rounding",
+    "variant": "misleading",
+    "experiment_id": "00590544eb3f9b5a",
+    "state": "canceled_before_start",
+    "verdict": "inconclusive",
+    "cleanup_verified": true,
+    "provenance_verified": false,
+    "eligible_now": false
+  },
+  "receipt": {
+    "experiment_id": "00590544eb3f9b5a",
+    "attempt_id": "1096e4461d4722c4",
+    "baseline_run_id": "d42f8ca9a50699ca",
+    "candidate_run_id": "a09f4040ba978a0a",
+    "variant": "fixed",
+    "verdict": "passed",
+    "baseline_evidence_sha256": "11f26e13347597b68024324e69475d799ce433b933728a22d0c3f28308e28575",
+    "candidate_evidence_sha256": "6da98e9bddf587852cb97f1a00cb625b0bf57c2d74e9460081ff13a1c80b48f6",
+    "spec": {
+      "candidate_lock_sha256": "ecbdd4b138c5372d7cb3382b18cb1eacbd8cf71439491451b423be85b74236a3",
+      "baseline_fixture_sha256": "a747f28e9f56d745a687afebbe55a6ec1b1a390dffac4fe7e0ce997eb7b02d28",
+      "baseline_assertions_sha256": "b26d34326889ece22b48cb8255435fe5891e32380e4698490af35d2de65fefde",
+      "workload_sha256": "2f0cce06b2b87cc2b700d75d315b4eaaae98e5678d7914d64d2b5628068354da",
+      "assertions_sha256": "1636c3fa93fa962179462669db4075db363566dfd7fda5ebfb6d07f6caef10d1",
+      "contract_sha256": "63d1587b61a7384f9f4d1d18b7861143162f4ba89c43cbfc13fe9802e9dfc9c2",
+      "deployment_sha256": "d160a614feba2d52e8fdf026b839617c81959f406f70b6a79d04e66b880cdcae",
+      "baseline_image_digest": "sha256:8babadea39ab217d192db5dd32c43ab0d73a92eee633d6aac54a6182be558d9e",
+      "candidate_image_digests": {
+        "fixed": "sha256:8b64ff2b3599b60af1e6db9f23f4782cb76a00b8b1929fbb0a580d9ac18eec40",
+        "ineffective": "sha256:9fd3ff7bfda5386cc9c5a3a9938e65f85faf6580900b32e70560f4d39653fa8a",
+        "misleading": "sha256:2c7f5dd5f3fb9cf055d517504d308926fd6442fa53a3a95e8541e3db8379fb7e"
+      }
+    }
+  },
+  "resource_budget": {
+    "status": "passed",
+    "scope": "container CPU interval and two endpoint working-set samples; excludes peak memory and throttling",
+    "cpu_delta_nanos": 11472000,
+    "cpu_limit_nanos": 5000000000,
+    "max_observed_working_set_bytes": 4882432,
+    "working_set_limit_bytes": 33554432,
+    "peak_memory_measured": false
+  },
+  "tools": [
+    "cancel_trial",
+    "compare_trials",
+    "create_experiment",
+    "get_evidence",
+    "get_trial",
+    "list_scenarios",
+    "list_trials",
+    "start_trial"
+  ],
+  "owned_cleanup_rechecked": {
+    "d42f8ca9a50699ca": {
+      "complete": true,
+      "clusters": [
+        {
+          "name": "itl-baseline-d42f8ca9a50699ca"
+        },
+        {
+          "name": "itl-candidate-fixed-d42f8ca9a50699ca"
+        },
+        {
+          "name": "itl-candidate-ineffective-d42f8ca9a50699ca"
+        },
+        {
+          "name": "itl-candidate-misleading-d42f8ca9a50699ca"
+        }
+      ]
+    },
+    "a09f4040ba978a0a": {
+      "complete": true,
+      "clusters": [
+        {
+          "name": "itl-baseline-a09f4040ba978a0a"
+        },
+        {
+          "name": "itl-candidate-fixed-a09f4040ba978a0a"
+        },
+        {
+          "name": "itl-candidate-ineffective-a09f4040ba978a0a"
+        },
+        {
+          "name": "itl-candidate-misleading-a09f4040ba978a0a"
+        }
+      ]
+    }
+  },
+  "owned_resources_rechecked_absent": true,
+  "queued_cancellation_created_no_supervisor_log": true
+}

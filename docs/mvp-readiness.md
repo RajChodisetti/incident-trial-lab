@@ -12,19 +12,19 @@ It rejects stale/mismatched/reused evidence and revalidates stored live receipts
 This is local consistency checking, not signed or adversarial attestation. Legacy
 standalone results remain unbound. See [verification evidence](baseline-provenance-evidence.md).
 
+The [local stdio MCP surface](local-mcp.md) now provides typed, process-owned
+scenario submission, status/evidence retrieval, comparison and cancellation.
+[Offline and real protocol evidence](local-mcp-evidence.md) distinguish simulations
+from actual kind runs. Preset selection is still not substantive AI investigation.
+
 ## Essential next work
 
-1. **Define and test a narrow tool contract.** Register only local pinned scenarios;
-   start/list/read/cancel bounded trials by scoped IDs; expose lifecycle, business,
-   cleanup, and measurement coverage separately. Validate paths/IDs/limits and treat
-   logs/evidence as untrusted data, never instructions. No arbitrary shell or external
-   apply tool is part of the first MCP surface.
-2. **Evaluate the investigation loop before live-model claims.** Script an offline
+1. **Evaluate the investigation loop before live-model claims.** Script an offline
    investigate/propose/test/revise sequence that rejects ineffective and overfit
    proposals, preserves unknown outcomes, and stops at attempt/time budgets. Human
    approval remains necessary for any future optional apply. A wrapper around three
    static variants is not yet a substantive AI agent.
-3. **Resolve credentials only when model work starts.** Use the relevant credential
+2. **Resolve credentials only when model work starts.** Use the relevant credential
    skill and ask reuse/new decision then. No credential or provider is needed to
    define/test the deterministic tool surface now.
 
@@ -40,5 +40,5 @@ standalone results remain unbound. See [verification evidence](baseline-provenan
 - Optional read-only Dynatrace evidence, production adapters, public release, and
   hosted CI enablement once no-cost allowance is resolved.
 
-Next paced increment should define and test the minimal
-local tool contract; defer live AI/API calls and broad controller work until review.
+Next paced increment should define and evaluate the offline
+investigation loop; defer live AI/API calls and broad controller work until review.
