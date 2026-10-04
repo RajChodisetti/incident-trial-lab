@@ -13,9 +13,10 @@ claiming an improvement. Keep explanations short enough for Raj to walk through.
 | 5 — MCP and substantive agents | Evidence tools; investigate/propose/test/revise loop; approval boundary | Tool contract tests; agent evaluation suite; rejected proposals preserved; no optional apply without human approval |
 | 6 — Portfolio presentation | Walkthrough, architecture, repeatable demo, limitations and related-work comparison; optional read-only Dynatrace evidence adapter | Raj can explain decisions; no commercial tenant required for core demo; explicit public-release decision |
 
-Next is milestone 2, only after parent/user continuation. Before running it, start
-Docker Desktop and install kind with the appropriate authorization. Helm is
-optional. Never use the current kubectl context as an implicit target: create a
+Milestones 1 and 2 are implemented; milestone 2 verification is recorded in its
+evidence report. Next is milestone 3, only after parent/user continuation. Docker
+Desktop startup and official project-local kind installation were authorized for
+milestone 2. Helm remains optional. Never use the current kubectl context as an implicit target: create a
 dedicated kind cluster and explicitly select its context for every cluster command.
 
 AI API credentials are unnecessary now. When milestone 5 requires them, load the

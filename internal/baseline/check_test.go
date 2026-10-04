@@ -73,3 +73,11 @@ func TestFixtureContract(t *testing.T) {
 		}
 	}
 }
+
+func TestRunRejectsMissingFailureCase(t *testing.T) {
+	cases, _ := Load(fixture(t))
+	report := Run(context.Background(), nil, "", cases[:2])
+	if report.BaselineReproduced || report.FixtureError == "" {
+		t.Fatal(report)
+	}
+}

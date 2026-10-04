@@ -7,9 +7,12 @@ until Raj makes that decision.
 
 ## Current scope
 
-Milestone 1 supplies a tested Go evidence-evaluation foundation and a development
-plan. **There is no runnable incident trial engine, agent, MCP server, or Kubernetes
-integration yet.** Nothing in this repository claims production safety or novelty.
+Milestones 1–2 supply a tested Go evidence evaluator and one reproducible,
+intentionally faulty synthetic service baseline in a dedicated local kind cluster.
+**There is no candidate trial engine, agent, or MCP server yet.** Nothing in this
+repository claims production safety or novelty.
+
+Run the local baseline using [the milestone 2 walkthrough](docs/milestone-2.md).
 
 The eventual experiment: reproduce a synthetic Go service incident from pinned
 images/manifests, fixture data, a workload, and business assertions; confirm baseline

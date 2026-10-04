@@ -29,6 +29,7 @@ type Observation struct {
 }
 
 type Report struct {
+	FixtureError       string        `json:"fixture_error,omitempty"`
 	BaselineReproduced bool          `json:"baseline_reproduced"`
 	HealthError        string        `json:"health_error,omitempty"`
 	Observations       []Observation `json:"observations"`
@@ -45,38 +46,50 @@ func Load(data []byte) ([]Case, error) {
 	if err := dec.Decode(new(any)); err != io.EOF {
 		return nil, fmt.Errorf("extra fixture data")
 	}
+	if err := validate(cases); err != nil {
+		return nil, err
+	}
+	return cases, nil
+}
+
+func validate(cases []Case) error {
 	names := map[string]bool{}
 	faulty, controls := 0, 0
 	for _, c := range cases {
 		q := c.Request
 		if c.Name == "" || names[c.Name] || q.UnitCents < 1 || q.UnitCents > 1000000 || q.Quantity < 1 || q.Quantity > 100 || q.DiscountPercent < 0 || q.DiscountPercent > 100 {
-			return nil, fmt.Errorf("invalid fixture case %q", c.Name)
+			return fmt.Errorf("invalid fixture case %q", c.Name)
 		}
 		names[c.Name] = true
 		correct := q.UnitCents * q.Quantity * (100 - q.DiscountPercent) / 100
 		if c.Expected != correct {
-			return nil, fmt.Errorf("fixture %q contradicts business formula", c.Name)
+			return fmt.Errorf("fixture %q contradicts business formula", c.Name)
 		}
 		if c.Faulty != nil {
 			faulty++
 			seeded := q.UnitCents * (100 - q.DiscountPercent) / 100 * q.Quantity
 			if *c.Faulty == correct || *c.Faulty != seeded {
-				return nil, fmt.Errorf("invalid seeded value for %q", c.Name)
+				return fmt.Errorf("invalid seeded value for %q", c.Name)
 			}
 		} else {
 			controls++
 		}
 	}
 	if faulty != 1 || controls < 2 {
-		return nil, fmt.Errorf("require one seeded failure and at least two controls")
+		return fmt.Errorf("require one seeded failure and at least two controls")
 	}
-	return cases, nil
+	return nil
 }
 
 // Run succeeds only if controls pass and the designated failure is reproduced.
 // Unavailable/malformed evidence cannot count as a business failure.
 func Run(ctx context.Context, client *http.Client, baseURL string, cases []Case) Report {
-	report := Report{BaselineReproduced: len(cases) > 0}
+	report := Report{}
+	if err := validate(cases); err != nil {
+		report.FixtureError = err.Error()
+		return report
+	}
+	report.BaselineReproduced = true
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, baseURL+"/healthz", nil)
 	if err != nil {
 		report.HealthError = err.Error()
