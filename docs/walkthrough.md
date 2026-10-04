@@ -27,3 +27,15 @@ commits. Only describe features demonstrated by the current code and evidence.
    and why they do not justify a peak-memory or performance improvement claim.
 5. Name what is still missing: durable workers, lifecycle fault injection, broad
    workloads, and agent/MCP integration. Only claim what current evidence shows.
+
+
+## Interview walkthrough: milestone 4 lifecycle slice
+
+1. Explain why shell traps alone do not bound child-process behavior or prove cleanup.
+2. Walk through a separate process group, TERM/KILL grace, output-pipe wait bounds,
+   and cleanup using a fresh context after the execution context is canceled.
+3. Show exact run-derived ownership names and label verification. Explain why this
+   protects against accidental cross-project cleanup, not a malicious Docker peer.
+4. Show real deadline/SIGTERM/failure/success evidence and the preserved sentinel.
+5. State the gap: supervisor death/restarts and durable concurrency remain untested
+   and unimplemented; do not claim guaranteed cleanup or a distributed controller.

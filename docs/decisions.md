@@ -70,3 +70,23 @@ login successfully. No credentials were generated or changed.
   performance claims are untested. No claim of production safety follows.
 - Remain deterministic until the trial system works. No API/model dependency,
   credential reuse decision, or hosted paid CI is needed for this milestone.
+
+
+## Milestone 4: first lifecycle slice
+
+- Supervise the existing deterministic runners rather than building a scheduler
+  or distributed state machine in one increment. Run one child process group with
+  explicit execution, termination-grace, and independent cleanup deadlines.
+- Unique run-derived cluster/lock/evidence names plus exact kind-label checks define
+  cooperative local ownership. Do not claim protection against a malicious peer
+  sharing Docker access. Refuse broad selectors and preserve mismatched resources.
+- Cancellation/timeout are outcomes, not successful candidate verdicts. Cleanup
+  failure makes normal completion fail; canceled contexts never prevent a fresh
+  cleanup attempt. Preserve inaccessible/mismatched/remaining-resource evidence.
+- Bound descendant-held stdout/stderr pipe waits with `exec.Cmd.WaitDelay`; an
+  initial failure test exposed why waiting only for a shell was insufficient.
+- Real interruption validation uses an owned stopped sentinel to verify unrelated
+  resource preservation. No global daemon restart, broad prune, or security change.
+- SIGKILL/crash recovery, durable ownership reconciliation, worker concurrency,
+  whole-host failures, and long-running soak tests remain outside this increment.
+  Complete further lifecycle work before introducing model/API integration.

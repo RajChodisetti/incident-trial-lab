@@ -7,3 +7,5 @@
 
 /.tools/
 /.build/
+
+__pycache__/

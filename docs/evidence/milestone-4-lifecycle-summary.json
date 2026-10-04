@@ -1,0 +1,133 @@
+{
+  "timeout-during-create": {
+    "report": {
+      "run_id": "b1d55a83c519f0d2",
+      "mode": "baseline",
+      "process_group_id": 98877,
+      "outcome": "timed_out",
+      "exit_code": 130,
+      "started_at": "2026-10-04T17:15:11.75777Z",
+      "finished_at": "2026-10-04T17:15:20.845635Z",
+      "forced_kill": false,
+      "error": "context deadline exceeded",
+      "cleanup": {
+        "complete": true,
+        "clusters": [
+          {
+            "name": "itl-baseline-b1d55a83c519f0d2"
+          },
+          {
+            "name": "itl-candidate-fixed-b1d55a83c519f0d2"
+          },
+          {
+            "name": "itl-candidate-ineffective-b1d55a83c519f0d2"
+          },
+          {
+            "name": "itl-candidate-misleading-b1d55a83c519f0d2"
+          }
+        ]
+      }
+    },
+    "evidence_path": "evidence/lifecycle-b1d55a83c519f0d2",
+    "process_group_gone": true,
+    "sentinel_preserved": true
+  },
+  "term-with-port-forward": {
+    "report": {
+      "run_id": "e4074bd19caf7f41",
+      "mode": "candidate",
+      "process_group_id": 99140,
+      "outcome": "canceled",
+      "exit_code": 130,
+      "started_at": "2026-10-04T17:15:21.006623Z",
+      "finished_at": "2026-10-04T17:15:59.964354Z",
+      "forced_kill": false,
+      "error": "context canceled",
+      "cleanup": {
+        "complete": true,
+        "clusters": [
+          {
+            "name": "itl-baseline-e4074bd19caf7f41"
+          },
+          {
+            "name": "itl-candidate-fixed-e4074bd19caf7f41"
+          },
+          {
+            "name": "itl-candidate-ineffective-e4074bd19caf7f41"
+          },
+          {
+            "name": "itl-candidate-misleading-e4074bd19caf7f41"
+          }
+        ]
+      }
+    },
+    "evidence_path": "evidence/lifecycle-e4074bd19caf7f41",
+    "process_group_gone": true,
+    "sentinel_preserved": true
+  },
+  "failure-after-apply": {
+    "report": {
+      "run_id": "1326b3a82dcac944",
+      "mode": "candidate",
+      "process_group_id": 99907,
+      "outcome": "failed",
+      "exit_code": 70,
+      "started_at": "2026-10-04T17:16:00.246633Z",
+      "finished_at": "2026-10-04T17:16:40.53449Z",
+      "forced_kill": false,
+      "error": "exit status 70",
+      "cleanup": {
+        "complete": true,
+        "clusters": [
+          {
+            "name": "itl-baseline-1326b3a82dcac944"
+          },
+          {
+            "name": "itl-candidate-fixed-1326b3a82dcac944"
+          },
+          {
+            "name": "itl-candidate-ineffective-1326b3a82dcac944"
+          },
+          {
+            "name": "itl-candidate-misleading-1326b3a82dcac944"
+          }
+        ]
+      }
+    },
+    "evidence_path": "evidence/lifecycle-1326b3a82dcac944",
+    "process_group_gone": true,
+    "sentinel_preserved": true
+  },
+  "successful-fixed-trial": {
+    "report": {
+      "run_id": "0607597f721374ac",
+      "mode": "candidate",
+      "process_group_id": 822,
+      "outcome": "completed",
+      "exit_code": 0,
+      "started_at": "2026-10-04T17:16:40.838016Z",
+      "finished_at": "2026-10-04T17:17:28.168319Z",
+      "forced_kill": false,
+      "cleanup": {
+        "complete": true,
+        "clusters": [
+          {
+            "name": "itl-baseline-0607597f721374ac"
+          },
+          {
+            "name": "itl-candidate-fixed-0607597f721374ac"
+          },
+          {
+            "name": "itl-candidate-ineffective-0607597f721374ac"
+          },
+          {
+            "name": "itl-candidate-misleading-0607597f721374ac"
+          }
+        ]
+      }
+    },
+    "evidence_path": "evidence/lifecycle-0607597f721374ac",
+    "process_group_gone": true,
+    "sentinel_preserved": true
+  }
+}

@@ -53,6 +53,9 @@ image/runtime identities, pod JSON, cleanup evidence, and a scoped result. A fai
 candidate is valid experimental evidence; the comparison command succeeds only
 when the expected fixed/ineffective/misleading matrix is observed.
 
+Milestone 4 adds [supervised execution](milestone-4.md); prefer
+`./scripts/run-trial.sh -mode comparison -timeout 10m` to direct shell execution.
+
 No model/API integration, credentials, hosted CI, commercial telemetry, external
 apply, production access, or unrelated Docker cleanup is needed. Keep the repo
 private. Next is milestone 4 lifecycle robustness: bounded workers, deadlines,
