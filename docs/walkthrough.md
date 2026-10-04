@@ -14,3 +14,16 @@
 Implementation ownership should be described accurately: Raj is developing this
 portfolio with Codex assistance and reviewing incremental decisions, tests, and
 commits. Only describe features demonstrated by the current code and evidence.
+
+
+## Interview walkthrough: milestone 3
+
+1. Show the frozen baseline reproducing the cent-rounding defect.
+2. Explain why a fix that special-cases that one order is insufficient: the new
+   bulk-order regression rejects it despite successful incident recovery.
+3. Walk through distinct baked candidate images, digest locks, fresh clusters,
+   baseline gating, raw observations, and conservative inconclusive verdicts.
+4. Explain exactly what the kubelet CPU interval and two memory samples cover,
+   and why they do not justify a peak-memory or performance improvement claim.
+5. Name what is still missing: durable workers, lifecycle fault injection, broad
+   workloads, and agent/MCP integration. Only claim what current evidence shows.

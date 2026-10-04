@@ -13,8 +13,10 @@ claiming an improvement. Keep explanations short enough for Raj to walk through.
 | 5 — MCP and substantive agents | Evidence tools; investigate/propose/test/revise loop; approval boundary | Tool contract tests; agent evaluation suite; rejected proposals preserved; no optional apply without human approval |
 | 6 — Portfolio presentation | Walkthrough, architecture, repeatable demo, limitations and related-work comparison; optional read-only Dynatrace evidence adapter | Raj can explain decisions; no commercial tenant required for core demo; explicit public-release decision |
 
-Milestones 1 and 2 are implemented; milestone 2 verification is recorded in its
-evidence report. Next is milestone 3, only after parent/user continuation. Docker
+Milestones 1–3 are implemented; verification and explicit coverage limits are
+recorded in each evidence report. Milestone 3 checks sampled resource budgets;
+peak sampling and statistically rigorous benchmarks remain future work. Next is
+milestone 4, only after parent/user continuation. Docker
 Desktop startup and official project-local kind installation were authorized for
 milestone 2. Helm remains optional. Never use the current kubectl context as an implicit target: create a
 dedicated kind cluster and explicitly select its context for every cluster command.

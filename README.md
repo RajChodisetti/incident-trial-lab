@@ -7,12 +7,13 @@ until Raj makes that decision.
 
 ## Current scope
 
-Milestones 1–2 supply a tested Go evidence evaluator and one reproducible,
-intentionally faulty synthetic service baseline in a dedicated local kind cluster.
-**There is no candidate trial engine, agent, or MCP server yet.** Nothing in this
-repository claims production safety or novelty.
+Milestones 1–3 supply a tested Go evidence evaluator, one reproducible faulty
+synthetic service, and deterministic comparisons of three candidate images in
+fresh dedicated local kind clusters. **There is no durable worker/controller,
+agent, or MCP server yet.** Nothing here claims production safety or novelty.
 
-Run the local baseline using [the milestone 2 walkthrough](docs/milestone-2.md).
+Run the [baseline walkthrough](docs/milestone-2.md), then the
+[candidate comparison walkthrough](docs/milestone-3.md).
 
 The eventual experiment: reproduce a synthetic Go service incident from pinned
 images/manifests, fixture data, a workload, and business assertions; confirm baseline

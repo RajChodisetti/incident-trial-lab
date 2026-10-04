@@ -1,0 +1,76 @@
+{
+  "source_commit": "e0fd34dc56d3bed561eb1302dde5e70a8e9d4280",
+  "baseline_reproduced": true,
+  "trials": {
+    "ineffective": {
+      "verdict": "failed",
+      "recovery": "failed",
+      "regressions": "failed",
+      "budget": {
+        "status": "passed",
+        "scope": "container CPU interval and two endpoint working-set samples; excludes peak memory and throttling",
+        "cpu_delta_nanos": 15597000,
+        "cpu_limit_nanos": 5000000000,
+        "max_observed_working_set_bytes": 4874240,
+        "working_set_limit_bytes": 33554432,
+        "peak_memory_measured": false
+      },
+      "measured_requests": 120,
+      "median_micros": 815,
+      "p95_micros": 1396,
+      "pod_uid": "7a60a2b0-c367-415b-8470-2b8dbac8c2dd",
+      "image_digest": "sha256:9fd3ff7bfda5386cc9c5a3a9938e65f85faf6580900b32e70560f4d39653fa8a",
+      "exit_status": 0,
+      "evidence_path": "evidence/candidate-ineffective-20261004T155353Z-47772",
+      "failed_observations": 40,
+      "unknown_observations": 0
+    },
+    "misleading": {
+      "verdict": "failed",
+      "recovery": "passed",
+      "regressions": "failed",
+      "budget": {
+        "status": "passed",
+        "scope": "container CPU interval and two endpoint working-set samples; excludes peak memory and throttling",
+        "cpu_delta_nanos": 11348000,
+        "cpu_limit_nanos": 5000000000,
+        "max_observed_working_set_bytes": 4870144,
+        "working_set_limit_bytes": 33554432,
+        "peak_memory_measured": false
+      },
+      "measured_requests": 120,
+      "median_micros": 696,
+      "p95_micros": 1084,
+      "pod_uid": "689b69e3-f6e7-4444-96a5-b47aff83f1f9",
+      "image_digest": "sha256:2c7f5dd5f3fb9cf055d517504d308926fd6442fa53a3a95e8541e3db8379fb7e",
+      "exit_status": 0,
+      "evidence_path": "evidence/candidate-misleading-20261004T155437Z-48576",
+      "failed_observations": 20,
+      "unknown_observations": 0
+    },
+    "fixed": {
+      "verdict": "passed",
+      "recovery": "passed",
+      "regressions": "passed",
+      "budget": {
+        "status": "passed",
+        "scope": "container CPU interval and two endpoint working-set samples; excludes peak memory and throttling",
+        "cpu_delta_nanos": 11255000,
+        "cpu_limit_nanos": 5000000000,
+        "max_observed_working_set_bytes": 4890624,
+        "working_set_limit_bytes": 33554432,
+        "peak_memory_measured": false
+      },
+      "measured_requests": 120,
+      "median_micros": 702,
+      "p95_micros": 849,
+      "pod_uid": "b47516db-7586-47f6-871d-e136011455f2",
+      "image_digest": "sha256:8b64ff2b3599b60af1e6db9f23f4782cb76a00b8b1929fbb0a580d9ac18eec40",
+      "exit_status": 0,
+      "evidence_path": "evidence/candidate-fixed-20261004T155519Z-49425",
+      "failed_observations": 0,
+      "unknown_observations": 0
+    }
+  },
+  "distinct_pod_uids_verified": true
+}

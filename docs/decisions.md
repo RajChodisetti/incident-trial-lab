@@ -52,3 +52,21 @@ login successfully. No credentials were generated or changed.
   the running container, instead of assuming those two digests are identical.
 - No hosted CI, candidate fix, performance claim, AI integration, or commercial
   telemetry is part of this milestone.
+
+
+## Milestone 3 decisions
+
+- Freeze milestone 2's baseline code and image digest. Keep explicit candidate
+  variants in a separate package and bake each into a separate binary/image.
+- Include both a no-op proposal and an overfit proposal. Separate recovery from
+  regression assertions so repairing one incident input cannot hide a regression.
+- Start sequentially with a fresh full cluster per candidate. Concurrent workers,
+  durable lifecycle/restart handling, and fault injection belong to milestone 4.
+- Define workload and CPU/sampled-memory budgets before running candidates. Use
+  application kubelet counters with stable pod UID, monotonic times, and a sampling
+  window that brackets all requests; missing/reset/stale data is inconclusive.
+- State resource coverage narrowly: cumulative CPU between snapshots and memory
+  at two endpoints. Peak memory, throttling, sustained throughput, and statistical
+  performance claims are untested. No claim of production safety follows.
+- Remain deterministic until the trial system works. No API/model dependency,
+  credential reuse decision, or hosted paid CI is needed for this milestone.
