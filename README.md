@@ -9,12 +9,14 @@ until Raj makes that decision.
 
 Milestones 1–3 supply a tested Go evidence evaluator, one reproducible faulty
 synthetic service, and deterministic comparisons of three candidate images in
-fresh dedicated local kind clusters. A Go supervisor adds bounded local cancellation and cleanup. **There is no durable
+fresh dedicated local kind clusters. A Go supervisor adds bounded local cancellation/cleanup and explicit crash
+reconciliation from persisted ownership. **There is no durable
 worker/controller, agent, or MCP server yet.** Nothing here claims production safety or novelty.
 
 Run the [baseline walkthrough](docs/milestone-2.md), then the
 [candidate comparison walkthrough](docs/milestone-3.md). Use the
-[lifecycle supervisor](docs/milestone-4.md) for bounded execution and interruption.
+[lifecycle supervisor](docs/milestone-4.md) for bounded execution and interruption,
+and [crash reconciliation](docs/milestone-4-recovery.md) for recorded interrupted runs.
 
 The eventual experiment: reproduce a synthetic Go service incident from pinned
 images/manifests, fixture data, a workload, and business assertions; confirm baseline

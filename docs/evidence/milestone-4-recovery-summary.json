@@ -1,0 +1,75 @@
+{
+  "supervisor-sigkill": {
+    "run_id": "698a8a1fe2699045",
+    "recorded_node": {
+      "id": "c064020a70853ae331846c8806ffea8adf3203e3d8c188d7737b36902d05190a",
+      "name": "/itl-candidate-fixed-698a8a1fe2699045-control-plane",
+      "cluster": "itl-candidate-fixed-698a8a1fe2699045"
+    },
+    "recovery": {
+      "original_outcome": "unknown",
+      "business_verdict": "inconclusive",
+      "reconciled_at": "2026-10-04T18:38:06.685543Z",
+      "processes_verified": true,
+      "cleanup": {
+        "complete": true,
+        "clusters": [
+          {
+            "name": "itl-baseline-698a8a1fe2699045"
+          },
+          {
+            "name": "itl-candidate-fixed-698a8a1fe2699045"
+          },
+          {
+            "name": "itl-candidate-ineffective-698a8a1fe2699045"
+          },
+          {
+            "name": "itl-candidate-misleading-698a8a1fe2699045"
+          }
+        ]
+      }
+    },
+    "active_run_refused": true,
+    "idempotent_recovery": true,
+    "sentinel_preserved": true,
+    "evidence_path": "evidence/lifecycle-698a8a1fe2699045"
+  },
+  "supervisor-and-group-sigkill": {
+    "run_id": "4fa24d4cbad1b63b",
+    "recorded_node": {
+      "id": "b9adeec0fb207dc56c6cbd4461f18bb16614e0d51f2a3477423728b9151877ea",
+      "name": "/itl-candidate-fixed-4fa24d4cbad1b63b-control-plane",
+      "cluster": "itl-candidate-fixed-4fa24d4cbad1b63b"
+    },
+    "recovery": {
+      "original_outcome": "unknown",
+      "business_verdict": "inconclusive",
+      "reconciled_at": "2026-10-04T18:38:49.1656Z",
+      "processes_verified": true,
+      "cleanup": {
+        "complete": true,
+        "clusters": [
+          {
+            "name": "itl-baseline-4fa24d4cbad1b63b"
+          },
+          {
+            "name": "itl-candidate-fixed-4fa24d4cbad1b63b",
+            "found_container_ids": [
+              "b9adeec0fb207dc56c6cbd4461f18bb16614e0d51f2a3477423728b9151877ea"
+            ]
+          },
+          {
+            "name": "itl-candidate-ineffective-4fa24d4cbad1b63b"
+          },
+          {
+            "name": "itl-candidate-misleading-4fa24d4cbad1b63b"
+          }
+        ]
+      }
+    },
+    "active_run_refused": true,
+    "idempotent_recovery": true,
+    "sentinel_preserved": true,
+    "evidence_path": "evidence/lifecycle-4fa24d4cbad1b63b"
+  }
+}

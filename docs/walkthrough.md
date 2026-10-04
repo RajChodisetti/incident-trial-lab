@@ -39,3 +39,14 @@ commits. Only describe features demonstrated by the current code and evidence.
 4. Show real deadline/SIGTERM/failure/success evidence and the preserved sentinel.
 5. State the gap: supervisor death/restarts and durable concurrency remain untested
    and unimplemented; do not claim guaranteed cleanup or a distributed controller.
+
+
+## Interview walkthrough: hard-crash reconciliation
+
+1. Show why SIGKILL bypasses the supervisor's ordinary cleanup.
+2. Explain atomic intent records, OS-held locks, and the recorded child fingerprint.
+3. Show strict node-ID/name/label matching and refusal of replacement resources.
+4. Walk through real leftover-node cleanup and repeat recovery; explain why the
+   original business outcome remains inconclusive even after cleanup succeeds.
+5. State the creation-to-snapshot gap and cooperative-host assumption, rather than
+   claiming complete crash safety or distributed durability.

@@ -90,3 +90,21 @@ login successfully. No credentials were generated or changed.
 - SIGKILL/crash recovery, durable ownership reconciliation, worker concurrency,
   whole-host failures, and long-running soak tests remain outside this increment.
   Complete further lifecycle work before introducing model/API integration.
+
+
+## Milestone 4: explicit crash reconciliation
+
+- Persist a small atomic/synced run record before launch, then its child identity;
+  hold a local OS lock so recovery refuses a live supervisor even when PID files
+  are stale. Never automatically resume an interrupted candidate.
+- Record exact node IDs/names/labels after creation. On restart, refuse deletion
+  of unrecorded or replacement nodes; retain incomplete cleanup if proof is absent.
+- Compare child start-time/command fingerprints including the run token before
+  signaling. Refuse changed identity and unresolved orphan groups.
+- A real hard-crash test exposed kind's kubeconfig mutation failure with a special
+  device. Use a fresh owned regular temporary file, preserving command errors and
+  verification instead of treating disappearance alone as a successful command.
+- Cleanup success cannot reconstruct the interrupted trial outcome: unknown and
+  inconclusive remain explicit. Repeating reconciliation must preserve that result.
+- Do not simulate shared-daemon outage, add concurrency, or start model/API work in
+  this slice. Creation-to-snapshot gaps and host/filesystem failure remain limits.
