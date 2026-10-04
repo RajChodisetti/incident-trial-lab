@@ -19,8 +19,9 @@ peak sampling and statistically rigorous benchmarks remain future work. Next is
 the next MVP-readiness slice, only after parent/user continuation. Lifecycle slices
 provide cancellation, deadlines, explicit recorded-node reconciliation, and a
 max-two local worker path. Creation gaps, host-wide admission, and durable/
-distributed scheduling remain limitations. Review `mvp-readiness.md` before a
-thin local tool surface. Docker
+distributed scheduling remain limitations. Fresh baseline/attempt provenance binding is verified in
+`baseline-provenance-evidence.md`. Next is the narrow typed local tool contract;
+review `mvp-readiness.md` before that surface. Docker
 Desktop startup and official project-local kind installation were authorized for
 milestone 2. Helm remains optional. Never use the current kubectl context as an implicit target: create a
 dedicated kind cluster and explicitly select its context for every cluster command.

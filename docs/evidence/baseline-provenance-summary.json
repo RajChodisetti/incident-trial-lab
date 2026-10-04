@@ -1,0 +1,225 @@
+{
+  "experiment": {
+    "experiment_id": "dc2bae1ed65bb31f",
+    "created_at": "2026-10-04T21:17:00.983214Z",
+    "expires_at": "2026-10-04T21:47:00.983214Z",
+    "baseline_run_id": "37e4fc48cde1fd79",
+    "baseline_finished_at": "2026-10-04T21:17:00.442419Z",
+    "baseline_evidence_sha256": "2b15c680b5b7df0c32fbcb5fdc6f3262b53f51081d408309d2b43f4806e0c8a3",
+    "spec": {
+      "candidate_lock_sha256": "ecbdd4b138c5372d7cb3382b18cb1eacbd8cf71439491451b423be85b74236a3",
+      "baseline_fixture_sha256": "a747f28e9f56d745a687afebbe55a6ec1b1a390dffac4fe7e0ce997eb7b02d28",
+      "baseline_assertions_sha256": "b26d34326889ece22b48cb8255435fe5891e32380e4698490af35d2de65fefde",
+      "workload_sha256": "2f0cce06b2b87cc2b700d75d315b4eaaae98e5678d7914d64d2b5628068354da",
+      "assertions_sha256": "1636c3fa93fa962179462669db4075db363566dfd7fda5ebfb6d07f6caef10d1",
+      "contract_sha256": "63d1587b61a7384f9f4d1d18b7861143162f4ba89c43cbfc13fe9802e9dfc9c2",
+      "deployment_sha256": "d160a614feba2d52e8fdf026b839617c81959f406f70b6a79d04e66b880cdcae",
+      "baseline_image_digest": "sha256:8babadea39ab217d192db5dd32c43ab0d73a92eee633d6aac54a6182be558d9e",
+      "candidate_image_digests": {
+        "fixed": "sha256:8b64ff2b3599b60af1e6db9f23f4782cb76a00b8b1929fbb0a580d9ac18eec40",
+        "ineffective": "sha256:9fd3ff7bfda5386cc9c5a3a9938e65f85faf6580900b32e70560f4d39653fa8a",
+        "misleading": "sha256:2c7f5dd5f3fb9cf055d517504d308926fd6442fa53a3a95e8541e3db8379fb7e"
+      }
+    }
+  },
+  "baseline_run_id": "37e4fc48cde1fd79",
+  "candidates": {
+    "ineffective": {
+      "receipt": {
+        "experiment_id": "dc2bae1ed65bb31f",
+        "attempt_id": "8c7d57619b5a8f9b",
+        "baseline_run_id": "37e4fc48cde1fd79",
+        "candidate_run_id": "c3933ee353f7ace4",
+        "variant": "ineffective",
+        "verdict": "failed",
+        "baseline_evidence_sha256": "2b15c680b5b7df0c32fbcb5fdc6f3262b53f51081d408309d2b43f4806e0c8a3",
+        "candidate_evidence_sha256": "a86f8b6941329b329d0fd1156b289c03604567ae11dc6fe30f2a0d9551831908",
+        "spec": {
+          "candidate_lock_sha256": "ecbdd4b138c5372d7cb3382b18cb1eacbd8cf71439491451b423be85b74236a3",
+          "baseline_fixture_sha256": "a747f28e9f56d745a687afebbe55a6ec1b1a390dffac4fe7e0ce997eb7b02d28",
+          "baseline_assertions_sha256": "b26d34326889ece22b48cb8255435fe5891e32380e4698490af35d2de65fefde",
+          "workload_sha256": "2f0cce06b2b87cc2b700d75d315b4eaaae98e5678d7914d64d2b5628068354da",
+          "assertions_sha256": "1636c3fa93fa962179462669db4075db363566dfd7fda5ebfb6d07f6caef10d1",
+          "contract_sha256": "63d1587b61a7384f9f4d1d18b7861143162f4ba89c43cbfc13fe9802e9dfc9c2",
+          "deployment_sha256": "d160a614feba2d52e8fdf026b839617c81959f406f70b6a79d04e66b880cdcae",
+          "baseline_image_digest": "sha256:8babadea39ab217d192db5dd32c43ab0d73a92eee633d6aac54a6182be558d9e",
+          "candidate_image_digests": {
+            "fixed": "sha256:8b64ff2b3599b60af1e6db9f23f4782cb76a00b8b1929fbb0a580d9ac18eec40",
+            "ineffective": "sha256:9fd3ff7bfda5386cc9c5a3a9938e65f85faf6580900b32e70560f4d39653fa8a",
+            "misleading": "sha256:2c7f5dd5f3fb9cf055d517504d308926fd6442fa53a3a95e8541e3db8379fb7e"
+          }
+        }
+      },
+      "reverified": true,
+      "recovery": "failed",
+      "regressions": "failed",
+      "requests": 120,
+      "resource_budget": {
+        "status": "passed",
+        "scope": "container CPU interval and two endpoint working-set samples; excludes peak memory and throttling",
+        "cpu_delta_nanos": 11827000,
+        "cpu_limit_nanos": 5000000000,
+        "max_observed_working_set_bytes": 4890624,
+        "working_set_limit_bytes": 33554432,
+        "peak_memory_measured": false
+      }
+    },
+    "misleading": {
+      "receipt": {
+        "experiment_id": "dc2bae1ed65bb31f",
+        "attempt_id": "94dab605a0d36ace",
+        "baseline_run_id": "37e4fc48cde1fd79",
+        "candidate_run_id": "2f464b70a29ab4f7",
+        "variant": "misleading",
+        "verdict": "failed",
+        "baseline_evidence_sha256": "2b15c680b5b7df0c32fbcb5fdc6f3262b53f51081d408309d2b43f4806e0c8a3",
+        "candidate_evidence_sha256": "d1891a9ee42baf384f95b72eb95886b1e1cb0d4f9643f291d6612a65d1824423",
+        "spec": {
+          "candidate_lock_sha256": "ecbdd4b138c5372d7cb3382b18cb1eacbd8cf71439491451b423be85b74236a3",
+          "baseline_fixture_sha256": "a747f28e9f56d745a687afebbe55a6ec1b1a390dffac4fe7e0ce997eb7b02d28",
+          "baseline_assertions_sha256": "b26d34326889ece22b48cb8255435fe5891e32380e4698490af35d2de65fefde",
+          "workload_sha256": "2f0cce06b2b87cc2b700d75d315b4eaaae98e5678d7914d64d2b5628068354da",
+          "assertions_sha256": "1636c3fa93fa962179462669db4075db363566dfd7fda5ebfb6d07f6caef10d1",
+          "contract_sha256": "63d1587b61a7384f9f4d1d18b7861143162f4ba89c43cbfc13fe9802e9dfc9c2",
+          "deployment_sha256": "d160a614feba2d52e8fdf026b839617c81959f406f70b6a79d04e66b880cdcae",
+          "baseline_image_digest": "sha256:8babadea39ab217d192db5dd32c43ab0d73a92eee633d6aac54a6182be558d9e",
+          "candidate_image_digests": {
+            "fixed": "sha256:8b64ff2b3599b60af1e6db9f23f4782cb76a00b8b1929fbb0a580d9ac18eec40",
+            "ineffective": "sha256:9fd3ff7bfda5386cc9c5a3a9938e65f85faf6580900b32e70560f4d39653fa8a",
+            "misleading": "sha256:2c7f5dd5f3fb9cf055d517504d308926fd6442fa53a3a95e8541e3db8379fb7e"
+          }
+        }
+      },
+      "reverified": true,
+      "recovery": "passed",
+      "regressions": "failed",
+      "requests": 120,
+      "resource_budget": {
+        "status": "passed",
+        "scope": "container CPU interval and two endpoint working-set samples; excludes peak memory and throttling",
+        "cpu_delta_nanos": 11627000,
+        "cpu_limit_nanos": 5000000000,
+        "max_observed_working_set_bytes": 2768896,
+        "working_set_limit_bytes": 33554432,
+        "peak_memory_measured": false
+      }
+    },
+    "fixed": {
+      "receipt": {
+        "experiment_id": "dc2bae1ed65bb31f",
+        "attempt_id": "200b2b36ac63a43a",
+        "baseline_run_id": "37e4fc48cde1fd79",
+        "candidate_run_id": "2eee49cd2e921f0b",
+        "variant": "fixed",
+        "verdict": "passed",
+        "baseline_evidence_sha256": "2b15c680b5b7df0c32fbcb5fdc6f3262b53f51081d408309d2b43f4806e0c8a3",
+        "candidate_evidence_sha256": "264c721d5c1eb3396c0fdd6911b78f5a0a9aec0576585d2857f1f8c4526202fb",
+        "spec": {
+          "candidate_lock_sha256": "ecbdd4b138c5372d7cb3382b18cb1eacbd8cf71439491451b423be85b74236a3",
+          "baseline_fixture_sha256": "a747f28e9f56d745a687afebbe55a6ec1b1a390dffac4fe7e0ce997eb7b02d28",
+          "baseline_assertions_sha256": "b26d34326889ece22b48cb8255435fe5891e32380e4698490af35d2de65fefde",
+          "workload_sha256": "2f0cce06b2b87cc2b700d75d315b4eaaae98e5678d7914d64d2b5628068354da",
+          "assertions_sha256": "1636c3fa93fa962179462669db4075db363566dfd7fda5ebfb6d07f6caef10d1",
+          "contract_sha256": "63d1587b61a7384f9f4d1d18b7861143162f4ba89c43cbfc13fe9802e9dfc9c2",
+          "deployment_sha256": "d160a614feba2d52e8fdf026b839617c81959f406f70b6a79d04e66b880cdcae",
+          "baseline_image_digest": "sha256:8babadea39ab217d192db5dd32c43ab0d73a92eee633d6aac54a6182be558d9e",
+          "candidate_image_digests": {
+            "fixed": "sha256:8b64ff2b3599b60af1e6db9f23f4782cb76a00b8b1929fbb0a580d9ac18eec40",
+            "ineffective": "sha256:9fd3ff7bfda5386cc9c5a3a9938e65f85faf6580900b32e70560f4d39653fa8a",
+            "misleading": "sha256:2c7f5dd5f3fb9cf055d517504d308926fd6442fa53a3a95e8541e3db8379fb7e"
+          }
+        }
+      },
+      "reverified": true,
+      "recovery": "passed",
+      "regressions": "passed",
+      "requests": 120,
+      "resource_budget": {
+        "status": "passed",
+        "scope": "container CPU interval and two endpoint working-set samples; excludes peak memory and throttling",
+        "cpu_delta_nanos": 11262000,
+        "cpu_limit_nanos": 5000000000,
+        "max_observed_working_set_bytes": 4886528,
+        "working_set_limit_bytes": 33554432,
+        "peak_memory_measured": false
+      }
+    }
+  },
+  "replay_refused": {
+    "ineffective": "attempt already consumed or unavailable",
+    "misleading": "attempt already consumed or unavailable",
+    "fixed": "attempt already consumed or unavailable",
+    "baseline": "evidence already bound or unavailable: open /Users/rajchodisetti/Documents/Codex/2026-10-03/task/incident-trial-lab/evidence/lifecycle-37e4fc48cde1fd79/baseline-20261004T211620Z-50778/experiment-binding.json: file exists"
+  },
+  "cleanup": {
+    "37e4fc48cde1fd79": {
+      "complete": true,
+      "clusters": [
+        {
+          "name": "itl-baseline-37e4fc48cde1fd79"
+        },
+        {
+          "name": "itl-candidate-fixed-37e4fc48cde1fd79"
+        },
+        {
+          "name": "itl-candidate-ineffective-37e4fc48cde1fd79"
+        },
+        {
+          "name": "itl-candidate-misleading-37e4fc48cde1fd79"
+        }
+      ]
+    },
+    "c3933ee353f7ace4": {
+      "complete": true,
+      "clusters": [
+        {
+          "name": "itl-baseline-c3933ee353f7ace4"
+        },
+        {
+          "name": "itl-candidate-fixed-c3933ee353f7ace4"
+        },
+        {
+          "name": "itl-candidate-ineffective-c3933ee353f7ace4"
+        },
+        {
+          "name": "itl-candidate-misleading-c3933ee353f7ace4"
+        }
+      ]
+    },
+    "2f464b70a29ab4f7": {
+      "complete": true,
+      "clusters": [
+        {
+          "name": "itl-baseline-2f464b70a29ab4f7"
+        },
+        {
+          "name": "itl-candidate-fixed-2f464b70a29ab4f7"
+        },
+        {
+          "name": "itl-candidate-ineffective-2f464b70a29ab4f7"
+        },
+        {
+          "name": "itl-candidate-misleading-2f464b70a29ab4f7"
+        }
+      ]
+    },
+    "2eee49cd2e921f0b": {
+      "complete": true,
+      "clusters": [
+        {
+          "name": "itl-baseline-2eee49cd2e921f0b"
+        },
+        {
+          "name": "itl-candidate-fixed-2eee49cd2e921f0b"
+        },
+        {
+          "name": "itl-candidate-ineffective-2eee49cd2e921f0b"
+        },
+        {
+          "name": "itl-candidate-misleading-2eee49cd2e921f0b"
+        }
+      ]
+    }
+  },
+  "owned_resources_rechecked_absent": true
+}

@@ -19,6 +19,8 @@ Run the [baseline walkthrough](docs/milestone-2.md), then the
 [lifecycle supervisor](docs/milestone-4.md) for bounded execution and interruption,
 and [crash reconciliation](docs/milestone-4-recovery.md) for recorded interrupted runs.
 [Bounded workers](docs/milestone-4-concurrency.md) run independent candidate jobs;
+[Fresh provenance binding](docs/baseline-provenance.md) ties candidate receipts to
+the verified baseline, pinned identities and exact assertions.
 [MVP readiness](docs/mvp-readiness.md) separates essential next work from hardening.
 
 The eventual experiment: reproduce a synthetic Go service incident from pinned
