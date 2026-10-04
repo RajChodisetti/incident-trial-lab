@@ -2,10 +2,11 @@
 set -eu
 cd "$(dirname "$0")/.."
 mkdir -p .build
-mkdir .build/comparison.lock || { echo 'Comparison already running' >&2; exit 1; }
-trap 'rmdir .build/comparison.lock' EXIT
+lock=.build/comparison${TRIAL_RUN_ID:+-$TRIAL_RUN_ID}.lock
+mkdir "$lock" || { echo 'Comparison already running' >&2; exit 1; }
+trap 'rmdir "$lock"' EXIT
 trap 'exit 130' INT TERM
-bundle=evidence/comparison-$(date -u +%Y%m%dT%H%M%SZ)-$$
+bundle=${TRIAL_EVIDENCE_PARENT:-evidence}/comparison-$(date -u +%Y%m%dT%H%M%SZ)-$$
 mkdir -p "$bundle"
 echo "Comparison evidence: $bundle"
 # Existing baseline runner rejects reuse and tears down its own fresh cluster.

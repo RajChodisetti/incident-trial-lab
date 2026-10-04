@@ -2,7 +2,8 @@
 set -eu
 cd "$(dirname "$0")/.."
 kind=.tools/kind-v0.33.0/kind
-cluster=incident-trial-lab-baseline
+cluster=incident-trial-lab-baseline${TRIAL_RUN_ID:+-$TRIAL_RUN_ID}
+if [ -n "${TRIAL_RUN_ID:-}" ]; then cluster=itl-baseline-$TRIAL_RUN_ID; fi
 context=kind-$cluster
 node=$cluster-control-plane
 ./scripts/validate-baseline.sh
@@ -13,8 +14,9 @@ test "${image##*@}" = "$digest" || { echo 'Built OCI digest differs from committ
 if "$kind" get clusters | awk -v name="$cluster" '$0==name {found=1} END {exit !found}'; then
     echo "Refusing to reuse existing cluster $cluster" >&2; exit 1
 fi
-mkdir .build/baseline-run.lock || { echo 'Another baseline run is active' >&2; exit 1; }
-evidence=evidence/baseline-$(date -u +%Y%m%dT%H%M%SZ)-$$
+lock=.build/baseline-run${TRIAL_RUN_ID:+-$TRIAL_RUN_ID}.lock
+mkdir "$lock" || { echo 'Another baseline run is active' >&2; exit 1; }
+evidence=${TRIAL_EVIDENCE_PARENT:-evidence}/baseline-$(date -u +%Y%m%dT%H%M%SZ)-$$
 mkdir -p "$evidence"
 kubeconfig="$PWD/$evidence/kubeconfig"
 created=0
@@ -29,7 +31,7 @@ cleanup() {
     fi
     printf '%s\n' "$result" > "$evidence/exit-status.txt"
     rm -f "$kubeconfig"
-    rmdir .build/baseline-run.lock
+    rmdir "$lock"
     printf 'Evidence: %s; exit status: %s\n' "$evidence" "$result"
     exit "$result"
 }
@@ -43,6 +45,7 @@ docker exec -i "$node" ctr -n k8s.io images import --digests --base-name inciden
 docker exec "$node" ctr -n k8s.io images ls > "$evidence/node-images.txt"
 rg -F "$image" "$evidence/node-images.txt" >/dev/null || { echo 'Pinned image missing from node' >&2; exit 1; }
 k apply -f deploy/local/baseline.json > "$evidence/apply.txt"
+if [ "${TRIAL_TEST_FAIL_AFTER_APPLY:-0}" = 1 ]; then echo 'Injected failure after apply' >&2; exit 70; fi
 k rollout status deployment/synthetic-service --timeout=60s > "$evidence/rollout.txt"
 k get pods -o json > "$evidence/pods.json"
 k get nodes -o json > "$evidence/nodes.json"
