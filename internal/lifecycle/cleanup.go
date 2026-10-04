@@ -37,6 +37,13 @@ func CleanResources(ctx context.Context, runID, kindPath string, command Command
 		result.Errors = append(result.Errors, err.Error())
 		return result
 	}
+	configPath, removeConfig, configErr := temporaryCleanupConfig()
+	if configErr != nil {
+		result.Complete = false
+		result.Errors = append(result.Errors, configErr.Error())
+		return result
+	}
+	defer removeConfig()
 	for _, name := range names {
 		cluster := ClusterCleanup{Name: name}
 		list := []string{"docker", "ps", "-aq", "--filter", "label=io.x-k8s.kind.cluster=" + name}
@@ -61,7 +68,7 @@ func CleanResources(ctx context.Context, runID, kindPath string, command Command
 				}
 			}
 			if verified {
-				if _, err := command(ctx, []string{kindPath, "delete", "cluster", "--name", name, "--kubeconfig", os.DevNull}); err != nil {
+				if _, err := command(ctx, []string{kindPath, "delete", "cluster", "--name", name, "--kubeconfig", configPath}); err != nil {
 					cluster.Error = "cluster deletion failed: " + err.Error()
 				}
 			}
@@ -109,4 +116,20 @@ func RemoveLocalState(root, runID string) []string {
 		problems = append(problems, err.Error())
 	}
 	return problems
+}
+
+// kind mutates its kubeconfig during deletion; special devices are not valid targets.
+// This file is newly allocated, owned by this cleanup invocation, and never points
+// at the user's default kubeconfig.
+func temporaryCleanupConfig() (string, func(), error) {
+	f, err := os.CreateTemp("", "incident-trial-lab-cleanup-*.kubeconfig")
+	if err != nil {
+		return "", nil, err
+	}
+	path := f.Name()
+	if err = f.Close(); err != nil {
+		os.Remove(path)
+		return "", nil, err
+	}
+	return path, func() { os.Remove(path) }, nil
 }

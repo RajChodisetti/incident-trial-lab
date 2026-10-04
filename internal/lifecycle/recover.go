@@ -87,6 +87,13 @@ func CleanRecordedResources(ctx context.Context, id, kind string, owned map[stri
 		result.Errors = append(result.Errors, err.Error())
 		return result
 	}
+	configPath, removeConfig, configErr := temporaryCleanupConfig()
+	if configErr != nil {
+		result.Complete = false
+		result.Errors = append(result.Errors, configErr.Error())
+		return result
+	}
+	defer removeConfig()
 	for _, name := range names {
 		cluster := ClusterCleanup{Name: name}
 		list := []string{"docker", "ps", "-aq", "--no-trunc", "--filter", "label=io.x-k8s.kind.cluster=" + name}
@@ -105,7 +112,7 @@ func CleanRecordedResources(ctx context.Context, id, kind string, owned map[stri
 				if e != nil || json.Unmarshal(raw, &node) != nil || node.ID != owned[name] || node.Cluster != name || node.Name != "/"+name+"-control-plane" {
 					cluster.Error = "recorded identity/label mismatch; refusing deletion"
 				} else {
-					if _, e = command(ctx, []string{kind, "delete", "cluster", "--name", name, "--kubeconfig", os.DevNull}); e != nil {
+					if _, e = command(ctx, []string{kind, "delete", "cluster", "--name", name, "--kubeconfig", configPath}); e != nil {
 						cluster.Error = "deletion failed: " + e.Error()
 					}
 				}

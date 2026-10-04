@@ -90,3 +90,63 @@ func TestPersistStartFailureStopsWork(t *testing.T) {
 		t.Fatal(r)
 	}
 }
+
+func TestRecordedDeletionRequiresExactIdentity(t *testing.T) {
+	names, _ := OwnedNames(testRunID)
+	owned := map[string]string{names[0]: "original-id"}
+	for _, badLabel := range []bool{false, true} {
+		remaining, deletions := true, 0
+		run := func(ctx context.Context, args []string) ([]byte, error) {
+			if args[0] == "docker" && args[1] == "ps" {
+				if remaining && strings.HasSuffix(args[len(args)-1], names[0]) {
+					return []byte("original-id\n"), nil
+				}
+				return nil, nil
+			}
+			if args[0] == "docker" && args[1] == "inspect" {
+				cluster := names[0]
+				if badLabel {
+					cluster = "foreign"
+				}
+				data, _ := json.Marshal(NodeOwnership{"original-id", "/" + names[0] + "-control-plane", cluster})
+				return data, nil
+			}
+			if args[0] == "kind" {
+				deletions++
+				remaining = false
+				return nil, nil
+			}
+			return nil, fmt.Errorf("unexpected command")
+		}
+		result := CleanRecordedResources(context.Background(), testRunID, "kind", owned, run)
+		if result.Complete == badLabel || (badLabel && deletions != 0) || (!badLabel && deletions != 1) {
+			t.Fatal(result, deletions)
+		}
+	}
+}
+
+func TestSnapshotAndRecordPathRejectSymlinks(t *testing.T) {
+	root := t.TempDir()
+	evidence := filepath.Join(root, "evidence")
+	if err := os.Mkdir(evidence, 0700); err != nil {
+		t.Fatal(err)
+	}
+	dir := filepath.Join(evidence, "lifecycle-"+testRunID)
+	if err := os.Symlink(t.TempDir(), dir); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := RecordDir(root, testRunID); err == nil {
+		t.Fatal("symlink run directory accepted")
+	}
+	snapshotDir := t.TempDir()
+	target := filepath.Join(t.TempDir(), "node.json")
+	if err := os.WriteFile(target, []byte(`{}`), 0600); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.Symlink(target, filepath.Join(snapshotDir, "ownership.json")); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := OwnershipSnapshots(snapshotDir, testRunID); err == nil {
+		t.Fatal("symlink snapshot accepted")
+	}
+}

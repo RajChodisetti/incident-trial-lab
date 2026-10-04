@@ -52,7 +52,7 @@ func main() {
 		defer cancel()
 		out, err := exec.CommandContext(step, args[0], args[1:]...).CombinedOutput()
 		if err != nil {
-			return out, fmt.Errorf("%s: %w", args[0], err)
+			return out, fmt.Errorf("%s: %w: %s", args[0], err, strings.TrimSpace(string(out)))
 		}
 		return out, nil
 	}
