@@ -108,3 +108,20 @@ login successfully. No credentials were generated or changed.
   inconclusive remain explicit. Repeating reconciliation must preserve that result.
 - Do not simulate shared-daemon outage, add concurrency, or start model/API work in
   this slice. Creation-to-snapshot gaps and host/filesystem failure remain limits.
+
+
+## Milestone 4: bounded local workers
+
+- Default one worker, hard maximum two per in-memory batch, maximum eight jobs.
+  Preserve ordered results and occupy a slot through verified supervisor cleanup.
+- Per-job contexts and live supervisor PID signaling isolate cancellation. Parent
+  cancellation also marks queued work without launching new resources.
+- Use separate recorded loopback ports/run identities; require own forward readiness
+  before workload probes. A competing bind fails safely rather than sharing a port.
+- Separate lifecycle completion from business verdict; canceled/cleanup-incomplete
+  partial passes remain inconclusive. Failed candidate evidence is not a failed
+  worker process by itself, and canceled jobs are not hidden in aggregate success.
+- Record a real paired cancellation/peer-success check with independent node IDs and
+  recovery compatibility. Do not equate max-two per batch with host-wide admission.
+- Prioritize fresh experiment provenance and a narrow deterministic tool contract
+  before thin MCP/agent work; defer broad distributed/outage hardening for the demo.

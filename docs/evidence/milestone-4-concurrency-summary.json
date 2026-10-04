@@ -1,0 +1,39 @@
+{
+  "batch": {
+    "workers": 2,
+    "results": [
+      {
+        "job": {
+          "id": "job-1",
+          "variant": "fixed"
+        },
+        "status": "canceled",
+        "run_id": "7e49370a70f2ba4f",
+        "business_verdict": "inconclusive",
+        "cleanup_verified": true
+      },
+      {
+        "job": {
+          "id": "job-2",
+          "variant": "fixed"
+        },
+        "status": "completed",
+        "run_id": "83e0cd5f34c42f32",
+        "business_verdict": "passed",
+        "cleanup_verified": true
+      }
+    ]
+  },
+  "simultaneous_live_nodes_verified": true,
+  "distinct_ports": [
+    59488,
+    59489
+  ],
+  "distinct_node_ids": [
+    "2602f37bbaecc3aa173a26e5358ef7a7e7d81156a4b73060a0c32a7a600653b0",
+    "7b644ae0ff31faad211281f7c739aef1f0b90284d830adc6114f527259a29b74"
+  ],
+  "reconciliation_compatible": true,
+  "sentinel_preserved": true,
+  "evidence_path": "evidence/batch-78d79fde5f4b2959"
+}

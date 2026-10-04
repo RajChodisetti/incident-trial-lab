@@ -16,10 +16,11 @@ claiming an improvement. Keep explanations short enough for Raj to walk through.
 Milestones 1–3 are implemented; verification and explicit coverage limits are
 recorded in each evidence report. Milestone 3 checks sampled resource budgets;
 peak sampling and statistically rigorous benchmarks remain future work. Next is
-the remaining milestone 4 work, only after parent/user continuation. The first
-lifecycle slices provide cancellation, deadlines, owned cleanup, and explicit
-SIGKILL reconciliation of recorded nodes. Startup gaps before node recording and
-bounded worker concurrency remain pending; there is no distributed scheduler. Docker
+the next MVP-readiness slice, only after parent/user continuation. Lifecycle slices
+provide cancellation, deadlines, explicit recorded-node reconciliation, and a
+max-two local worker path. Creation gaps, host-wide admission, and durable/
+distributed scheduling remain limitations. Review `mvp-readiness.md` before a
+thin local tool surface. Docker
 Desktop startup and official project-local kind installation were authorized for
 milestone 2. Helm remains optional. Never use the current kubectl context as an implicit target: create a
 dedicated kind cluster and explicitly select its context for every cluster command.
