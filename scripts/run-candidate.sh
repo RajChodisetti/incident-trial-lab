@@ -44,6 +44,10 @@ trap cleanup EXIT
 trap 'exit 130' INT TERM
 created=1
 "$kind" create cluster --name "$cluster" --kubeconfig "$kubeconfig" --config deploy/local/kind.yaml --wait 120s > "$evidence/cluster-create.txt" 2>&1
+if [ -n "${TRIAL_RUN_ID:-}" ]; then
+    docker inspect --format '{"id":{{json .Id}},"name":{{json .Name}},"cluster":{{json (index .Config.Labels "io.x-k8s.kind.cluster")}}}' "$node" > "$evidence/ownership.json.tmp"
+    mv "$evidence/ownership.json.tmp" "$evidence/ownership.json"
+fi
 k() { kubectl --request-timeout=5s --kubeconfig "$kubeconfig" --context "$context" -n incident-trial-lab "$@"; }
 # Import only into the node container created above; retain the content digest.
 docker exec -i "$node" ctr -n k8s.io images import --digests --base-name incident-trial-lab.invalid/candidate-$variant - < "$archive" > "$evidence/image-import.txt"

@@ -62,6 +62,16 @@ func main() {
 	if err = os.WriteFile(filepath.Join(evidence, "supervisor.pid"), []byte(fmt.Sprintf("%d\n", os.Getpid())), 0600); err != nil {
 		fatal(err)
 	}
+	lock, err := lifecycle.LockRecord(evidence)
+	if err != nil {
+		fatal(err)
+	}
+	defer lock.Close()
+	record := lifecycle.Record{Version: 1, RunID: runID, Mode: *mode, State: "prepared"}
+	if err = lifecycle.SaveRecord(evidence, record); err != nil {
+		fatal(err)
+	}
+	command = append(command, "lifecycle-owner="+runID)
 	log, err := os.Create(filepath.Join(evidence, "process.log"))
 	if err != nil {
 		fatal(err)
@@ -80,6 +90,23 @@ func main() {
 	defer cancel()
 	fmt.Printf("Lifecycle run %s; evidence: %s\n", runID, evidence)
 	config := lifecycle.Config{Command: command, Dir: root, Env: env, Stdout: log, Stderr: log, GracePeriod: *grace, CleanupTimeout: *cleanupTimeout}
+	config.Started = func(pid int) error {
+		identityCtx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+		defer cancel()
+		identity, e := lifecycle.ProcessIdentity(identityCtx, pid, func(ctx context.Context, args []string) ([]byte, error) {
+			return exec.CommandContext(ctx, args[0], args[1:]...).Output()
+		})
+		if e != nil {
+			return e
+		}
+		if !strings.Contains(identity, "lifecycle-owner="+runID) {
+			return fmt.Errorf("child identity could not be established")
+		}
+		record.ProcessGroupID = pid
+		record.ProcessIdentity = identity
+		record.State = "running"
+		return lifecycle.SaveRecord(evidence, record)
+	}
 	config.Cleanup = func(cleanupCtx context.Context) lifecycle.CleanupResult {
 		command := func(ctx context.Context, args []string) ([]byte, error) {
 			stepCtx, cancel := context.WithTimeout(ctx, 15*time.Second)
@@ -103,6 +130,11 @@ func main() {
 		return result
 	}
 	result := lifecycle.Run(ctx, config)
+	record.State = "finished"
+	record.Result = &result
+	if err = lifecycle.SaveRecord(evidence, record); err != nil {
+		fatal(err)
+	}
 	payload := struct {
 		RunID string `json:"run_id"`
 		Mode  string `json:"mode"`
