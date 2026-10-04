@@ -90,3 +90,21 @@ func TestParentCancellation(t *testing.T) {
 		t.Fatal(results, err)
 	}
 }
+
+func TestPartialPassCannotAcceptCanceledTrial(t *testing.T) {
+	for _, tt := range []struct {
+		status         string
+		clean          bool
+		observed, want string
+	}{
+		{"canceled", true, "passed", "inconclusive"},
+		{"completed", false, "passed", "inconclusive"},
+		{"completed", true, "failed", "failed"},
+		{"completed", true, "passed", "passed"},
+		{"needs_recovery", false, "passed", "inconclusive"},
+	} {
+		if got := BusinessVerdict(tt.status, tt.clean, tt.observed); got != tt.want {
+			t.Fatal(tt, got)
+		}
+	}
+}

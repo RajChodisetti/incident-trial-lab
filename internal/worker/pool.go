@@ -88,11 +88,12 @@ func (p *Pool) Run(ctx context.Context, jobs []Job, execute Execute) ([]Result, 
 				p.mu.Lock()
 				e := p.entries[jobs[i].ID]
 				p.mu.Unlock()
-				result := Result{Job: jobs[i], Status: "canceled_before_start", CleanupVerified: true}
+				result := Result{Job: jobs[i], Status: "canceled_before_start", BusinessVerdict: "inconclusive", CleanupVerified: true}
 				if e.ctx.Err() == nil {
 					result = execute(e.ctx, jobs[i])
 				}
 				result.Job = jobs[i]
+				result.BusinessVerdict = BusinessVerdict(result.Status, result.CleanupVerified, result.BusinessVerdict)
 				p.mu.Lock()
 				e.finished = true
 				e.cancel()
@@ -106,3 +107,17 @@ func (p *Pool) Run(ctx context.Context, jobs []Job, execute Execute) ([]Result, 
 }
 
 func (p *Pool) Limit() int { return p.workers }
+
+// BusinessVerdict prevents partial passing observations from accepting canceled
+// or cleanup-incomplete trials. Raw observations remain in the trial evidence.
+func BusinessVerdict(status string, clean bool, observed string) string {
+	if status != "completed" || !clean {
+		return "inconclusive"
+	}
+	switch observed {
+	case "passed", "failed", "inconclusive":
+		return observed
+	default:
+		return "inconclusive"
+	}
+}
