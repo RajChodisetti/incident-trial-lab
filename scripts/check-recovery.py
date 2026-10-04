@@ -37,7 +37,7 @@ def check_case(name, kill_children):
         if active.poll() is not None:
             raise RuntimeError("Trial ended before crash checkpoint")
         forwards = list(evidence.rglob("port-forward.log"))
-        if any("Forwarding from 127.0.0.1:18080" in p.read_text() for p in forwards):
+        if any("Forwarding from 127.0.0.1:" in p.read_text() for p in forwards):
             break
         time.sleep(0.2)
     else:

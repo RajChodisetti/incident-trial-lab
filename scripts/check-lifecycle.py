@@ -53,7 +53,7 @@ def run_case(name, args, expected, cancel_at_forward=False, inject=False):
             if active.poll() is not None:
                 raise RuntimeError("Trial ended before interruption point")
             forwards = list(evidence.rglob("port-forward.log"))
-            if any("Forwarding from 127.0.0.1:18080" in p.read_text() for p in forwards):
+            if any("Forwarding from 127.0.0.1:" in p.read_text() for p in forwards):
                 active.send_signal(signal.SIGTERM)
                 break
             time.sleep(0.2)

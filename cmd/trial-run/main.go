@@ -7,10 +7,12 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"net"
 	"os"
 	"os/exec"
 	"os/signal"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"syscall"
 	"time"
@@ -19,6 +21,7 @@ import (
 )
 
 func main() {
+	port := flag.Int("port", 0, "loopback port; zero chooses an available local port")
 	mode := flag.String("mode", "comparison", "comparison, baseline, or candidate")
 	variant := flag.String("variant", "fixed", "candidate variant")
 	baseline := flag.String("baseline", "docs/evidence/milestone-2-check.json", "baseline proof for candidate-only runs")
@@ -50,6 +53,17 @@ func main() {
 	default:
 		fatal(fmt.Errorf("invalid mode"))
 	}
+	if *port < 0 || *port > 65535 {
+		fatal(fmt.Errorf("invalid port"))
+	}
+	if *port == 0 {
+		listener, e := net.Listen("tcp", "127.0.0.1:0")
+		if e != nil {
+			fatal(e)
+		}
+		*port = listener.Addr().(*net.TCPAddr).Port
+		listener.Close()
+	}
 	token := make([]byte, 8)
 	if _, err = rand.Read(token); err != nil {
 		fatal(err)
@@ -67,7 +81,7 @@ func main() {
 		fatal(err)
 	}
 	defer lock.Close()
-	record := lifecycle.Record{Version: 1, RunID: runID, Mode: *mode, State: "prepared"}
+	record := lifecycle.Record{Version: 1, RunID: runID, Mode: *mode, State: "prepared", Port: *port}
 	if err = lifecycle.SaveRecord(evidence, record); err != nil {
 		fatal(err)
 	}
@@ -79,11 +93,11 @@ func main() {
 	defer log.Close()
 	env := []string{}
 	for _, entry := range os.Environ() {
-		if !strings.HasPrefix(entry, "TRIAL_RUN_ID=") && !strings.HasPrefix(entry, "TRIAL_EVIDENCE_PARENT=") {
+		if !strings.HasPrefix(entry, "TRIAL_RUN_ID=") && !strings.HasPrefix(entry, "TRIAL_EVIDENCE_PARENT=") && !strings.HasPrefix(entry, "TRIAL_PORT=") {
 			env = append(env, entry)
 		}
 	}
-	env = append(env, "TRIAL_RUN_ID="+runID, "TRIAL_EVIDENCE_PARENT="+evidence)
+	env = append(env, "TRIAL_RUN_ID="+runID, "TRIAL_EVIDENCE_PARENT="+evidence, "TRIAL_PORT="+strconv.Itoa(*port))
 	signalCtx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 	ctx, cancel := context.WithTimeout(signalCtx, *timeout)

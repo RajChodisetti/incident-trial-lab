@@ -4,6 +4,9 @@ cd "$(dirname "$0")/.."
 variant=${1:?candidate variant required}
 baseline_proof=${2:?baseline report required}
 case "$variant" in fixed|ineffective|misleading) ;; *) echo 'Unknown candidate' >&2; exit 1;; esac
+port=${TRIAL_PORT:-18080}
+case "$port" in ''|*[!0-9]*) echo 'Invalid trial port' >&2; exit 1;; esac
+test "$port" -ge 1 && test "$port" -le 65535 || exit 1
 kind=.tools/kind-v0.33.0/kind
 cluster=incident-trial-lab-candidate-$variant${TRIAL_RUN_ID:+-$TRIAL_RUN_ID}
 if [ -n "${TRIAL_RUN_ID:-}" ]; then cluster=itl-candidate-$variant-$TRIAL_RUN_ID; fi
@@ -71,12 +74,12 @@ if [ "$runtime_digest" != "$digest" ]; then
 fi
 k logs deployment/synthetic-service > "$evidence/service.log"
 docker stats --no-stream --format '{{json .}}' "$node" > "$evidence/node-resources.json"
-k port-forward --address 127.0.0.1 deployment/synthetic-service 18080:8080 > "$evidence/port-forward.log" 2>&1 &
+k port-forward --address 127.0.0.1 deployment/synthetic-service "$port:8080" > "$evidence/port-forward.log" 2>&1 &
 forward_pid=$!
 ready=0
 for attempt in 1 2 3 4 5 6 7 8 9 10; do
     kill -0 "$forward_pid" 2>/dev/null || { echo 'Port forward failed; see evidence' >&2; exit 1; }
-    if rg -q 'Forwarding from 127.0.0.1:18080' "$evidence/port-forward.log"; then ready=1; break; fi
+    if rg -q "Forwarding from 127.0.0.1:$port" "$evidence/port-forward.log"; then ready=1; break; fi
     sleep 1
 done
 test "$ready" = 1 || { echo 'Port forward deadline exceeded' >&2; exit 1; }
@@ -86,7 +89,7 @@ printf '%s\n' "$digest" > "$evidence/image-digest.txt"
 git rev-parse HEAD > "$evidence/source-commit.txt"
 shasum -a 256 .build/candidates/$variant/synthetic-service > "$evidence/binary.sha256"
 k get --raw "/api/v1/nodes/$node/proxy/stats/summary" > "$evidence/resources-before.json"
-go run ./cmd/trial-check > "$evidence/behavior.json"
+go run ./cmd/trial-check -url "http://127.0.0.1:$port" > "$evidence/behavior.json"
 finished=$(jq -er '.finished_at | sub("\\.[0-9]+Z$";"Z") | fromdateiso8601' "$evidence/behavior.json")
 ready=0
 for attempt in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do

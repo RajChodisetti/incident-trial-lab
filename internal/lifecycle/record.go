@@ -10,6 +10,7 @@ import (
 
 // Record is a small local intent journal, not a durable job scheduler.
 type Record struct {
+	Port            int       `json:"port,omitempty"`
 	Version         int       `json:"version"`
 	RunID           string    `json:"run_id"`
 	Mode            string    `json:"mode"`
