@@ -1,0 +1,30 @@
+{
+  "fixture_sha256": "a747f28e9f56d745a687afebbe55a6ec1b1a390dffac4fe7e0ce997eb7b02d28",
+  "baseline_reproduced": true,
+  "observations": [
+    {
+      "name": "no-discount-control",
+      "expected_cents": 315,
+      "observed_cents": 315,
+      "http_status": 200,
+      "raw_response": "{\"total_cents\":315}\n",
+      "business_check": "pass"
+    },
+    {
+      "name": "single-unit-control",
+      "expected_cents": 94,
+      "observed_cents": 94,
+      "http_status": 200,
+      "raw_response": "{\"total_cents\":94}\n",
+      "business_check": "pass"
+    },
+    {
+      "name": "bulk-discount",
+      "expected_cents": 283,
+      "observed_cents": 282,
+      "http_status": 200,
+      "raw_response": "{\"total_cents\":282}\n",
+      "business_check": "fail"
+    }
+  ]
+}

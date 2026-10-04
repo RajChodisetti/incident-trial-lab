@@ -1,6 +1,7 @@
 # Reproducible synthetic baseline
 
 This is one intentionally broken application, not a trial engine or an agent.
+See [verified results and cleanup](milestone-2-evidence.md).
 The [contract](../scenarios/discount-rounding/contract.md) explains its seeded
 rounding defect. The fixture and business assertions were written before the
 implementation. Initial service tests failed because `Handler` did not exist;
@@ -11,7 +12,8 @@ project-local kind with `./scripts/install-kind.sh`, which downloads the
 [official release](https://github.com/kubernetes-sigs/kind/releases/tag/v0.33.0)
 and verifies a recorded SHA-256. No sudo or global PATH/settings changes needed.
 Follow the [official kind guide](https://kind.sigs.k8s.io/docs/user/quick-start/)
-for background. The initial build supports macOS arm64/Go 1.26.2 only.
+for background. The initial build supports macOS arm64/Go 1.26.2 only. Prerequisites also include
+Docker buildx, kubectl, jq, rg, curl, tar, and shasum (verified on this Mac).
 
 ```sh
 ./scripts/check.sh
