@@ -4,3 +4,6 @@
 /evidence/
 .env
 .env.*
+
+/.tools/
+/.build/

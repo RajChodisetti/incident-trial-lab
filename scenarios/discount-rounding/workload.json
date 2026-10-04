@@ -1,0 +1,5 @@
+[
+  {"name":"no-discount-control","request":{"unit_cents":105,"quantity":3,"discount_percent":0},"expected_cents":315},
+  {"name":"single-unit-control","request":{"unit_cents":105,"quantity":1,"discount_percent":10},"expected_cents":94},
+  {"name":"bulk-discount","request":{"unit_cents":105,"quantity":3,"discount_percent":10},"expected_cents":283,"known_faulty_cents":282}
+]
