@@ -23,6 +23,8 @@ and [crash reconciliation](docs/milestone-4-recovery.md) for recorded interrupte
 the verified baseline, pinned identities and exact assertions.
 [Local MCP tools](docs/local-mcp.md) expose typed stdio operations with
 [verification evidence](docs/local-mcp-evidence.md).
+[Offline loop evaluation](docs/offline-investigation.md) adds evidence-linked,
+bounded scripted orchestration with [real/simulated evidence](docs/offline-investigation-evidence.md).
 [MVP readiness](docs/mvp-readiness.md) separates essential next work from hardening.
 
 The eventual experiment: reproduce a synthetic Go service incident from pinned

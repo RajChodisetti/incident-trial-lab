@@ -142,3 +142,18 @@ login successfully. No credentials were generated or changed.
   jobs to recover IDs after response loss. Clients need a graceful shutdown allowance.
 - Preserve the local trust/restart/host-wide limitations. Next evaluate an offline
   investigation loop; preset choice alone does not establish AI engineering depth.
+
+
+## Offline investigation-loop contract
+
+- Treat the proposer as a capability-limited source of typed candidate IDs, bounded
+  rationale and current evidence references; it does not receive a tool caller.
+- Preserve failed and unknown outcomes. Revise known no-improvement/regression
+  failures; stop at attempt/time/call budgets, tool errors and unverified evidence.
+- Keep raw observations/error instructions in captured data, away from proposer
+  feedback. Rationale text and references cannot grant commands or permissions.
+- Use a dedicated empty MCP session and separately bounded cancellation cleanup,
+  including owned-job reconciliation after a lost admission response.
+- Label scripted/fake evaluation separately from real Kubernetes execution and
+  future AI capability. Review provider, credential reuse/new and a small explicit
+  spend cap before one read-only live proposal validation; no grants or secrets now.

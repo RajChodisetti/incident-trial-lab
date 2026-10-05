@@ -1,4 +1,4 @@
-# MVP readiness before thin MCP / agent integration
+# MVP readiness before live agent integration
 
 The local deterministic trial foundation now has reproducible baseline evidence,
 three candidate outcomes, explicit uncertainty, bounded supervision, conservative
@@ -17,16 +17,18 @@ scenario submission, status/evidence retrieval, comparison and cancellation.
 [Offline and real protocol evidence](local-mcp-evidence.md) distinguish simulations
 from actual kind runs. Preset selection is still not substantive AI investigation.
 
+The [offline loop contract](offline-investigation.md) now evaluates bounded
+investigate/propose/test/revise control flow with structural evidence references.
+[Its evidence](offline-investigation-evidence.md) includes one actual MCP experiment
+and explicitly simulated failure/cancellation tests. A predetermined preset
+sequence remains control-flow evaluation, not AI diagnosis or patch generation.
+
 ## Essential next work
 
-1. **Evaluate the investigation loop before live-model claims.** Script an offline
-   investigate/propose/test/revise sequence that rejects ineffective and overfit
-   proposals, preserves unknown outcomes, and stops at attempt/time budgets. Human
-   approval remains necessary for any future optional apply. A wrapper around three
-   static variants is not yet a substantive AI agent.
-2. **Resolve credentials only when model work starts.** Use the relevant credential
-   skill and ask reuse/new decision then. No credential or provider is needed to
-   define/test the deterministic tool surface now.
+1. **Resolve credentials only when model work starts.** Use the relevant credential
+   workflow and ask provider/model, reuse/new and request/spend-cap decisions then.
+   Start with one read-only proposal validation over captured synthetic evidence;
+   the deterministic local demo continues to require no provider or credential.
 
 ## Deferred hardening for the local demo
 
@@ -40,5 +42,7 @@ from actual kind runs. Preset selection is still not substantive AI investigatio
 - Optional read-only Dynatrace evidence, production adapters, public release, and
   hosted CI enablement once no-cost allowance is resolved.
 
-Next paced increment should define and evaluate the offline
-investigation loop; defer live AI/API calls and broad controller work until review.
+Next decision: provider/model, authorized credential reuse versus separately
+approved creation, and a request/spend cap. The smallest proposed validation is
+a single read-only proposal dry run over captured synthetic evidence. Defer live
+requests and broader agent/controller work until that decision and review.
