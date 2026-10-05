@@ -22,11 +22,13 @@ max-two local worker path. Creation gaps, host-wide admission, and durable/
 distributed scheduling remain limitations. Fresh baseline/attempt provenance binding is verified in
 `baseline-provenance-evidence.md`. The narrow local stdio MCP tool surface is verified in `local-mcp-evidence.md`.
 The offline investigation-loop contract is evaluated in `offline-investigation-evidence.md`.
-Next is the reviewed provider/credential decision and proposal dry-run plan;
-review `mvp-readiness.md` before that surface. Docker
+The first authorized live proposal-only wiring test is recorded in
+`live-proposal-evidence.md`. Stop for review before connecting a live proposer to
+fresh MCP trials or increasing the request budget. Docker
 Desktop startup and official project-local kind installation were authorized for
 milestone 2. Helm remains optional. Never use the current kubectl context as an implicit target: create a
 dedicated kind cluster and explicitly select its context for every cluster command.
 
-AI API credentials are unnecessary now. When milestone 5 requires them, load the
-relevant credential skill and resolve reuse/new credentials with Raj then.
+Raj explicitly authorized reuse of his user-created OpenAI key in ignored
+`.env.local` for the one-request first test. No credential was created by the
+project. Further API tests need a reviewed budget and scope.

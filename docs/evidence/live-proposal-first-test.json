@@ -1,0 +1,30 @@
+{
+  "mode": "historical_synthetic_proposal_only",
+  "started_at": "2026-10-05T07:27:29.930093Z",
+  "finished_at": "2026-10-05T07:27:32.53567Z",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "status": "valid_proposal_not_executed",
+  "http_status": 200,
+  "attempts": 1,
+  "reserved_nano_usd": 613824000,
+  "usage": {
+    "input_tokens": 453,
+    "output_tokens": 97,
+    "total_tokens": 550,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    }
+  },
+  "estimated_nano_usd": 776250,
+  "proposal": {
+    "variant": "fixed",
+    "rationale": "Wiring check only: choose fixed. It matches the stated rounding bug by deferring integer division until after unit*quantity*(100-discount), unlike ineffective. Historical projection cites the baseline issue and provenance; no recovery is claimed and no execution is implied.",
+    "references": [
+      "eaa167c837aeb1c5:r001",
+      "eaa167c837aeb1c5:r002"
+    ]
+  }
+}

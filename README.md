@@ -25,6 +25,9 @@ the verified baseline, pinned identities and exact assertions.
 [verification evidence](docs/local-mcp-evidence.md).
 [Offline loop evaluation](docs/offline-investigation.md) adds evidence-linked,
 bounded scripted orchestration with [real/simulated evidence](docs/offline-investigation-evidence.md).
+[First live proposal probe](docs/live-proposal-probe.md) adds one owner-authorized
+API wiring check over historical synthetic evidence, with
+[the measured result](docs/live-proposal-evidence.md). It cannot run trials or apply changes.
 [MVP readiness](docs/mvp-readiness.md) separates essential next work from hardening.
 
 The eventual experiment: reproduce a synthetic Go service incident from pinned
@@ -53,7 +56,8 @@ Start with [the milestone plan](docs/milestones.md),
 ## Boundaries
 
 - Only synthetic data and a dedicated local kind cluster in later milestones.
-- No employer repositories/data, production clusters, or paid services.
+- No employer repositories/data or production clusters. Paid API calls require
+  explicit owner authorization; the first one-request proposal test had a US$2 cap.
 - No new credentials or permission expansion without the required confirmation.
 - Human approval before any optional apply; evidence inspection does not authorize changes.
 - No universal production cloning, guaranteed safety, or unmeasured improvement claims.
