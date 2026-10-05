@@ -25,6 +25,8 @@ the verified baseline, pinned identities and exact assertions.
 [verification evidence](docs/local-mcp-evidence.md).
 [Offline loop evaluation](docs/offline-investigation.md) adds evidence-linked,
 bounded scripted orchestration with [real/simulated evidence](docs/offline-investigation-evidence.md).
+[Offline selector adapter](docs/selector-adapter.md) connects finite typed choices
+and explicit abstention to the existing loop; it is tested with fakes only.
 [First live proposal probe](docs/live-proposal-probe.md) adds one owner-authorized
 API wiring check over historical synthetic evidence, with
 [the measured result](docs/live-proposal-evidence.md). It cannot run trials or apply changes.

@@ -13,6 +13,7 @@ import (
 	"regexp"
 	"time"
 
+	"github.com/RajChodisetti/incident-trial-lab/internal/candidates"
 	"github.com/RajChodisetti/incident-trial-lab/internal/evaluation"
 	"github.com/RajChodisetti/incident-trial-lab/internal/toolserver"
 )
@@ -100,7 +101,7 @@ var ids = regexp.MustCompile(`^[0-9a-f]{16}$`)
 
 const maxCalls = 4096
 
-var ErrNoProposal = errors.New("scripted proposer has no further proposal")
+var ErrNoProposal = errors.New("proposer has no further proposal")
 
 // Run requires a dedicated initially empty MCP session. Cleanup is separately
 // bounded so an exhausted decision deadline cannot suppress owned cancellation.
@@ -316,6 +317,8 @@ func Run(parent context.Context, c Caller, p Proposer, cfg Config) (result Resul
 				fail(err)
 			} else if errors.Is(err, ErrNoProposal) {
 				stop("proposer_exhausted", nil)
+			} else if errors.Is(err, ErrAbstained) {
+				stop("selector_abstained", nil)
 			} else {
 				stop("proposer_error", err)
 			}
@@ -442,17 +445,22 @@ func ValidateProposal(p Proposal, v View) error {
 }
 
 func validateProposal(p Proposal, v View, refs map[string]Reference) error {
-	if p.Variant != "fixed" && p.Variant != "ineffective" && p.Variant != "misleading" {
+	if err := validateLatestReferences(v); err != nil {
+		return err
+	}
+	if !candidates.ValidID(p.Variant) {
 		return fmt.Errorf("unsupported candidate; proposal text cannot grant commands")
 	}
 	if len(p.Rationale) == 0 || len(p.Rationale) > 512 || len(p.References) < 2 || len(p.References) > 8 {
 		return fmt.Errorf("bounded rationale and evidence references required")
 	}
 	behavior, proof := false, false
+	seen := map[string]bool{}
 	for _, id := range p.References {
-		if _, ok := refs[id]; !ok {
-			return fmt.Errorf("unknown evidence reference")
+		if _, ok := refs[id]; !ok || seen[id] {
+			return fmt.Errorf("unknown or duplicate evidence reference")
 		}
+		seen[id] = true
 		behavior = behavior || id == v.LatestBehavior.ID
 		proof = proof || id == v.LatestProof.ID
 	}

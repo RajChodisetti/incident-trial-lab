@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/RajChodisetti/incident-trial-lab/internal/baseline"
+	"github.com/RajChodisetti/incident-trial-lab/internal/candidates"
 	"github.com/RajChodisetti/incident-trial-lab/internal/evaluation"
 	"github.com/RajChodisetti/incident-trial-lab/internal/lifecycle"
 	"github.com/RajChodisetti/incident-trial-lab/internal/provenance"
@@ -100,7 +101,7 @@ func newID() (string, error) {
 	_, err := rand.Read(b)
 	return hex.EncodeToString(b), err
 }
-func variantValid(v string) bool { return v == "fixed" || v == "ineffective" || v == "misleading" }
+func variantValid(v string) bool { return candidates.ValidID(v) }
 func (m *Manager) Create(ctx context.Context, scenario string) (Snapshot, error) {
 	if scenario != Scenario {
 		return Snapshot{}, fmt.Errorf("unsupported scenario")

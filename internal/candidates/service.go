@@ -12,7 +12,7 @@ import (
 
 // Handler intentionally keeps candidate code separate from the frozen baseline.
 func Handler(variant string) (http.Handler, error) {
-	if variant != "fixed" && variant != "ineffective" && variant != "misleading" {
+	if !ValidID(variant) {
 		return nil, fmt.Errorf("unknown candidate %q", variant)
 	}
 	mux := http.NewServeMux()

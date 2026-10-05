@@ -14,6 +14,7 @@ import (
 	"regexp"
 	"time"
 
+	"github.com/RajChodisetti/incident-trial-lab/internal/candidates"
 	"github.com/RajChodisetti/incident-trial-lab/internal/investigation"
 )
 
@@ -82,7 +83,7 @@ func requestBody(v investigation.View) ([]byte, error) {
 	}
 	view, _ := json.Marshal(v)
 	schema := map[string]any{"type": "object", "additionalProperties": false, "required": []string{"variant", "rationale", "references"}, "properties": map[string]any{
-		"variant":    map[string]any{"type": "string", "enum": []string{"fixed", "ineffective", "misleading"}},
+		"variant":    map[string]any{"type": "string", "enum": candidates.IDs()},
 		"rationale":  map[string]any{"type": "string", "minLength": 1, "maxLength": 512},
 		"references": map[string]any{"type": "array", "minItems": 2, "maxItems": 2, "items": map[string]any{"type": "string", "enum": []string{v.LatestBehavior.ID, v.LatestProof.ID}}},
 	}}

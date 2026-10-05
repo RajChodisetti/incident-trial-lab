@@ -4,6 +4,7 @@ import (
 	"context"
 	"sort"
 
+	"github.com/RajChodisetti/incident-trial-lab/internal/candidates"
 	"github.com/RajChodisetti/incident-trial-lab/internal/provenance"
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 )
@@ -69,13 +70,13 @@ func NewServer(m *Manager) *mcp.Server {
 	s := mcp.NewServer(&mcp.Implementation{Name: "incident-trial-lab", Version: "0.1.0"}, nil)
 	mcp.AddTool(s, tool("list_scenarios", "List the single pinned synthetic scenario and candidate presets; no arbitrary fixture, patch, image or command submission.", true, map[string]any{}), func(ctx context.Context, req *mcp.CallToolRequest, in emptyInput) (*mcp.CallToolResult, Catalog, error) {
 		spec, err := m.backend.Spec()
-		return nil, Catalog{Scenario, []string{"fixed", "ineffective", "misleading"}, spec, cap(m.slots), MaxJobs, "CPU interval and two memory endpoints; no peak-memory, production-safety or improvement claim"}, err
+		return nil, Catalog{Scenario, candidates.IDs(), spec, cap(m.slots), MaxJobs, "CPU interval and two memory endpoints; no peak-memory, production-safety or improvement claim"}, err
 	})
 	mcp.AddTool(s, tool("create_experiment", "Queue a fresh supervised baseline for the supported scenario. Poll get_trial for the experiment ID; canceled/unclean baseline runs cannot register proof.", false, map[string]any{"scenario_id": choice(Scenario)}), func(ctx context.Context, req *mcp.CallToolRequest, in createInput) (*mcp.CallToolResult, Snapshot, error) {
 		out, err := m.Create(ctx, in.ScenarioID)
 		return nil, out, err
 	})
-	mcp.AddTool(s, tool("start_trial", "Queue a pinned candidate in a fresh isolated trial, reserving provenance within an experiment owned by this server.", false, map[string]any{"experiment_id": idSchema(), "variant": choice("fixed", "ineffective", "misleading")}), func(ctx context.Context, req *mcp.CallToolRequest, in startInput) (*mcp.CallToolResult, Snapshot, error) {
+	mcp.AddTool(s, tool("start_trial", "Queue a pinned candidate in a fresh isolated trial, reserving provenance within an experiment owned by this server.", false, map[string]any{"experiment_id": idSchema(), "variant": choice(candidates.IDs()...)}), func(ctx context.Context, req *mcp.CallToolRequest, in startInput) (*mcp.CallToolResult, Snapshot, error) {
 		out, err := m.Start(ctx, in.ExperimentID, in.Variant)
 		return nil, out, err
 	})

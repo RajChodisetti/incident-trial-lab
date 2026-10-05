@@ -25,10 +25,13 @@ sequence remains control-flow evaluation, not AI diagnosis or patch generation.
 
 ## Essential next work
 
-1. **Resolve credentials only when model work starts.** Use the relevant credential
-   workflow and ask provider/model, reuse/new and request/spend-cap decisions then.
-   Start with one read-only proposal validation over captured synthetic evidence;
-   the deterministic local demo continues to require no provider or credential.
+1. **Resolve the provider migration prerequisites.** Raj approved
+   Decisions API as the target, pending verified documentation, pricing and
+   project access. Follow [the migration gates and offline adapter plan](milestones.md#agreed-candidate-selector-direction--2026-10-05).
+   The [offline selector adapter](selector-adapter.md) now connects injected fake
+   selections to `Proposer`, including explicit abstention. Keep the scripted loop
+   and existing Responses probe intact before any verified provider wiring.
+   The deterministic local demo continues to require no provider or credential.
 
 ## Deferred hardening for the local demo
 
@@ -42,7 +45,9 @@ sequence remains control-flow evaluation, not AI diagnosis or patch generation.
 - Optional read-only Dynatrace evidence, production adapters, public release, and
   hosted CI enablement once no-cost allowance is resolved.
 
-Next decision: provider/model, authorized credential reuse versus separately
-approved creation, and a request/spend cap. The smallest proposed validation is
-a single read-only proposal dry run over captured synthetic evidence. Defer live
-requests and broader agent/controller work until that decision and review.
+The [first Responses proposal-only test](live-proposal-evidence.md) completed after
+explicit credential reuse and spend-cap approval. It verified wiring over
+historical synthetic evidence, not model-driven recovery. Its attempt is consumed.
+The offline selector adapter is implemented and locally evaluated with fakes.
+A live Decisions test depends on verified access/contract/pricing and a newly
+approved request budget. No endpoint, schema, SDK method or availability is assumed.
