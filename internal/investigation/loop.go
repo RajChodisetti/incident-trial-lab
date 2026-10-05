@@ -434,6 +434,13 @@ func same(a, b any) bool {
 	y, _ := json.Marshal(b)
 	return string(x) == string(y)
 }
+
+// ValidateProposal validates a proposal against the current view's two references.
+// Structural validity does not prove that a rationale is correct or a fix works.
+func ValidateProposal(p Proposal, v View) error {
+	return validateProposal(p, v, map[string]Reference{v.LatestBehavior.ID: v.LatestBehavior, v.LatestProof.ID: v.LatestProof})
+}
+
 func validateProposal(p Proposal, v View, refs map[string]Reference) error {
 	if p.Variant != "fixed" && p.Variant != "ineffective" && p.Variant != "misleading" {
 		return fmt.Errorf("unsupported candidate; proposal text cannot grant commands")
