@@ -37,6 +37,9 @@ add the actual business rule, failed assertion and exact-input reconstruction.
 gate. The [fresh deterministic runtime replay](docs/source-bound-runtime.md)
 verifies it for the reviewed rebuilt pins, preserving an initial conservative
 lock refusal alongside the successful replay. Older images remain unbound.
+[Local evidence presentation](docs/local-evidence-demo.md) renders that recorded
+replay with validated inputs and [actual screenshots/captions](docs/screenshots/README.md).
+It is a deterministic portfolio demo; the live-agent MVP remains incomplete.
 [Offline held-out evaluation](docs/heldout-evaluation.md) separates 18 evaluator
 cases from selector input and checks balanced permutations and explicit nonchoices
 with deterministic controls; it does not measure model reasoning.

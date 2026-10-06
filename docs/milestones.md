@@ -143,23 +143,31 @@ initial lock refusal is preserved alongside the successful fresh experiment; its
 cause remains unproven. No gates were relaxed and no model was used. Next is
 readable deterministic evidence presentation and actual screenshots/captions.
 
+The subsequent [local recorded-demo slice](local-evidence-demo.md) now generates
+three static pages only after validating the reviewed snapshots, original capture
+hashes, current specification and linked receipts. Missing/bad inputs replace stale
+results with an error page. Three actual browser screenshots and captions were
+visually checked and saved to Library, with local assets preserved in the private
+repository. No new cluster or model request ran. Ready for Raj's review; live-agent
+evaluation, provider prerequisites and local Prometheus remain unfinished.
+
 Raj requested: “Get screenshots to put in as project in LinkedIn once the product
 is ready.” Prepare these assets when the working demo reaches a presentable,
 verified milestone; this requirement does not authorize LinkedIn publication.
 
-- [ ] Confirm the chosen demo completes with reproducible baseline failure,
+- [x] Confirm the chosen demo completes with reproducible baseline failure,
   evidence-linked investigation, candidate comparisons, and verified
   recovery/regression results. Record the tested commit and evidence bundle.
-- [ ] Capture actual screenshots of investigation, candidate fix comparisons,
+- [x] Capture actual screenshots of investigation, candidate fix comparisons,
   and recovery/regression evidence from that demonstrated demo. Preserve failed
   or inconclusive outcomes where relevant; do not stage unsupported behavior.
-- [ ] Use readable framing, labels, text sizes and contrast. Exclude credentials,
+- [x] Use readable framing, labels, text sizes and contrast. Exclude credentials,
   private local paths, account details and unrelated windows or information.
-- [ ] Clearly label scripted preset orchestration separately from live-model
+- [x] Clearly label scripted preset orchestration separately from live-model
   results. The first live proposal-only wiring check is not a live agent trial
   or proof of model-driven recovery; claim those only after separately verified
   implementation and evaluation.
-- [ ] Prepare concise recruiter-friendly captions explaining the engineering
+- [x] Prepare concise recruiter-friendly captions explaining the engineering
   problem, Go/Kubernetes/MCP contribution, observed outcome and material limits.
   Keep the screenshot set ready for Raj's review; do not publish to LinkedIn.
 

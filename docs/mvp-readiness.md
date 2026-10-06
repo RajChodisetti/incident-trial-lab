@@ -12,7 +12,7 @@ verified AI capability.
 | MCP and investigation loop | Typed stdio tools; historical actual scripted loop; fake-tool rejection, uncertainty and revision tests | Actual model-driven investigate/test/revise loop is not demonstrated |
 | Selector boundary | Fake-tested finite selector and independent verdicts; neutral source-linked code, observed context/records, runtime-verified artifact gate and 18-case offline held-out harness with balanced controls | Actual provider quality evaluation remains; controls and scripted runtime choices prove no model reasoning |
 | Live provider | One successful Responses proposal/schema wiring request, with measured usage | Decisions contract, pricing/limits/retention and selected-project access are unverified; a new live-test budget is required |
-| Portfolio presentation | Walkthroughs and preserved evidence summaries | Reproducible readable evidence presentation, screenshot assets/captions, interview rehearsal and related-work comparison remain |
+| Portfolio presentation | Validated local recorded-evidence renderer, three visually checked actual screenshots/captions and preserved refusal | Raj's review, interview rehearsal and broader related-work comparison remain |
 | Telemetry and release | Sampled container resource evidence | Local Prometheus demo is not implemented; hosted CI allowance and public-release decision remain unresolved |
 
 ## Remaining small increments and effort assumptions
@@ -24,11 +24,12 @@ verified AI capability.
    Actual provider quality remains unevaluated. Neutral IDs remove label/order hints,
    not other answer leakage. The [source/artifact gate](source-artifact-binding.md)
    is implemented and [verified in a fresh scripted runtime replay](source-bound-runtime.md).
-2. **Deterministic presentation:** render verified historical evidence clearly,
-   distinguish scripted/fake/live wiring results, then rehearse an owned local
-   demo and retain fresh evidence from the tested checkout.
-3. **Portfolio assets:** capture actual readable screenshots, write concise
-   captions and walkthrough/related-work notes, and review with Raj. Prepare only;
+2. **Deterministic presentation:** the [local evidence demo](local-evidence-demo.md)
+   now validates and renders the actual fresh source-bound replay. It visibly
+   distinguishes recorded scripted results from pending live integration.
+   Rehearse the walkthrough and review with Raj.
+3. **Portfolio assets:** three actual screenshots and concise captions are
+   prepared and visually checked. Owner review and broader related-work notes remain. Prepare only;
    LinkedIn publication and repository visibility remain separate decisions.
 4. **Live selector, after gates:** implement against verified Decisions docs,
    review one bounded proposal-only evaluation, then a fresh owned MCP loop with
@@ -36,9 +37,11 @@ verified AI capability.
 5. **Telemetry:** provide the local Prometheus view using standard telemetry and
    synthetic data, with a verified walkthrough and no commercial tenant.
 
-Planning estimate: **2–4 focused development days** for the deterministic
-evaluation/presentation/screenshot work, then roughly **3–6 additional focused
-days** for documented live-selector evaluation and the local telemetry demo.
+The earlier **2–4 focused development day** estimate covered deterministic
+evaluation/presentation/screenshot work; those bounded slices now have tested
+artifacts, with owner review and interview polish remaining. The earlier estimate
+of roughly **3–6 additional focused days** still covers documented live-selector
+evaluation and the local telemetry demo.
 Assumptions: one current synthetic scenario, cached working Mac/Docker/kind setup,
 small reviewed increments, timely owner feedback and usable provider docs/access.
 These are effort ranges, not completion dates; provider-access waiting time is
@@ -83,8 +86,9 @@ sequence remains control-flow evaluation, not AI diagnosis or patch generation.
    offline while provider prerequisites remain unresolved.
    The deterministic local demo continues to require no provider or credential.
    The current pins now have a verified fresh source-bound replay. Prepare readable
-   deterministic evidence and actual screenshots; preserve the initial lock refusal
-   and distinguish the scripted runtime results from model capability.
+   deterministic evidence and actual screenshots are now prepared for review;
+   preserve the initial lock refusal and distinguish scripted runtime results
+   from model capability when rehearsing or presenting them.
 
 ## Deferred hardening for the local demo
 

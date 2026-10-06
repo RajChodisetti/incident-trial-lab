@@ -1,0 +1,30 @@
+{
+  "mode": "actual_headless_browser_of_recorded_evidence",
+  "replay_loop": "f2261299764ffd63",
+  "images": [
+    {
+      "file": "01-incident.png",
+      "page": "index.html",
+      "width": 1440,
+      "height": 1200,
+      "sha256": "90f2d55e3ad001f6834939bc8abc8aca14d1b0bf22256eadbf5518b6dd480f1c",
+      "source_html_sha256": "850d5560f9179af74d89cf1c2139be72f77096131e211ef4ab68899eea9e7cec"
+    },
+    {
+      "file": "02-comparison.png",
+      "page": "comparison.html",
+      "width": 1440,
+      "height": 1200,
+      "sha256": "9b73449974518482b3872868692f632de052b9049e73fcb8951770354084c664",
+      "source_html_sha256": "4c63033e0d2a441de470d5e461846acce11d863a20452e55b0ad4db302cd4eaa"
+    },
+    {
+      "file": "03-provenance.png",
+      "page": "provenance.html",
+      "width": 1440,
+      "height": 1200,
+      "sha256": "ec0c50f54b80665c5cacc14c96a597c5e6262eb57eff7dc145f5ffc9f2106226",
+      "source_html_sha256": "f1b54749658582e783bfc256ab4f5e409081069a872611bc07ca75273d23926f"
+    }
+  ]
+}
