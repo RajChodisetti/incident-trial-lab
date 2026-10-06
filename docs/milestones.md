@@ -126,6 +126,13 @@ candidate images remain unbound. Next can be held-out evaluation and historical
 evidence presentation offline. A current demo requires reviewed rebuilt pins and
 a fresh owned baseline/candidate replay before actual screenshot preparation.
 
+The subsequent [offline held-out slice](heldout-evaluation.md) adds 12 arithmetic
+and six invalid-input cases, disjoint from both existing workloads and never sent
+to selectors. All six alias assignments and deterministic source/position/nonchoice
+controls are exercised. This proves dataset separation and accounting, not model
+reasoning or image runtime behavior. Next remains the reviewed rebuilt pins and
+fresh bound replay, then readable demo presentation and actual screenshots.
+
 ## Portfolio screenshot completion checklist
 
 Raj requested: “Get screenshots to put in as project in LinkedIn once the product

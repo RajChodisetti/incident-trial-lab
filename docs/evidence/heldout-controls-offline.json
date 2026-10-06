@@ -1,0 +1,693 @@
+[
+  {
+    "control": "source_oracle_fixed",
+    "report": {
+      "mode": "offline_handler_controls_v1",
+      "dataset_sha256": "fad303ec893241c282bffc52481502a7ac47de49c06fa34cc58927a845d57f07",
+      "seed_record_sha256": "088224f3bf058ad4fe049a626022c60afd28761056aa335359a7b09820a3f9cf",
+      "cases": 18,
+      "selected": 6,
+      "all_cases_passed": 6,
+      "abstained": 0,
+      "invalid": 0,
+      "selector_errors": 0,
+      "canceled": 0,
+      "runs": [
+        {
+          "owner_order": [
+            "fixed",
+            "ineffective",
+            "misleading"
+          ],
+          "request_sha256": "16c827b16afa0e59f5af2689c9bf773404d6e47609c3811413955b53c2c90f14",
+          "status": "selected",
+          "candidate": "fixed",
+          "passed": 18
+        },
+        {
+          "owner_order": [
+            "fixed",
+            "misleading",
+            "ineffective"
+          ],
+          "request_sha256": "3d1b8bbcf43ce3624948d30c56a52ac5b92809abe60fab788d55aa0e410bdccb",
+          "status": "selected",
+          "candidate": "fixed",
+          "passed": 18
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "fixed",
+            "misleading"
+          ],
+          "request_sha256": "85d0581089815f23ca3e4e0e88aa2b77e11ac7318cc77dbc0f8c346500bcc89a",
+          "status": "selected",
+          "candidate": "fixed",
+          "passed": 18
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "misleading",
+            "fixed"
+          ],
+          "request_sha256": "ee09247fb655b7238612a990e4fae6585b1e99deca93fdf327bc6caeec791d20",
+          "status": "selected",
+          "candidate": "fixed",
+          "passed": 18
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "fixed",
+            "ineffective"
+          ],
+          "request_sha256": "82364bb580b7489a938e43a00b495e8524be63b5bbc9810d11fdaf20a9b3e8a6",
+          "status": "selected",
+          "candidate": "fixed",
+          "passed": 18
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "ineffective",
+            "fixed"
+          ],
+          "request_sha256": "8b56aec679bcf516711706d3c5e6c046bf3c402a3af18f1dee2303fb03766cad",
+          "status": "selected",
+          "candidate": "fixed",
+          "passed": 18
+        }
+      ]
+    }
+  },
+  {
+    "control": "source_oracle_ineffective",
+    "report": {
+      "mode": "offline_handler_controls_v1",
+      "dataset_sha256": "fad303ec893241c282bffc52481502a7ac47de49c06fa34cc58927a845d57f07",
+      "seed_record_sha256": "088224f3bf058ad4fe049a626022c60afd28761056aa335359a7b09820a3f9cf",
+      "cases": 18,
+      "selected": 6,
+      "all_cases_passed": 0,
+      "abstained": 0,
+      "invalid": 0,
+      "selector_errors": 0,
+      "canceled": 0,
+      "runs": [
+        {
+          "owner_order": [
+            "fixed",
+            "ineffective",
+            "misleading"
+          ],
+          "request_sha256": "16c827b16afa0e59f5af2689c9bf773404d6e47609c3811413955b53c2c90f14",
+          "status": "selected",
+          "candidate": "ineffective",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "fixed",
+            "misleading",
+            "ineffective"
+          ],
+          "request_sha256": "3d1b8bbcf43ce3624948d30c56a52ac5b92809abe60fab788d55aa0e410bdccb",
+          "status": "selected",
+          "candidate": "ineffective",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "fixed",
+            "misleading"
+          ],
+          "request_sha256": "85d0581089815f23ca3e4e0e88aa2b77e11ac7318cc77dbc0f8c346500bcc89a",
+          "status": "selected",
+          "candidate": "ineffective",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "misleading",
+            "fixed"
+          ],
+          "request_sha256": "ee09247fb655b7238612a990e4fae6585b1e99deca93fdf327bc6caeec791d20",
+          "status": "selected",
+          "candidate": "ineffective",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "fixed",
+            "ineffective"
+          ],
+          "request_sha256": "82364bb580b7489a938e43a00b495e8524be63b5bbc9810d11fdaf20a9b3e8a6",
+          "status": "selected",
+          "candidate": "ineffective",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "ineffective",
+            "fixed"
+          ],
+          "request_sha256": "8b56aec679bcf516711706d3c5e6c046bf3c402a3af18f1dee2303fb03766cad",
+          "status": "selected",
+          "candidate": "ineffective",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "control": "source_oracle_misleading",
+    "report": {
+      "mode": "offline_handler_controls_v1",
+      "dataset_sha256": "fad303ec893241c282bffc52481502a7ac47de49c06fa34cc58927a845d57f07",
+      "seed_record_sha256": "088224f3bf058ad4fe049a626022c60afd28761056aa335359a7b09820a3f9cf",
+      "cases": 18,
+      "selected": 6,
+      "all_cases_passed": 0,
+      "abstained": 0,
+      "invalid": 0,
+      "selector_errors": 0,
+      "canceled": 0,
+      "runs": [
+        {
+          "owner_order": [
+            "fixed",
+            "ineffective",
+            "misleading"
+          ],
+          "request_sha256": "16c827b16afa0e59f5af2689c9bf773404d6e47609c3811413955b53c2c90f14",
+          "status": "selected",
+          "candidate": "misleading",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "fixed",
+            "misleading",
+            "ineffective"
+          ],
+          "request_sha256": "3d1b8bbcf43ce3624948d30c56a52ac5b92809abe60fab788d55aa0e410bdccb",
+          "status": "selected",
+          "candidate": "misleading",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "fixed",
+            "misleading"
+          ],
+          "request_sha256": "85d0581089815f23ca3e4e0e88aa2b77e11ac7318cc77dbc0f8c346500bcc89a",
+          "status": "selected",
+          "candidate": "misleading",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "misleading",
+            "fixed"
+          ],
+          "request_sha256": "ee09247fb655b7238612a990e4fae6585b1e99deca93fdf327bc6caeec791d20",
+          "status": "selected",
+          "candidate": "misleading",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "fixed",
+            "ineffective"
+          ],
+          "request_sha256": "82364bb580b7489a938e43a00b495e8524be63b5bbc9810d11fdaf20a9b3e8a6",
+          "status": "selected",
+          "candidate": "misleading",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "ineffective",
+            "fixed"
+          ],
+          "request_sha256": "8b56aec679bcf516711706d3c5e6c046bf3c402a3af18f1dee2303fb03766cad",
+          "status": "selected",
+          "candidate": "misleading",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "control": "first_option",
+    "report": {
+      "mode": "offline_handler_controls_v1",
+      "dataset_sha256": "fad303ec893241c282bffc52481502a7ac47de49c06fa34cc58927a845d57f07",
+      "seed_record_sha256": "088224f3bf058ad4fe049a626022c60afd28761056aa335359a7b09820a3f9cf",
+      "cases": 18,
+      "selected": 6,
+      "all_cases_passed": 2,
+      "abstained": 0,
+      "invalid": 0,
+      "selector_errors": 0,
+      "canceled": 0,
+      "runs": [
+        {
+          "owner_order": [
+            "fixed",
+            "ineffective",
+            "misleading"
+          ],
+          "request_sha256": "16c827b16afa0e59f5af2689c9bf773404d6e47609c3811413955b53c2c90f14",
+          "status": "selected",
+          "candidate": "fixed",
+          "passed": 18
+        },
+        {
+          "owner_order": [
+            "fixed",
+            "misleading",
+            "ineffective"
+          ],
+          "request_sha256": "3d1b8bbcf43ce3624948d30c56a52ac5b92809abe60fab788d55aa0e410bdccb",
+          "status": "selected",
+          "candidate": "fixed",
+          "passed": 18
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "fixed",
+            "misleading"
+          ],
+          "request_sha256": "85d0581089815f23ca3e4e0e88aa2b77e11ac7318cc77dbc0f8c346500bcc89a",
+          "status": "selected",
+          "candidate": "ineffective",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "misleading",
+            "fixed"
+          ],
+          "request_sha256": "ee09247fb655b7238612a990e4fae6585b1e99deca93fdf327bc6caeec791d20",
+          "status": "selected",
+          "candidate": "ineffective",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "fixed",
+            "ineffective"
+          ],
+          "request_sha256": "82364bb580b7489a938e43a00b495e8524be63b5bbc9810d11fdaf20a9b3e8a6",
+          "status": "selected",
+          "candidate": "misleading",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "ineffective",
+            "fixed"
+          ],
+          "request_sha256": "8b56aec679bcf516711706d3c5e6c046bf3c402a3af18f1dee2303fb03766cad",
+          "status": "selected",
+          "candidate": "misleading",
+          "passed": 12,
+          "failed_cases": [
+            "minimum-fraction",
+            "near-full-minimum",
+            "above-cent-boundary",
+            "half-cent-bulk",
+            "near-maximum-rounding",
+            "accumulated-small-fractions"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "control": "abstain",
+    "report": {
+      "mode": "offline_handler_controls_v1",
+      "dataset_sha256": "fad303ec893241c282bffc52481502a7ac47de49c06fa34cc58927a845d57f07",
+      "seed_record_sha256": "088224f3bf058ad4fe049a626022c60afd28761056aa335359a7b09820a3f9cf",
+      "cases": 18,
+      "selected": 0,
+      "all_cases_passed": 0,
+      "abstained": 6,
+      "invalid": 0,
+      "selector_errors": 0,
+      "canceled": 0,
+      "runs": [
+        {
+          "owner_order": [
+            "fixed",
+            "ineffective",
+            "misleading"
+          ],
+          "request_sha256": "16c827b16afa0e59f5af2689c9bf773404d6e47609c3811413955b53c2c90f14",
+          "status": "abstained",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "fixed",
+            "misleading",
+            "ineffective"
+          ],
+          "request_sha256": "3d1b8bbcf43ce3624948d30c56a52ac5b92809abe60fab788d55aa0e410bdccb",
+          "status": "abstained",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "fixed",
+            "misleading"
+          ],
+          "request_sha256": "85d0581089815f23ca3e4e0e88aa2b77e11ac7318cc77dbc0f8c346500bcc89a",
+          "status": "abstained",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "misleading",
+            "fixed"
+          ],
+          "request_sha256": "ee09247fb655b7238612a990e4fae6585b1e99deca93fdf327bc6caeec791d20",
+          "status": "abstained",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "fixed",
+            "ineffective"
+          ],
+          "request_sha256": "82364bb580b7489a938e43a00b495e8524be63b5bbc9810d11fdaf20a9b3e8a6",
+          "status": "abstained",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "ineffective",
+            "fixed"
+          ],
+          "request_sha256": "8b56aec679bcf516711706d3c5e6c046bf3c402a3af18f1dee2303fb03766cad",
+          "status": "abstained",
+          "passed": 0
+        }
+      ]
+    }
+  },
+  {
+    "control": "invalid",
+    "report": {
+      "mode": "offline_handler_controls_v1",
+      "dataset_sha256": "fad303ec893241c282bffc52481502a7ac47de49c06fa34cc58927a845d57f07",
+      "seed_record_sha256": "088224f3bf058ad4fe049a626022c60afd28761056aa335359a7b09820a3f9cf",
+      "cases": 18,
+      "selected": 0,
+      "all_cases_passed": 0,
+      "abstained": 0,
+      "invalid": 6,
+      "selector_errors": 0,
+      "canceled": 0,
+      "runs": [
+        {
+          "owner_order": [
+            "fixed",
+            "ineffective",
+            "misleading"
+          ],
+          "request_sha256": "16c827b16afa0e59f5af2689c9bf773404d6e47609c3811413955b53c2c90f14",
+          "status": "invalid",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "fixed",
+            "misleading",
+            "ineffective"
+          ],
+          "request_sha256": "3d1b8bbcf43ce3624948d30c56a52ac5b92809abe60fab788d55aa0e410bdccb",
+          "status": "invalid",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "fixed",
+            "misleading"
+          ],
+          "request_sha256": "85d0581089815f23ca3e4e0e88aa2b77e11ac7318cc77dbc0f8c346500bcc89a",
+          "status": "invalid",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "misleading",
+            "fixed"
+          ],
+          "request_sha256": "ee09247fb655b7238612a990e4fae6585b1e99deca93fdf327bc6caeec791d20",
+          "status": "invalid",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "fixed",
+            "ineffective"
+          ],
+          "request_sha256": "82364bb580b7489a938e43a00b495e8524be63b5bbc9810d11fdaf20a9b3e8a6",
+          "status": "invalid",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "ineffective",
+            "fixed"
+          ],
+          "request_sha256": "8b56aec679bcf516711706d3c5e6c046bf3c402a3af18f1dee2303fb03766cad",
+          "status": "invalid",
+          "passed": 0
+        }
+      ]
+    }
+  },
+  {
+    "control": "selector_error",
+    "report": {
+      "mode": "offline_handler_controls_v1",
+      "dataset_sha256": "fad303ec893241c282bffc52481502a7ac47de49c06fa34cc58927a845d57f07",
+      "seed_record_sha256": "088224f3bf058ad4fe049a626022c60afd28761056aa335359a7b09820a3f9cf",
+      "cases": 18,
+      "selected": 0,
+      "all_cases_passed": 0,
+      "abstained": 0,
+      "invalid": 0,
+      "selector_errors": 6,
+      "canceled": 0,
+      "runs": [
+        {
+          "owner_order": [
+            "fixed",
+            "ineffective",
+            "misleading"
+          ],
+          "request_sha256": "16c827b16afa0e59f5af2689c9bf773404d6e47609c3811413955b53c2c90f14",
+          "status": "selector_error",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "fixed",
+            "misleading",
+            "ineffective"
+          ],
+          "request_sha256": "3d1b8bbcf43ce3624948d30c56a52ac5b92809abe60fab788d55aa0e410bdccb",
+          "status": "selector_error",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "fixed",
+            "misleading"
+          ],
+          "request_sha256": "85d0581089815f23ca3e4e0e88aa2b77e11ac7318cc77dbc0f8c346500bcc89a",
+          "status": "selector_error",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "ineffective",
+            "misleading",
+            "fixed"
+          ],
+          "request_sha256": "ee09247fb655b7238612a990e4fae6585b1e99deca93fdf327bc6caeec791d20",
+          "status": "selector_error",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "fixed",
+            "ineffective"
+          ],
+          "request_sha256": "82364bb580b7489a938e43a00b495e8524be63b5bbc9810d11fdaf20a9b3e8a6",
+          "status": "selector_error",
+          "passed": 0
+        },
+        {
+          "owner_order": [
+            "misleading",
+            "ineffective",
+            "fixed"
+          ],
+          "request_sha256": "8b56aec679bcf516711706d3c5e6c046bf3c402a3af18f1dee2303fb03766cad",
+          "status": "selector_error",
+          "passed": 0
+        }
+      ]
+    }
+  }
+]

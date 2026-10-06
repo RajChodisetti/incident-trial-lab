@@ -92,9 +92,10 @@ Coverage and reconstruction do not prove model quality or runtime image provenan
 
 ## Remaining prerequisites
 
-- Held-out scenarios/cases, balanced option permutations, evaluation metrics and
-  a simple comparator remain before selection-quality claims. The published seeded
-  case and candidate snippets are not a held-out benchmark.
+- The subsequent [offline held-out harness](heldout-evaluation.md) supplies separate
+  cases, balanced permutations and deterministic comparator/nonchoice accounting.
+  Actual selector quality and cross-incident evaluation remain unverified. The
+  published seeded case and candidate snippets are not a secret benchmark.
 - The subsequent [source/artifact binding gate](source-artifact-binding.md) is
   fixture-tested offline. Existing images/receipts lack its proof and remain
   historical; a reviewed rebuild, pin update and fresh runtime replay are required.

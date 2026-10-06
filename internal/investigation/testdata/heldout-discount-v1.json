@@ -1,0 +1,20 @@
+[
+ {"name":"minimum-fraction","request":{"unit_cents":1,"quantity":2,"discount_percent":1},"status":200,"cents":1},
+ {"name":"near-full-minimum","request":{"unit_cents":1,"quantity":100,"discount_percent":99},"status":200,"cents":1},
+ {"name":"below-cent-boundary","request":{"unit_cents":99,"quantity":2,"discount_percent":1},"status":200,"cents":196},
+ {"name":"above-cent-boundary","request":{"unit_cents":101,"quantity":2,"discount_percent":1},"status":200,"cents":199},
+ {"name":"exact-bulk-cent","request":{"unit_cents":101,"quantity":99,"discount_percent":99},"status":200,"cents":99},
+ {"name":"half-cent-bulk","request":{"unit_cents":199,"quantity":3,"discount_percent":50},"status":200,"cents":298},
+ {"name":"full-discount-boundary","request":{"unit_cents":103,"quantity":99,"discount_percent":100},"status":200,"cents":0},
+ {"name":"maximum-discounted-subtotal","request":{"unit_cents":1000000,"quantity":100,"discount_percent":99},"status":200,"cents":1000000},
+ {"name":"near-maximum-rounding","request":{"unit_cents":999999,"quantity":100,"discount_percent":1},"status":200,"cents":98999901},
+ {"name":"single-unit-rounding","request":{"unit_cents":73,"quantity":1,"discount_percent":33},"status":200,"cents":48},
+ {"name":"minimum-no-discount","request":{"unit_cents":1,"quantity":100,"discount_percent":0},"status":200,"cents":100},
+ {"name":"accumulated-small-fractions","request":{"unit_cents":101,"quantity":100,"discount_percent":99},"status":200,"cents":101},
+ {"name":"unit-below-range","request":{"unit_cents":0,"quantity":1,"discount_percent":0},"status":400,"cents":0},
+ {"name":"unit-above-range","request":{"unit_cents":1000001,"quantity":1,"discount_percent":0},"status":400,"cents":0},
+ {"name":"quantity-below-range","request":{"unit_cents":1,"quantity":0,"discount_percent":0},"status":400,"cents":0},
+ {"name":"quantity-above-range","request":{"unit_cents":1,"quantity":101,"discount_percent":0},"status":400,"cents":0},
+ {"name":"discount-below-range","request":{"unit_cents":1,"quantity":1,"discount_percent":-1},"status":400,"cents":0},
+ {"name":"discount-above-range","request":{"unit_cents":1,"quantity":1,"discount_percent":101},"status":400,"cents":0}
+]

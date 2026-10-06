@@ -10,7 +10,7 @@ verified AI capability.
 | Synthetic Go/Kubernetes incident and comparisons | Historical actual kind runs reproduce baseline failure and three candidate outcomes; pinned inputs, assertions, sampled budgets, cleanup | No fresh replay of the current checkout in this offline increment; resource sampling excludes peak memory/throttling and rigorous performance claims |
 | Local lifecycle and workers | Deadline/cancellation, scoped cleanup/reconciliation, bounded local queue and provenance checks; local race tests and earlier real-run evidence | Durable/distributed controller and broad outage hardening remain deferred |
 | MCP and investigation loop | Typed stdio tools; historical actual scripted loop; fake-tool rejection, uncertainty and revision tests | Actual model-driven investigate/test/revise loop is not demonstrated |
-| Selector boundary | Fake-tested finite selector and independent verdicts; neutral source-linked code, bounded observed business/incident context, reconstructable offline records and fixture-tested source/artifact gate | Held-out evaluation and a reviewed image rebuild/pin update/fresh bound replay remain; fake choices prove no reasoning |
+| Selector boundary | Fake-tested finite selector and independent verdicts; neutral source-linked code, observed context/records, fixture-tested artifact gate and 18-case offline held-out harness with balanced controls | Actual provider quality evaluation and reviewed image rebuild/pin update/fresh bound replay remain; controls prove no model reasoning |
 | Live provider | One successful Responses proposal/schema wiring request, with measured usage | Decisions contract, pricing/limits/retention and selected-project access are unverified; a new live-test budget is required |
 | Portfolio presentation | Walkthroughs and preserved evidence summaries | Reproducible readable evidence presentation, screenshot assets/captions, interview rehearsal and related-work comparison remain |
 | Telemetry and release | Sampled container resource evidence | Local Prometheus demo is not implemented; hosted CI allowance and public-release decision remain unresolved |
@@ -19,8 +19,9 @@ verified AI capability.
 
 1. **Evaluation fixtures:** [candidate code facts](candidate-context.md),
    [observed business/incident context and offline records](business-context-records.md)
-   now provide a reconstructable input. Add held-out fixtures and
-   invalid/abstaining/permutation metrics. Neutral IDs remove label/order hints,
+   now provide a reconstructable input. The [offline held-out harness](heldout-evaluation.md)
+   now supplies separate fixtures and invalid/abstaining/permutation accounting.
+   Actual provider quality remains unevaluated. Neutral IDs remove label/order hints,
    not other answer leakage. The [source/artifact gate](source-artifact-binding.md)
    is implemented offline; real bound image/runtime validation remains.
 2. **Deterministic presentation:** render verified historical evidence clearly,

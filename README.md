@@ -36,6 +36,9 @@ add the actual business rule, failed assertion and exact-input reconstruction.
 [Source/artifact binding](docs/source-artifact-binding.md) adds a fixture-tested
 source/logic/binary gate. Existing candidate images remain historical and require
 a reviewed rebuild, pin update and fresh replay before a bound runtime claim.
+[Offline held-out evaluation](docs/heldout-evaluation.md) separates 18 evaluator
+cases from selector input and checks balanced permutations and explicit nonchoices
+with deterministic controls; it does not measure model reasoning.
 [First live proposal probe](docs/live-proposal-probe.md) adds one owner-authorized
 API wiring check over historical synthetic evidence, with
 [the measured result](docs/live-proposal-evidence.md). It cannot run trials or apply changes.

@@ -68,8 +68,9 @@ Next prerequisites for meaningful selection evaluation:
 - The subsequent [business/incident projection and offline record slice](business-context-records.md)
   now supplies the actual rule and observed failed assertion, with exact-input
   reconstruction. Keep held-out inputs/selection expectations separate from it.
-- Define balanced/permuted fixtures, abstention/invalid/error metrics and a simple
-  comparison baseline before claims about model quality. Check other leakage paths.
+- The subsequent [offline held-out harness](heldout-evaluation.md) now supplies
+  balanced/permuted fixtures, abstention/invalid/error counts and a first-option
+  comparator. Actual model quality remains unevaluated; check other leakage paths.
 - The offline journal preserves exact context, owner alias mapping and decision.
   The subsequent [source/artifact gate](source-artifact-binding.md) is tested with
   fixtures; fresh bound images/replay and live-provider journaling remain before
