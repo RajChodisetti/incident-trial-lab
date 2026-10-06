@@ -176,3 +176,11 @@ each screenshot. A deterministic demo can be labeled and presented independently
 any screenshots claiming live-model investigation/testing require a later
 authorized, evaluated live-agent increment. Screenshot preparation itself does
 not justify extra API requests, restarted trials or expanded implementation.
+
+## Decisions beta adapter — 2026-10-06
+
+The official beta contract is now verified and a small [HTTP choice adapter](decisions-http-adapter.md)
+is implemented with offline mocked tests. Earlier documentation-unavailable notes
+are historical. No live access, model quality or live agent recovery is established.
+Live approval is pending; the next gate is a verified billed-input bound and
+persistent reservation before a separately authorized proposal-only probe.

@@ -111,6 +111,49 @@ func validateRequest(request SelectionRequest, mapping map[string]string) error 
 	return nil
 }
 
+// validateNeutralRequest checks the same bounded contract without exposing the
+// owner mapping to a provider. Code identities are used only for local validation.
+func validateNeutralRequest(request SelectionRequest) error {
+	changes, err := candidates.Changes()
+	if err != nil {
+		return err
+	}
+	mapping := map[string]string{}
+	used := map[string]bool{}
+	for _, c := range request.View.CandidateChanges {
+		if c.Option != "option-01" && c.Option != "option-02" && c.Option != "option-03" {
+			return ErrSelection
+		}
+		if mapping[c.Option] != "" {
+			return ErrSelection
+		}
+		for id, actual := range changes {
+			if c.SourceSHA256 == actual.SourceSHA256 && c.InitialLogic == actual.InitialLogic && c.Logic == actual.Logic && c.LogicSHA256 == actual.LogicSHA256 && !used[id] {
+				mapping[c.Option] = id
+				used[id] = true
+				break
+			}
+		}
+		if mapping[c.Option] == "" {
+			return ErrSelection
+		}
+	}
+	// Historical aliases need membership only; their semantic identities are not
+	// available at this boundary and never inferred as expected outcomes.
+	for _, alias := range []string{"option-01", "option-02", "option-03"} {
+		if mapping[alias] == "" {
+			for _, id := range candidates.IDs() {
+				if !used[id] {
+					mapping[alias] = id
+					used[id] = true
+					break
+				}
+			}
+		}
+	}
+	return validateRequest(request, mapping)
+}
+
 func recordSignalValid(s Signal) bool {
 	verdict := func(value string) bool { return value == "passed" || value == "failed" || value == "inconclusive" }
 	return verdict(string(s.Recovery)) && verdict(string(s.Regressions)) && s.Failed >= 0 && s.Failed <= 1000 && s.Unknown >= 0 && s.Unknown <= 1000

@@ -11,7 +11,7 @@ verified AI capability.
 | Local lifecycle and workers | Deadline/cancellation, scoped cleanup/reconciliation, bounded local queue and provenance checks; local race tests and earlier real-run evidence | Durable/distributed controller and broad outage hardening remain deferred |
 | MCP and investigation loop | Typed stdio tools; historical actual scripted loop; fake-tool rejection, uncertainty and revision tests | Actual model-driven investigate/test/revise loop is not demonstrated |
 | Selector boundary | Fake-tested finite selector and independent verdicts; neutral source-linked code, observed context/records, runtime-verified artifact gate and 18-case offline held-out harness with balanced controls | Actual provider quality evaluation remains; controls and scripted runtime choices prove no model reasoning |
-| Live provider | One successful Responses proposal/schema wiring request, with measured usage | Decisions contract, pricing/limits/retention and selected-project access are unverified; a new live-test budget is required |
+| Live provider | One successful Responses proposal/schema wiring request, with measured usage | Decisions beta guide verified; HTTP adapter mocked offline. Selected-project access, retention and a defensible billed-input reservation remain unverified; live spend approval is pending |
 | Portfolio presentation | Validated local recorded-evidence renderer, three visually checked actual screenshots/captions and preserved refusal | Raj's review, interview rehearsal and broader related-work comparison remain |
 | Telemetry and release | Sampled container resource evidence | Local Prometheus demo is not implemented; hosted CI allowance and public-release decision remain unresolved |
 
@@ -31,7 +31,7 @@ verified AI capability.
 3. **Portfolio assets:** three actual screenshots and concise captions are
    prepared and visually checked. Owner review and broader related-work notes remain. Prepare only;
    LinkedIn publication and repository visibility remain separate decisions.
-4. **Live selector, after gates:** implement against verified Decisions docs,
+4. **Live selector, after gates:** the [HTTP adapter](decisions-http-adapter.md) now has mocked contract tests against verified beta docs;
    review one bounded proposal-only evaluation, then a fresh owned MCP loop with
    independently checked recovery/regressions. Do not reset the first-test ledger.
 5. **Telemetry:** provide the local Prometheus view using standard telemetry and
