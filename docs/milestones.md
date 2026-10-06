@@ -135,6 +135,14 @@ fresh bound replay, then readable demo presentation and actual screenshots.
 
 ## Portfolio screenshot completion checklist
 
+The subsequent [fresh source-bound runtime replay](source-bound-runtime.md) now
+verifies rebuilt/reviewed candidate pins, all three bindings and the existing
+recovery/regression matrix through a serial one-worker MCP session. Independent
+audits check receipts, eight capture hashes and exact owned cleanup labels. An
+initial lock refusal is preserved alongside the successful fresh experiment; its
+cause remains unproven. No gates were relaxed and no model was used. Next is
+readable deterministic evidence presentation and actual screenshots/captions.
+
 Raj requested: “Get screenshots to put in as project in LinkedIn once the product
 is ready.” Prepare these assets when the working demo reaches a presentable,
 verified milestone; this requirement does not authorize LinkedIn publication.

@@ -5,6 +5,11 @@ no service or cluster was run, and no fresh runtime binding has been demonstrate
 The repository remains private. No provider call, credential access or install
 was needed.
 
+The subsequent [fresh runtime replay](source-bound-runtime.md) rebuilt and reviewed
+pins, then verified all three runtime bindings and independent verdicts through
+MCP. Its successful evidence and initial lock refusal are preserved separately;
+the offline claims below describe the original implementation slice.
+
 ## Evidence chain
 
 The candidate build script fingerprints the compiled Linux executable and the

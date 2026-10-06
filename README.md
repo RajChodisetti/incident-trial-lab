@@ -33,9 +33,10 @@ opt-in selector boundary, with stable aliases across simulated revisions.
 and source/snippet hashes derived from the actual synthetic implementation.
 [Observed incident context and offline records](docs/business-context-records.md)
 add the actual business rule, failed assertion and exact-input reconstruction.
-[Source/artifact binding](docs/source-artifact-binding.md) adds a fixture-tested
-source/logic/binary gate. Existing candidate images remain historical and require
-a reviewed rebuild, pin update and fresh replay before a bound runtime claim.
+[Source/artifact binding](docs/source-artifact-binding.md) adds a source/logic/binary
+gate. The [fresh deterministic runtime replay](docs/source-bound-runtime.md)
+verifies it for the reviewed rebuilt pins, preserving an initial conservative
+lock refusal alongside the successful replay. Older images remain unbound.
 [Offline held-out evaluation](docs/heldout-evaluation.md) separates 18 evaluator
 cases from selector input and checks balanced permutations and explicit nonchoices
 with deterministic controls; it does not measure model reasoning.

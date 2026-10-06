@@ -97,8 +97,9 @@ Coverage and reconstruction do not prove model quality or runtime image provenan
   Actual selector quality and cross-incident evaluation remain unverified. The
   published seeded case and candidate snippets are not a secret benchmark.
 - The subsequent [source/artifact binding gate](source-artifact-binding.md) is
-  fixture-tested offline. Existing images/receipts lack its proof and remain
-  historical; a reviewed rebuild, pin update and fresh runtime replay are required.
+  tested offline and [verified in a fresh scripted runtime replay](source-bound-runtime.md).
+  Older images/receipts lack its proof and remain historical; runtime selector
+  quality is still unverified.
 - This journal is in-memory plus an explicitly saved offline artifact, not durable
   restart orchestration or a live-provider response attestation scheme.
 - Verified Decisions API contracts/access/pricing and a new approved budget still

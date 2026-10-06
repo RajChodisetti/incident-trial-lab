@@ -110,3 +110,8 @@ Next remains a reviewed candidate rebuild/pin update and fresh owned bound repla
 then a readable evidence demo and actual screenshots/captions. Keep scripted,
 offline control and live wiring results distinct. Provider documentation/access/
 pricing and a new live-test budget remain independent unresolved gates.
+
+The subsequent [fresh bound runtime replay](source-bound-runtime.md) now verifies
+the current pins through the deterministic MCP workflow. It runs the existing
+six-case comparison workload, not this evaluator-only dataset. Readable evidence
+presentation and actual screenshot preparation are the next bounded work.

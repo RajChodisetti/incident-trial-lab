@@ -1,0 +1,428 @@
+{
+  "capture_hashes_recomputed": {
+    "f2261299764ffd63:r001": "96b6cab36a133a123e16f0d06ebb639780ddefa15153383241abbdf36e376a02",
+    "f2261299764ffd63:r002": "b4595bf00ff09c52d8c3c19b8ebf4e1638068a885cbda7793120729c7536aac5",
+    "f2261299764ffd63:r003": "29b6ef384c0426a8e1b2d598ee18d0305c58b77d5cd57b776653f6ee403b834b",
+    "f2261299764ffd63:r004": "828e541e72578fba8013933c7de16d0682a6c746b11b44e83dd5832c9232c874",
+    "f2261299764ffd63:r005": "c2b65e75c713aec99638b5ef5f1063144cc36f8d0765271ae0cf49bf1afdbaca",
+    "f2261299764ffd63:r006": "c1218af62e35641cfb5c504746272d86d94823b0bc605693909e541fde911a4f",
+    "f2261299764ffd63:r007": "6922a7f38e8894817617d0f39aa85c8896da1fe0150927ceee6ab46727fc6200",
+    "f2261299764ffd63:r008": "a98096470529e19b86ade616be21f86729bea8e9a48490b5e131ef03734c8f51"
+  },
+  "execution": "actual_local_kind_via_dedicated_mcp",
+  "owned_cleanup": {
+    "95509cf013583101": {
+      "complete": true,
+      "clusters": [
+        {
+          "name": "itl-baseline-95509cf013583101"
+        },
+        {
+          "name": "itl-candidate-fixed-95509cf013583101"
+        },
+        {
+          "name": "itl-candidate-ineffective-95509cf013583101"
+        },
+        {
+          "name": "itl-candidate-misleading-95509cf013583101"
+        }
+      ]
+    },
+    "a7d28ecce6aa0735": {
+      "complete": true,
+      "clusters": [
+        {
+          "name": "itl-baseline-a7d28ecce6aa0735"
+        },
+        {
+          "name": "itl-candidate-fixed-a7d28ecce6aa0735"
+        },
+        {
+          "name": "itl-candidate-ineffective-a7d28ecce6aa0735"
+        },
+        {
+          "name": "itl-candidate-misleading-a7d28ecce6aa0735"
+        }
+      ]
+    },
+    "c5fb26c78fabe804": {
+      "complete": true,
+      "clusters": [
+        {
+          "name": "itl-baseline-c5fb26c78fabe804"
+        },
+        {
+          "name": "itl-candidate-fixed-c5fb26c78fabe804"
+        },
+        {
+          "name": "itl-candidate-ineffective-c5fb26c78fabe804"
+        },
+        {
+          "name": "itl-candidate-misleading-c5fb26c78fabe804"
+        }
+      ]
+    },
+    "d21415b4f502f278": {
+      "complete": true,
+      "clusters": [
+        {
+          "name": "itl-baseline-d21415b4f502f278"
+        },
+        {
+          "name": "itl-candidate-fixed-d21415b4f502f278"
+        },
+        {
+          "name": "itl-candidate-ineffective-d21415b4f502f278"
+        },
+        {
+          "name": "itl-candidate-misleading-d21415b4f502f278"
+        }
+      ]
+    }
+  },
+  "owned_resources_rechecked_absent": true,
+  "proposer": "scripted_preset_sequence_no_model",
+  "revalidated_at": "2026-10-06T13:40:30.800972Z",
+  "runtime_binding_matches_built_executables": true,
+  "sampled_resource_budgets": {
+    "fixed": {
+      "status": "passed",
+      "scope": "container CPU interval and two endpoint working-set samples; excludes peak memory and throttling",
+      "cpu_delta_nanos": 11453000,
+      "cpu_limit_nanos": 5000000000,
+      "max_observed_working_set_bytes": 7053312,
+      "working_set_limit_bytes": 33554432,
+      "peak_memory_measured": false
+    },
+    "ineffective": {
+      "status": "passed",
+      "scope": "container CPU interval and two endpoint working-set samples; excludes peak memory and throttling",
+      "cpu_delta_nanos": 12273000,
+      "cpu_limit_nanos": 5000000000,
+      "max_observed_working_set_bytes": 4911104,
+      "working_set_limit_bytes": 33554432,
+      "peak_memory_measured": false
+    },
+    "misleading": {
+      "status": "passed",
+      "scope": "container CPU interval and two endpoint working-set samples; excludes peak memory and throttling",
+      "cpu_delta_nanos": 12586000,
+      "cpu_limit_nanos": 5000000000,
+      "max_observed_working_set_bytes": 4952064,
+      "working_set_limit_bytes": 33554432,
+      "peak_memory_measured": false
+    }
+  },
+  "source_bound_receipts": {
+    "fixed": {
+      "experiment_id": "f138b3bd3b9b7c19",
+      "attempt_id": "8aa9e13b1a1a76c6",
+      "baseline_run_id": "a7d28ecce6aa0735",
+      "candidate_run_id": "d21415b4f502f278",
+      "variant": "fixed",
+      "verdict": "passed",
+      "baseline_evidence_sha256": "e4a45fe4c7995eecb5df87fb768efcc51f42426b0afa00e35dda7b1672e054a0",
+      "candidate_evidence_sha256": "0655a4bc253242c40bf95e9cbb16a6f18b01526540100a8ace0544c210874406",
+      "spec": {
+        "candidate_lock_sha256": "59aa2f3433c8affdaf51e344882de9ebdf5a7d90a6918d4466aa39fec917d24e",
+        "baseline_fixture_sha256": "a747f28e9f56d745a687afebbe55a6ec1b1a390dffac4fe7e0ce997eb7b02d28",
+        "baseline_assertions_sha256": "b26d34326889ece22b48cb8255435fe5891e32380e4698490af35d2de65fefde",
+        "workload_sha256": "2f0cce06b2b87cc2b700d75d315b4eaaae98e5678d7914d64d2b5628068354da",
+        "assertions_sha256": "1636c3fa93fa962179462669db4075db363566dfd7fda5ebfb6d07f6caef10d1",
+        "contract_sha256": "63d1587b61a7384f9f4d1d18b7861143162f4ba89c43cbfc13fe9802e9dfc9c2",
+        "deployment_sha256": "d160a614feba2d52e8fdf026b839617c81959f406f70b6a79d04e66b880cdcae",
+        "baseline_image_digest": "sha256:8babadea39ab217d192db5dd32c43ab0d73a92eee633d6aac54a6182be558d9e",
+        "candidate_image_digests": {
+          "fixed": "sha256:a3bcd844dfdf503c36f917ae370ced44171c1038f7feb08619cfbc909781b835",
+          "ineffective": "sha256:2503618f73f0fb4300bba1ec69aff316e06100ce3486d608263e3dcc68b9775b",
+          "misleading": "sha256:6a0a875fea691fb92e922a9e400d8b8c7a694a16d2db609c4e584f174663b1aa"
+        }
+      },
+      "source_binding": {
+        "version": 1,
+        "variant": "fixed",
+        "source_sha256": "8bb47363354221e34a8a1b6b1020a6ea548e73285385d1ebbc750d4c52a35d22",
+        "logic_sha256": "754f1f1238eabd413496fceb0926d24a26e773e7cb947bad5025c9dc2f1a08fa",
+        "binary_sha256": "84956b59a58fc00df95d4805660141fd6c5c00026233c9d19d07c9994e208482"
+      }
+    },
+    "ineffective": {
+      "experiment_id": "f138b3bd3b9b7c19",
+      "attempt_id": "1ff2962f4de95af9",
+      "baseline_run_id": "a7d28ecce6aa0735",
+      "candidate_run_id": "c5fb26c78fabe804",
+      "variant": "ineffective",
+      "verdict": "failed",
+      "baseline_evidence_sha256": "e4a45fe4c7995eecb5df87fb768efcc51f42426b0afa00e35dda7b1672e054a0",
+      "candidate_evidence_sha256": "ff566d74274dd7508c83f7580424170309b3602ebdc80eb364674435daeedcf6",
+      "spec": {
+        "candidate_lock_sha256": "59aa2f3433c8affdaf51e344882de9ebdf5a7d90a6918d4466aa39fec917d24e",
+        "baseline_fixture_sha256": "a747f28e9f56d745a687afebbe55a6ec1b1a390dffac4fe7e0ce997eb7b02d28",
+        "baseline_assertions_sha256": "b26d34326889ece22b48cb8255435fe5891e32380e4698490af35d2de65fefde",
+        "workload_sha256": "2f0cce06b2b87cc2b700d75d315b4eaaae98e5678d7914d64d2b5628068354da",
+        "assertions_sha256": "1636c3fa93fa962179462669db4075db363566dfd7fda5ebfb6d07f6caef10d1",
+        "contract_sha256": "63d1587b61a7384f9f4d1d18b7861143162f4ba89c43cbfc13fe9802e9dfc9c2",
+        "deployment_sha256": "d160a614feba2d52e8fdf026b839617c81959f406f70b6a79d04e66b880cdcae",
+        "baseline_image_digest": "sha256:8babadea39ab217d192db5dd32c43ab0d73a92eee633d6aac54a6182be558d9e",
+        "candidate_image_digests": {
+          "fixed": "sha256:a3bcd844dfdf503c36f917ae370ced44171c1038f7feb08619cfbc909781b835",
+          "ineffective": "sha256:2503618f73f0fb4300bba1ec69aff316e06100ce3486d608263e3dcc68b9775b",
+          "misleading": "sha256:6a0a875fea691fb92e922a9e400d8b8c7a694a16d2db609c4e584f174663b1aa"
+        }
+      },
+      "source_binding": {
+        "version": 1,
+        "variant": "ineffective",
+        "source_sha256": "8bb47363354221e34a8a1b6b1020a6ea548e73285385d1ebbc750d4c52a35d22",
+        "logic_sha256": "5f69c04758ea31b3690ff7b8eb0c4236bbdbffe2b39fcd9b7c6aff2dbdb9be25",
+        "binary_sha256": "a321e7a4343a203e23a3fb524b1bac9aef0c76d5811db01f91be4a75dd6ce88a"
+      }
+    },
+    "misleading": {
+      "experiment_id": "f138b3bd3b9b7c19",
+      "attempt_id": "839d59867d0dc823",
+      "baseline_run_id": "a7d28ecce6aa0735",
+      "candidate_run_id": "95509cf013583101",
+      "variant": "misleading",
+      "verdict": "failed",
+      "baseline_evidence_sha256": "e4a45fe4c7995eecb5df87fb768efcc51f42426b0afa00e35dda7b1672e054a0",
+      "candidate_evidence_sha256": "65568fe72e134c8b2bd505c9600659107213a63e3058045a40a2bf2901b152ac",
+      "spec": {
+        "candidate_lock_sha256": "59aa2f3433c8affdaf51e344882de9ebdf5a7d90a6918d4466aa39fec917d24e",
+        "baseline_fixture_sha256": "a747f28e9f56d745a687afebbe55a6ec1b1a390dffac4fe7e0ce997eb7b02d28",
+        "baseline_assertions_sha256": "b26d34326889ece22b48cb8255435fe5891e32380e4698490af35d2de65fefde",
+        "workload_sha256": "2f0cce06b2b87cc2b700d75d315b4eaaae98e5678d7914d64d2b5628068354da",
+        "assertions_sha256": "1636c3fa93fa962179462669db4075db363566dfd7fda5ebfb6d07f6caef10d1",
+        "contract_sha256": "63d1587b61a7384f9f4d1d18b7861143162f4ba89c43cbfc13fe9802e9dfc9c2",
+        "deployment_sha256": "d160a614feba2d52e8fdf026b839617c81959f406f70b6a79d04e66b880cdcae",
+        "baseline_image_digest": "sha256:8babadea39ab217d192db5dd32c43ab0d73a92eee633d6aac54a6182be558d9e",
+        "candidate_image_digests": {
+          "fixed": "sha256:a3bcd844dfdf503c36f917ae370ced44171c1038f7feb08619cfbc909781b835",
+          "ineffective": "sha256:2503618f73f0fb4300bba1ec69aff316e06100ce3486d608263e3dcc68b9775b",
+          "misleading": "sha256:6a0a875fea691fb92e922a9e400d8b8c7a694a16d2db609c4e584f174663b1aa"
+        }
+      },
+      "source_binding": {
+        "version": 1,
+        "variant": "misleading",
+        "source_sha256": "8bb47363354221e34a8a1b6b1020a6ea548e73285385d1ebbc750d4c52a35d22",
+        "logic_sha256": "1cdb407cc150e02c0bfc0126d13a5f0263c3369cdaa9134f10a35c241fbcf0a2",
+        "binary_sha256": "51a83e6cab2f21ae4fb8c7700df4ea9f7ba80b55201f907fa1248cd4a055f30d"
+      }
+    }
+  },
+  "source_checkout": "7a3cf0e3c7fb217aa7a088be443a897863104e44 with reviewed candidate pin updates",
+  "temporary_owned_builders_rechecked_absent": true,
+  "trace": {
+    "mode": "offline_control_flow_no_model",
+    "loop_id": "f2261299764ffd63",
+    "started_at": "2026-10-06T13:37:10.932551Z",
+    "finished_at": "2026-10-06T13:39:59.594621Z",
+    "max_attempts": 3,
+    "timeout": "8m0s",
+    "baseline": {
+      "trial_id": "c7739748c65193f1",
+      "kind": "baseline",
+      "scenario_id": "discount-rounding",
+      "experiment_id": "f138b3bd3b9b7c19",
+      "state": "completed",
+      "run_id": "a7d28ecce6aa0735",
+      "verdict": "inconclusive",
+      "cleanup_verified": true,
+      "provenance_verified": true,
+      "eligible_now": true
+    },
+    "attempts": [
+      {
+        "number": 1,
+        "proposal": {
+          "variant": "ineffective",
+          "rationale": "Offline preset proposal for deterministic control-flow evaluation",
+          "references": [
+            "f2261299764ffd63:r001",
+            "f2261299764ffd63:r002"
+          ]
+        },
+        "trial": {
+          "trial_id": "e02de7a91b04f8f6",
+          "kind": "candidate",
+          "scenario_id": "discount-rounding",
+          "variant": "ineffective",
+          "experiment_id": "f138b3bd3b9b7c19",
+          "state": "completed",
+          "run_id": "c5fb26c78fabe804",
+          "verdict": "failed",
+          "cleanup_verified": true,
+          "provenance_verified": true,
+          "eligible_now": true
+        },
+        "outcome": "no_improvement",
+        "behavior": {
+          "id": "f2261299764ffd63:r003",
+          "trial_id": "e02de7a91b04f8f6",
+          "section": "behavior",
+          "sha256": "29b6ef384c0426a8e1b2d598ee18d0305c58b77d5cd57b776653f6ee403b834b"
+        },
+        "proof": {
+          "id": "f2261299764ffd63:r004",
+          "trial_id": "e02de7a91b04f8f6",
+          "section": "provenance",
+          "sha256": "828e541e72578fba8013933c7de16d0682a6c746b11b44e83dd5832c9232c874"
+        },
+        "signal": {
+          "recovery": "failed",
+          "regressions": "failed",
+          "failed": 40,
+          "unknown": 0
+        }
+      },
+      {
+        "number": 2,
+        "proposal": {
+          "variant": "misleading",
+          "rationale": "Offline preset proposal for deterministic control-flow evaluation",
+          "references": [
+            "f2261299764ffd63:r003",
+            "f2261299764ffd63:r004"
+          ]
+        },
+        "trial": {
+          "trial_id": "59ae650ebc5d5775",
+          "kind": "candidate",
+          "scenario_id": "discount-rounding",
+          "variant": "misleading",
+          "experiment_id": "f138b3bd3b9b7c19",
+          "state": "completed",
+          "run_id": "95509cf013583101",
+          "verdict": "failed",
+          "cleanup_verified": true,
+          "provenance_verified": true,
+          "eligible_now": true
+        },
+        "outcome": "regression",
+        "behavior": {
+          "id": "f2261299764ffd63:r005",
+          "trial_id": "59ae650ebc5d5775",
+          "section": "behavior",
+          "sha256": "c2b65e75c713aec99638b5ef5f1063144cc36f8d0765271ae0cf49bf1afdbaca"
+        },
+        "proof": {
+          "id": "f2261299764ffd63:r006",
+          "trial_id": "59ae650ebc5d5775",
+          "section": "provenance",
+          "sha256": "c1218af62e35641cfb5c504746272d86d94823b0bc605693909e541fde911a4f"
+        },
+        "signal": {
+          "recovery": "passed",
+          "regressions": "failed",
+          "failed": 20,
+          "unknown": 0
+        }
+      },
+      {
+        "number": 3,
+        "proposal": {
+          "variant": "fixed",
+          "rationale": "Offline preset proposal for deterministic control-flow evaluation",
+          "references": [
+            "f2261299764ffd63:r005",
+            "f2261299764ffd63:r006"
+          ]
+        },
+        "trial": {
+          "trial_id": "50d520b598653ffa",
+          "kind": "candidate",
+          "scenario_id": "discount-rounding",
+          "variant": "fixed",
+          "experiment_id": "f138b3bd3b9b7c19",
+          "state": "completed",
+          "run_id": "d21415b4f502f278",
+          "verdict": "passed",
+          "cleanup_verified": true,
+          "provenance_verified": true,
+          "eligible_now": true
+        },
+        "outcome": "verified_recovery",
+        "behavior": {
+          "id": "f2261299764ffd63:r007",
+          "trial_id": "50d520b598653ffa",
+          "section": "behavior",
+          "sha256": "6922a7f38e8894817617d0f39aa85c8896da1fe0150927ceee6ab46727fc6200"
+        },
+        "proof": {
+          "id": "f2261299764ffd63:r008",
+          "trial_id": "50d520b598653ffa",
+          "section": "provenance",
+          "sha256": "a98096470529e19b86ade616be21f86729bea8e9a48490b5e131ef03734c8f51"
+        },
+        "signal": {
+          "recovery": "passed",
+          "regressions": "passed",
+          "failed": 0,
+          "unknown": 0
+        }
+      }
+    ],
+    "references": [
+      {
+        "id": "f2261299764ffd63:r001",
+        "trial_id": "c7739748c65193f1",
+        "section": "behavior",
+        "sha256": "96b6cab36a133a123e16f0d06ebb639780ddefa15153383241abbdf36e376a02"
+      },
+      {
+        "id": "f2261299764ffd63:r002",
+        "trial_id": "c7739748c65193f1",
+        "section": "provenance",
+        "sha256": "b4595bf00ff09c52d8c3c19b8ebf4e1638068a885cbda7793120729c7536aac5"
+      },
+      {
+        "id": "f2261299764ffd63:r003",
+        "trial_id": "e02de7a91b04f8f6",
+        "section": "behavior",
+        "sha256": "29b6ef384c0426a8e1b2d598ee18d0305c58b77d5cd57b776653f6ee403b834b"
+      },
+      {
+        "id": "f2261299764ffd63:r004",
+        "trial_id": "e02de7a91b04f8f6",
+        "section": "provenance",
+        "sha256": "828e541e72578fba8013933c7de16d0682a6c746b11b44e83dd5832c9232c874"
+      },
+      {
+        "id": "f2261299764ffd63:r005",
+        "trial_id": "59ae650ebc5d5775",
+        "section": "behavior",
+        "sha256": "c2b65e75c713aec99638b5ef5f1063144cc36f8d0765271ae0cf49bf1afdbaca"
+      },
+      {
+        "id": "f2261299764ffd63:r006",
+        "trial_id": "59ae650ebc5d5775",
+        "section": "provenance",
+        "sha256": "c1218af62e35641cfb5c504746272d86d94823b0bc605693909e541fde911a4f"
+      },
+      {
+        "id": "f2261299764ffd63:r007",
+        "trial_id": "50d520b598653ffa",
+        "section": "behavior",
+        "sha256": "6922a7f38e8894817617d0f39aa85c8896da1fe0150927ceee6ab46727fc6200"
+      },
+      {
+        "id": "f2261299764ffd63:r008",
+        "trial_id": "50d520b598653ffa",
+        "section": "provenance",
+        "sha256": "a98096470529e19b86ade616be21f86729bea8e9a48490b5e131ef03734c8f51"
+      }
+    ],
+    "stop_reason": "verified_recovery",
+    "verdict": "passed",
+    "tool_calls": {
+      "compare_trials": 1,
+      "create_experiment": 1,
+      "get_evidence": 8,
+      "get_trial": 678,
+      "list_scenarios": 1,
+      "list_trials": 1,
+      "start_trial": 3
+    }
+  }
+}

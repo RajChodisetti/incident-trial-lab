@@ -7,10 +7,10 @@ verified AI capability.
 
 | Area | Built/tested evidence | Unverified or blocked |
 | --- | --- | --- |
-| Synthetic Go/Kubernetes incident and comparisons | Historical actual kind runs reproduce baseline failure and three candidate outcomes; pinned inputs, assertions, sampled budgets, cleanup | No fresh replay of the current checkout in this offline increment; resource sampling excludes peak memory/throttling and rigorous performance claims |
+| Synthetic Go/Kubernetes incident and comparisons | Fresh source-bound kind replay reproduces baseline and all three outcomes through one-worker MCP; reviewed pins, assertions, sampled budgets and audited cleanup | One initial conservative lock refusal is preserved with unproven cause; resource sampling excludes peak memory/throttling and rigorous performance claims |
 | Local lifecycle and workers | Deadline/cancellation, scoped cleanup/reconciliation, bounded local queue and provenance checks; local race tests and earlier real-run evidence | Durable/distributed controller and broad outage hardening remain deferred |
 | MCP and investigation loop | Typed stdio tools; historical actual scripted loop; fake-tool rejection, uncertainty and revision tests | Actual model-driven investigate/test/revise loop is not demonstrated |
-| Selector boundary | Fake-tested finite selector and independent verdicts; neutral source-linked code, observed context/records, fixture-tested artifact gate and 18-case offline held-out harness with balanced controls | Actual provider quality evaluation and reviewed image rebuild/pin update/fresh bound replay remain; controls prove no model reasoning |
+| Selector boundary | Fake-tested finite selector and independent verdicts; neutral source-linked code, observed context/records, runtime-verified artifact gate and 18-case offline held-out harness with balanced controls | Actual provider quality evaluation remains; controls and scripted runtime choices prove no model reasoning |
 | Live provider | One successful Responses proposal/schema wiring request, with measured usage | Decisions contract, pricing/limits/retention and selected-project access are unverified; a new live-test budget is required |
 | Portfolio presentation | Walkthroughs and preserved evidence summaries | Reproducible readable evidence presentation, screenshot assets/captions, interview rehearsal and related-work comparison remain |
 | Telemetry and release | Sampled container resource evidence | Local Prometheus demo is not implemented; hosted CI allowance and public-release decision remain unresolved |
@@ -23,7 +23,7 @@ verified AI capability.
    now supplies separate fixtures and invalid/abstaining/permutation accounting.
    Actual provider quality remains unevaluated. Neutral IDs remove label/order hints,
    not other answer leakage. The [source/artifact gate](source-artifact-binding.md)
-   is implemented offline; real bound image/runtime validation remains.
+   is implemented and [verified in a fresh scripted runtime replay](source-bound-runtime.md).
 2. **Deterministic presentation:** render verified historical evidence clearly,
    distinguish scripted/fake/live wiring results, then rehearse an owned local
    demo and retain fresh evidence from the tested checkout.
@@ -82,8 +82,9 @@ sequence remains control-flow evaluation, not AI diagnosis or patch generation.
    are now implemented; held-out evaluation and evidence presentation can progress
    offline while provider prerequisites remain unresolved.
    The deterministic local demo continues to require no provider or credential.
-   Existing candidate images lack the new source/artifact proof: rebuild, review
-   pins and verify a fresh owned replay before presenting a current bound demo.
+   The current pins now have a verified fresh source-bound replay. Prepare readable
+   deterministic evidence and actual screenshots; preserve the initial lock refusal
+   and distinguish the scripted runtime results from model capability.
 
 ## Deferred hardening for the local demo
 
