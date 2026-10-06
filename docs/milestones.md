@@ -106,6 +106,12 @@ built/tested, unverified and blocked work, remaining increments and effort range
 Offline evaluation context and reproducible evidence presentation can progress
 while the provider migration gates remain unresolved.
 
+The next [bounded candidate-context increment](candidate-context.md) now adds
+actual quote-arithmetic snippets with source/snippet hashes under the same neutral
+aliases. Projection and fake-selection tests do not establish model reasoning or
+source-to-image attestation. Business/incident context, held-out evaluation and
+reproducible journaling remain before meaningful selection-quality claims.
+
 ## Portfolio screenshot completion checklist
 
 Raj requested: “Get screenshots to put in as project in LinkedIn once the product

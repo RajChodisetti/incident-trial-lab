@@ -84,6 +84,7 @@ func (p SelectorProposer) Propose(ctx context.Context, v View) (Proposal, error)
 	// or the locally validated choice set by mutating its arguments.
 	input := v
 	input.History = append([]Feedback{}, v.History...)
+	input.CandidateChanges = append([]CandidateChange{}, v.CandidateChanges...)
 	d, err := p.Selector.Select(ctx, input, append([]string{}, allowed...))
 	if e := ctx.Err(); e != nil {
 		return Proposal{}, e

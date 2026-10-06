@@ -42,12 +42,22 @@ type Signal struct {
 	Unknown     int                `json:"unknown"`
 }
 type View struct {
-	ScenarioID        string     `json:"scenario_id"`
-	LatestBehavior    Reference  `json:"latest_behavior"`
-	LatestProof       Reference  `json:"latest_proof"`
-	Signal            Signal     `json:"signal"`
-	History           []Feedback `json:"history"`
-	RemainingAttempts int        `json:"remaining_attempts"`
+	ScenarioID        string            `json:"scenario_id"`
+	LatestBehavior    Reference         `json:"latest_behavior"`
+	LatestProof       Reference         `json:"latest_proof"`
+	Signal            Signal            `json:"signal"`
+	History           []Feedback        `json:"history"`
+	RemainingAttempts int               `json:"remaining_attempts"`
+	CandidateChanges  []CandidateChange `json:"candidate_changes,omitempty"`
+}
+
+// CandidateChange contains code facts, not expected or predicted verdicts.
+type CandidateChange struct {
+	Option       string `json:"option"`
+	SourceSHA256 string `json:"source_sha256"`
+	InitialLogic string `json:"initial_logic"`
+	Logic        string `json:"logic"`
+	LogicSHA256  string `json:"logic_sha256"`
 }
 type Feedback struct {
 	Variant  string    `json:"variant"`

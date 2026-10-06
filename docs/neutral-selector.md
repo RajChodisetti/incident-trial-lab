@@ -44,11 +44,11 @@ from candidate descriptions, code, filenames, prompts or unrelated context. The
 prior Responses wiring probe deliberately describes the presets; it remains a
 wiring result and is not upgraded into a reasoning benchmark. No paid retest runs.
 
-The current view does not supply neutral per-candidate technical evidence for
-independent ranking. A meaningful next evaluation must add a reviewed, bounded
-technical evidence projection, keep expected answers separate, balance candidate
-permutations, and define selection/abstention/error metrics before claiming model
-quality. Anonymous IDs alone do not demonstrate diagnosis or intelligent choice.
+The subsequent [candidate-context slice](candidate-context.md) supplies bounded,
+source-linked arithmetic snippets under these aliases. A meaningful evaluation
+still needs reviewed business/incident context and held-out expectations, balanced
+permutations and selection/abstention/error metrics before model-quality claims.
+Anonymous IDs and fake selections do not demonstrate diagnosis or intelligent choice.
 No Decisions API endpoint, schema, SDK or access is assumed by this wrapper.
 
 The wrapper is an opt-in library boundary with offline tests; no live selector is

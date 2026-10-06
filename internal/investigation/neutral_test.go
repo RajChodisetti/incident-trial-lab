@@ -2,6 +2,8 @@ package investigation
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"reflect"
@@ -148,5 +150,101 @@ func TestNeutralConstructionAndFailures(t *testing.T) {
 	v.History = []Feedback{{Variant: "unknown"}}
 	if _, e = n.Select(context.Background(), v, candidates.IDs()); e == nil {
 		t.Fatal("unknown history accepted")
+	}
+}
+
+func TestNeutralContextSuppliesActualCodeWithoutExpectedOutcomes(t *testing.T) {
+	changes, err := candidates.Changes()
+	if err != nil {
+		t.Fatal(err)
+	}
+	inner := selectorFunc(func(_ context.Context, v View, choices []string) (Decision, error) {
+		if len(v.CandidateChanges) != 3 {
+			t.Fatal("candidate code context missing")
+		}
+		for _, c := range v.CandidateChanges {
+			if c.Option == "" || len(c.SourceSHA256) != 64 || !strings.Contains(c.Logic, "q.Quantity") {
+				t.Fatal("uninformative or unlinked context")
+			}
+			h := sha256.Sum256([]byte(c.Logic))
+			if c.LogicSHA256 != hex.EncodeToString(h[:]) {
+				t.Fatal("logic hash mismatch")
+			}
+		}
+		data, _ := json.Marshal(v)
+		for _, forbidden := range append(candidates.IDs(), "EXPECTED_OUTCOME", "expected_verdict", "RawResponse", "/Users/", "variant ==") {
+			if strings.Contains(string(data), forbidden) {
+				t.Fatalf("selector received privileged label or raw content: %s", forbidden)
+			}
+		}
+		return Decision{Candidate: "option-02"}, nil
+	})
+	n := neutralWithOrder(inner, []string{"misleading", "fixed", "ineffective"})
+	n.changes = changes
+	v := selectorView()
+	v.CandidateChanges = []CandidateChange{{Logic: "EXPECTED_OUTCOME: fixed wins"}}
+	d, err := n.Select(context.Background(), v, candidates.IDs())
+	if err != nil || d.Candidate != "fixed" {
+		t.Fatal("context adapter rejected valid fake selection")
+	}
+	if v.CandidateChanges[0].Logic != "EXPECTED_OUTCOME: fixed wins" {
+		t.Fatal("caller input was mutated")
+	}
+}
+
+func TestNeutralCodeContextStableAcrossObservedRevisions(t *testing.T) {
+	changes, err := candidates.Changes()
+	if err != nil {
+		t.Fatal(err)
+	}
+	seen := map[string]string{}
+	calls := 0
+	inner := selectorFunc(func(_ context.Context, v View, choices []string) (Decision, error) {
+		calls++
+		if len(v.CandidateChanges) != len(choices) {
+			t.Fatal("missing or unavailable candidate context")
+		}
+		for i, c := range v.CandidateChanges {
+			if c.Option != choices[i] {
+				t.Fatal("code and choices use different alias ordering")
+			}
+			if old, ok := seen[c.Option]; ok && old != c.LogicSHA256 {
+				t.Fatal("alias changed code across revisions")
+			}
+			seen[c.Option] = c.LogicSHA256
+		}
+		if calls == 2 && (v.History[0].Variant != "option-03" || v.History[0].Outcome != "no_improvement") {
+			t.Fatal("observed history/provenance lost")
+		}
+		if calls == 3 && (v.History[1].Variant != "option-01" || v.History[1].Outcome != "regression") {
+			t.Fatal("observed regression lost")
+		}
+		v.CandidateChanges[0].Logic = "untrusted selector mutation"
+		return Decision{Candidate: []string{"option-03", "option-01", "option-02"}[calls-1]}, nil
+	})
+	n := neutralWithOrder(inner, []string{"misleading", "fixed", "ineffective"})
+	n.changes = changes
+	f := &fakeTools{}
+	r := Run(context.Background(), f, SelectorProposer{Selector: n}, config(3))
+	if r.Trace.Verdict != evaluation.Passed || len(r.Trace.Attempts) != 3 || changes["misleading"].Logic == "untrusted selector mutation" {
+		t.Fatalf("trace %+v", r.Trace)
+	}
+}
+
+func TestPublicNeutralConstructorIncludesCompiledContext(t *testing.T) {
+	inner := selectorFunc(func(_ context.Context, v View, choices []string) (Decision, error) {
+		if len(v.CandidateChanges) != 3 || len(choices) != 3 {
+			t.Fatal("public constructor omitted code context")
+		}
+		return Decision{Abstain: true}, nil
+	})
+	n, err := NewNeutralSelector(inner)
+	if err != nil {
+		t.Fatal(err)
+	}
+	f := &fakeTools{}
+	r := Run(context.Background(), f, SelectorProposer{Selector: n}, config(1))
+	if r.Trace.StopReason != "selector_abstained" || len(f.variants) != 0 || r.Trace.Verdict != evaluation.Inconclusive {
+		t.Fatalf("trace %+v", r.Trace)
 	}
 }

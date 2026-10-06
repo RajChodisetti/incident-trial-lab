@@ -29,6 +29,8 @@ bounded scripted orchestration with [real/simulated evidence](docs/offline-inves
 and explicit abstention to the existing loop; it is tested with fakes only.
 [Neutral candidate IDs](docs/neutral-selector.md) remove label/order hints at the
 opt-in selector boundary, with stable aliases across simulated revisions.
+[Candidate code context](docs/candidate-context.md) adds bounded arithmetic facts
+and source/snippet hashes derived from the actual synthetic implementation.
 [First live proposal probe](docs/live-proposal-probe.md) adds one owner-authorized
 API wiring check over historical synthetic evidence, with
 [the measured result](docs/live-proposal-evidence.md). It cannot run trials or apply changes.

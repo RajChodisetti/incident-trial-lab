@@ -10,16 +10,17 @@ verified AI capability.
 | Synthetic Go/Kubernetes incident and comparisons | Historical actual kind runs reproduce baseline failure and three candidate outcomes; pinned inputs, assertions, sampled budgets, cleanup | No fresh replay of the current checkout in this offline increment; resource sampling excludes peak memory/throttling and rigorous performance claims |
 | Local lifecycle and workers | Deadline/cancellation, scoped cleanup/reconciliation, bounded local queue and provenance checks; local race tests and earlier real-run evidence | Durable/distributed controller and broad outage hardening remain deferred |
 | MCP and investigation loop | Typed stdio tools; historical actual scripted loop; fake-tool rejection, uncertainty and revision tests | Actual model-driven investigate/test/revise loop is not demonstrated |
-| Selector boundary | Fake-tested finite selector, abstention, independent verdicts; neutral candidate alias wrapper | Candidate technical-evidence projection and held-out selection-quality evaluation remain; anonymous names alone prove no reasoning |
+| Selector boundary | Fake-tested finite selector, abstention, independent verdicts; neutral aliases and bounded source-linked candidate arithmetic | Business/incident context, held-out selection-quality evaluation and source-to-image binding remain; fake choices prove no reasoning |
 | Live provider | One successful Responses proposal/schema wiring request, with measured usage | Decisions contract, pricing/limits/retention and selected-project access are unverified; a new live-test budget is required |
 | Portfolio presentation | Walkthroughs and preserved evidence summaries | Reproducible readable evidence presentation, screenshot assets/captions, interview rehearsal and related-work comparison remain |
 | Telemetry and release | Sampled container resource evidence | Local Prometheus demo is not implemented; hosted CI allowance and public-release decision remain unresolved |
 
 ## Remaining small increments and effort assumptions
 
-1. **Evaluation input:** define neutral technical candidate context and held-out
-   fixtures, with invalid/abstaining/permutation metrics. The neutral ID wrapper
-   in this slice removes label/order hints, not other answer leakage.
+1. **Evaluation input:** the [bounded candidate-context projection](candidate-context.md)
+   now provides actual code facts. Add reviewed business/incident context and
+   held-out fixtures, with invalid/abstaining/permutation metrics and reproducible
+   journaling. Neutral IDs remove label/order hints, not other answer leakage.
 2. **Deterministic presentation:** render verified historical evidence clearly,
    distinguish scripted/fake/live wiring results, then rehearse an owned local
    demo and retain fresh evidence from the tested checkout.
@@ -73,8 +74,9 @@ sequence remains control-flow evaluation, not AI diagnosis or patch generation.
    selections to `Proposer`, including explicit abstention. Keep the scripted loop
    and existing Responses probe intact before any verified provider wiring.
    The [neutral ID wrapper](neutral-selector.md) removes semantic labels from
-   selector-facing options/history; technical context and held-out evaluation
-   can proceed offline while provider prerequisites remain unresolved.
+   selector-facing options/history, with source-linked [candidate code context](candidate-context.md).
+   Business/incident context and held-out evaluation can progress offline while
+   provider prerequisites remain unresolved.
    The deterministic local demo continues to require no provider or credential.
 
 ## Deferred hardening for the local demo

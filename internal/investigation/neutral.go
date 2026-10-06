@@ -17,6 +17,7 @@ type NeutralSelector struct {
 	inner     Selector
 	aliasToID map[string]string
 	idToAlias map[string]string
+	changes   map[string]candidates.Change
 }
 
 var _ Selector = (*NeutralSelector)(nil)
@@ -24,6 +25,10 @@ var _ Selector = (*NeutralSelector)(nil)
 func NewNeutralSelector(inner Selector) (*NeutralSelector, error) {
 	if inner == nil {
 		return nil, errors.New("selector required")
+	}
+	changes, err := candidates.Changes()
+	if err != nil {
+		return nil, err
 	}
 	order := candidates.IDs()
 	for i := len(order) - 1; i > 0; i-- {
@@ -34,7 +39,9 @@ func NewNeutralSelector(inner Selector) (*NeutralSelector, error) {
 		j := int(n.Int64())
 		order[i], order[j] = order[j], order[i]
 	}
-	return neutralWithOrder(inner, order), nil
+	n := neutralWithOrder(inner, order)
+	n.changes = changes
+	return n, nil
 }
 
 // Constructor helper is private: tests enumerate permutations without relying on
@@ -76,6 +83,14 @@ func (n *NeutralSelector) Select(ctx context.Context, v View, choices []string) 
 	}
 	input := v
 	input.History = append([]Feedback{}, v.History...)
+	// Rebuild from compiled, constrained source facts. Ignore caller-supplied
+	// descriptions so expected answers or arbitrary instructions cannot override it.
+	input.CandidateChanges = nil
+	for _, alias := range aliases {
+		if change, ok := n.changes[n.aliasToID[alias]]; ok {
+			input.CandidateChanges = append(input.CandidateChanges, CandidateChange{Option: alias, SourceSHA256: change.SourceSHA256, InitialLogic: change.InitialLogic, Logic: change.Logic, LogicSHA256: change.LogicSHA256})
+		}
+	}
 	for i := range input.History {
 		alias, ok := n.idToAlias[input.History[i].Variant]
 		if !ok {
