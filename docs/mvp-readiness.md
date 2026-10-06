@@ -1,4 +1,45 @@
-# MVP readiness before live agent integration
+# Portfolio MVP completion assessment
+
+Assessment updated 2026-10-06. The deterministic trial foundation is implemented;
+the full live-agent portfolio MVP is not complete. A percent would conceal the
+external provider-access dependency and the difference between an engine demo and
+verified AI capability.
+
+| Area | Built/tested evidence | Unverified or blocked |
+| --- | --- | --- |
+| Synthetic Go/Kubernetes incident and comparisons | Historical actual kind runs reproduce baseline failure and three candidate outcomes; pinned inputs, assertions, sampled budgets, cleanup | No fresh replay of the current checkout in this offline increment; resource sampling excludes peak memory/throttling and rigorous performance claims |
+| Local lifecycle and workers | Deadline/cancellation, scoped cleanup/reconciliation, bounded local queue and provenance checks; local race tests and earlier real-run evidence | Durable/distributed controller and broad outage hardening remain deferred |
+| MCP and investigation loop | Typed stdio tools; historical actual scripted loop; fake-tool rejection, uncertainty and revision tests | Actual model-driven investigate/test/revise loop is not demonstrated |
+| Selector boundary | Fake-tested finite selector, abstention, independent verdicts; neutral candidate alias wrapper | Candidate technical-evidence projection and held-out selection-quality evaluation remain; anonymous names alone prove no reasoning |
+| Live provider | One successful Responses proposal/schema wiring request, with measured usage | Decisions contract, pricing/limits/retention and selected-project access are unverified; a new live-test budget is required |
+| Portfolio presentation | Walkthroughs and preserved evidence summaries | Reproducible readable evidence presentation, screenshot assets/captions, interview rehearsal and related-work comparison remain |
+| Telemetry and release | Sampled container resource evidence | Local Prometheus demo is not implemented; hosted CI allowance and public-release decision remain unresolved |
+
+## Remaining small increments and effort assumptions
+
+1. **Evaluation input:** define neutral technical candidate context and held-out
+   fixtures, with invalid/abstaining/permutation metrics. The neutral ID wrapper
+   in this slice removes label/order hints, not other answer leakage.
+2. **Deterministic presentation:** render verified historical evidence clearly,
+   distinguish scripted/fake/live wiring results, then rehearse an owned local
+   demo and retain fresh evidence from the tested checkout.
+3. **Portfolio assets:** capture actual readable screenshots, write concise
+   captions and walkthrough/related-work notes, and review with Raj. Prepare only;
+   LinkedIn publication and repository visibility remain separate decisions.
+4. **Live selector, after gates:** implement against verified Decisions docs,
+   review one bounded proposal-only evaluation, then a fresh owned MCP loop with
+   independently checked recovery/regressions. Do not reset the first-test ledger.
+5. **Telemetry:** provide the local Prometheus view using standard telemetry and
+   synthetic data, with a verified walkthrough and no commercial tenant.
+
+Planning estimate: **2–4 focused development days** for the deterministic
+evaluation/presentation/screenshot work, then roughly **3–6 additional focused
+days** for documented live-selector evaluation and the local telemetry demo.
+Assumptions: one current synthetic scenario, cached working Mac/Docker/kind setup,
+small reviewed increments, timely owner feedback and usable provider docs/access.
+These are effort ranges, not completion dates; provider-access waiting time is
+unknown and excluded. Scope expansion or provider-contract surprises change them.
+Production hardening and optional Dynatrace integration are outside these ranges.
 
 The local deterministic trial foundation now has reproducible baseline evidence,
 three candidate outcomes, explicit uncertainty, bounded supervision, conservative
@@ -31,6 +72,9 @@ sequence remains control-flow evaluation, not AI diagnosis or patch generation.
    The [offline selector adapter](selector-adapter.md) now connects injected fake
    selections to `Proposer`, including explicit abstention. Keep the scripted loop
    and existing Responses probe intact before any verified provider wiring.
+   The [neutral ID wrapper](neutral-selector.md) removes semantic labels from
+   selector-facing options/history; technical context and held-out evaluation
+   can proceed offline while provider prerequisites remain unresolved.
    The deterministic local demo continues to require no provider or credential.
 
 ## Deferred hardening for the local demo

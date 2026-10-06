@@ -98,6 +98,14 @@ paid request, credential inspection/change, installation or live trial occurred.
 Next is resolution of the migration prerequisites before any provider wiring.
 Keep the private repository and the portfolio screenshot checklist intact.
 
+The subsequent [neutral candidate ID slice](neutral-selector.md) adds randomized,
+loop-stable anonymous options and aliased history for fake selector evaluation.
+It addresses label/order leakage without changing the existing Responses prompt
+or claiming model quality. See the [completion assessment](mvp-readiness.md) for
+built/tested, unverified and blocked work, remaining increments and effort ranges.
+Offline evaluation context and reproducible evidence presentation can progress
+while the provider migration gates remain unresolved.
+
 ## Portfolio screenshot completion checklist
 
 Raj requested: “Get screenshots to put in as project in LinkedIn once the product
