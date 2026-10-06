@@ -13,8 +13,8 @@ import (
 // Decision is a local domain type, not an assumed provider response contract.
 // Abstention is explicit; an empty or unknown candidate is not a fallback.
 type Decision struct {
-	Candidate string
-	Abstain   bool
+	Candidate string `json:"candidate"`
+	Abstain   bool   `json:"abstain"`
 }
 
 // Selector receives sanitized evidence and the untried finite choices only.
@@ -85,6 +85,10 @@ func (p SelectorProposer) Propose(ctx context.Context, v View) (Proposal, error)
 	input := v
 	input.History = append([]Feedback{}, v.History...)
 	input.CandidateChanges = append([]CandidateChange{}, v.CandidateChanges...)
+	if v.BusinessIncident != nil {
+		c := *v.BusinessIncident
+		input.BusinessIncident = &c
+	}
 	d, err := p.Selector.Select(ctx, input, append([]string{}, allowed...))
 	if e := ctx.Err(); e != nil {
 		return Proposal{}, e

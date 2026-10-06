@@ -16,6 +16,7 @@ import (
 	"github.com/RajChodisetti/incident-trial-lab/internal/candidates"
 	"github.com/RajChodisetti/incident-trial-lab/internal/evaluation"
 	"github.com/RajChodisetti/incident-trial-lab/internal/toolserver"
+	scenario "github.com/RajChodisetti/incident-trial-lab/scenarios/discount-rounding"
 )
 
 type Caller interface {
@@ -49,6 +50,7 @@ type View struct {
 	History           []Feedback        `json:"history"`
 	RemainingAttempts int               `json:"remaining_attempts"`
 	CandidateChanges  []CandidateChange `json:"candidate_changes,omitempty"`
+	BusinessIncident  *scenario.Context `json:"business_incident,omitempty"`
 }
 
 // CandidateChange contains code facts, not expected or predicted verdicts.

@@ -112,6 +112,12 @@ aliases. Projection and fake-selection tests do not establish model reasoning or
 source-to-image attestation. Business/incident context, held-out evaluation and
 reproducible journaling remain before meaningful selection-quality claims.
 
+The subsequent [business/incident and offline-record slice](business-context-records.md)
+now projects the actual contract and observed failed baseline assertion, and records
+an exact neutral input plus owner-side mapping for validated reconstruction.
+Expected outcomes for untried candidates remain outside selector input. Held-out
+evaluation and source-to-image binding still remain; no live provider is wired.
+
 ## Portfolio screenshot completion checklist
 
 Raj requested: “Get screenshots to put in as project in LinkedIn once the product

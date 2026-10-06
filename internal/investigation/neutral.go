@@ -8,6 +8,7 @@ import (
 	"math/big"
 
 	"github.com/RajChodisetti/incident-trial-lab/internal/candidates"
+	scenario "github.com/RajChodisetti/incident-trial-lab/scenarios/discount-rounding"
 )
 
 // NeutralSelector hides semantic preset IDs at the selector boundary. One instance
@@ -83,6 +84,13 @@ func (n *NeutralSelector) Select(ctx context.Context, v View, choices []string) 
 	}
 	input := v
 	input.History = append([]Feedback{}, v.History...)
+	if v.BusinessIncident != nil {
+		if err := scenario.Validate(*v.BusinessIncident); err != nil {
+			return Decision{}, err
+		}
+		c := *v.BusinessIncident
+		input.BusinessIncident = &c
+	}
 	// Rebuild from compiled, constrained source facts. Ignore caller-supplied
 	// descriptions so expected answers or arbitrary instructions cannot override it.
 	input.CandidateChanges = nil

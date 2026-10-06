@@ -59,7 +59,7 @@ var safeHash = regexp.MustCompile(`^[0-9a-f]{64}$`)
 // validateView confines the first probe to a baseline projection, with no history
 // strings, observation text, arbitrary scenario descriptions or path inputs.
 func validateView(v investigation.View) error {
-	if v.ScenarioID != "discount-rounding" || len(v.History) != 0 || len(v.CandidateChanges) != 0 || v.RemainingAttempts != 1 || v.Signal.Recovery != "failed" || v.Signal.Regressions != "passed" || v.Signal.Failed < 1 || v.Signal.Failed > 1000 || v.Signal.Unknown != 0 {
+	if v.ScenarioID != "discount-rounding" || len(v.History) != 0 || len(v.CandidateChanges) != 0 || v.BusinessIncident != nil || v.RemainingAttempts != 1 || v.Signal.Recovery != "failed" || v.Signal.Regressions != "passed" || v.Signal.Failed < 1 || v.Signal.Failed > 1000 || v.Signal.Unknown != 0 {
 		return errors.New("invalid synthetic baseline view")
 	}
 	for i, r := range []investigation.Reference{v.LatestBehavior, v.LatestProof} {

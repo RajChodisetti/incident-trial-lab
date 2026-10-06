@@ -65,13 +65,14 @@ No actual credential was read and the consumed first-test reservation was unchan
 
 Next prerequisites for meaningful selection evaluation:
 
-- Supply a reviewed business contract/observed incident context without embedding
-  the expected candidate answer, and keep held-out inputs/selection expectations
-  separate from provider-visible evidence.
+- The subsequent [business/incident projection and offline record slice](business-context-records.md)
+  now supplies the actual rule and observed failed assertion, with exact-input
+  reconstruction. Keep held-out inputs/selection expectations separate from it.
 - Define balanced/permuted fixtures, abstention/invalid/error metrics and a simple
   comparison baseline before claims about model quality. Check other leakage paths.
-- Journal the exact context/alias mapping/selection for reproducibility, and bind
-  source facts to the tested image/build evidence before a live repair claim.
+- The offline journal now preserves exact context, owner alias mapping and decision;
+  live-provider journaling and source-to-image/build binding remain before a live
+  repair claim.
 - Resolve Decisions API documentation, pricing/retention/limits and selected-project
   access, plus a newly approved request budget, before adding any provider adapter.
 

@@ -31,6 +31,8 @@ and explicit abstention to the existing loop; it is tested with fakes only.
 opt-in selector boundary, with stable aliases across simulated revisions.
 [Candidate code context](docs/candidate-context.md) adds bounded arithmetic facts
 and source/snippet hashes derived from the actual synthetic implementation.
+[Observed incident context and offline records](docs/business-context-records.md)
+add the actual business rule, failed assertion and exact-input reconstruction.
 [First live proposal probe](docs/live-proposal-probe.md) adds one owner-authorized
 API wiring check over historical synthetic evidence, with
 [the measured result](docs/live-proposal-evidence.md). It cannot run trials or apply changes.
