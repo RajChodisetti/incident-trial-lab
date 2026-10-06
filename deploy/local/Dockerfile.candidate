@@ -1,0 +1,13 @@
+FROM scratch
+ARG VARIANT
+ARG SOURCE_SHA256
+ARG LOGIC_SHA256
+ARG BINARY_SHA256
+LABEL dev.incident-trial-lab.variant=$VARIANT \
+      dev.incident-trial-lab.source=$SOURCE_SHA256 \
+      dev.incident-trial-lab.logic=$LOGIC_SHA256 \
+      dev.incident-trial-lab.binary=$BINARY_SHA256
+COPY synthetic-service /synthetic-service
+USER 65532:65532
+EXPOSE 8080
+ENTRYPOINT ["/synthetic-service"]

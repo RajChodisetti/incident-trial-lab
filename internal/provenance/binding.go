@@ -13,6 +13,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/RajChodisetti/incident-trial-lab/internal/artifact"
 	"github.com/RajChodisetti/incident-trial-lab/internal/baseline"
 	"github.com/RajChodisetti/incident-trial-lab/internal/evaluation"
 	"github.com/RajChodisetti/incident-trial-lab/internal/lifecycle"
@@ -59,6 +60,7 @@ type Receipt struct {
 	BaselineEvidenceHash  string             `json:"baseline_evidence_sha256"`
 	CandidateEvidenceHash string             `json:"candidate_evidence_sha256"`
 	Spec                  Spec               `json:"spec"`
+	SourceBinding         *artifact.Binding  `json:"source_binding,omitempty"`
 }
 
 func hash(data []byte) string { return fmt.Sprintf("%x", sha256.Sum256(data)) }
@@ -476,6 +478,10 @@ func validateAndBind(root string, a Attempt, candidateID string, now time.Time, 
 	if err != nil {
 		return receipt, err
 	}
+	sourceBinding, err := VerifySourceBinding(root, dir, a.Variant, e.Spec.Candidates[a.Variant])
+	if err != nil {
+		return receipt, err
+	}
 	proof, err := read(root, filepath.Join(dir, "baseline-proof.json"))
 	baselineDir, _, _, _ := baselineEvidence(root, e.BaselineRunID, e.Spec)
 	original, originalErr := read(root, filepath.Join(baselineDir, "check.json"))
@@ -547,7 +553,7 @@ func validateAndBind(root string, a Attempt, candidateID string, now time.Time, 
 	if string(b1) != string(b2) || trial.Decide(true, behavior.BehavioralVerdict, budget) != result.Verdict {
 		return receipt, fmt.Errorf("result contradicts recomputed budget/verdict")
 	}
-	receipt = Receipt{e.ID, a.ID, e.BaselineRunID, candidateID, a.Variant, result.Verdict, e.BaselineEvidenceHash, hash([]byte(hash(behaviorBytes) + hash(resultBytes) + hash(image) + hash(workload) + hash(proof) + hash(beforeBytes) + hash(afterBytes) + runtimeHash + hashMustJSON(r))), e.Spec}
+	receipt = Receipt{e.ID, a.ID, e.BaselineRunID, candidateID, a.Variant, result.Verdict, e.BaselineEvidenceHash, hash([]byte(hash(behaviorBytes) + hash(resultBytes) + hash(image) + hash(workload) + hash(proof) + hash(beforeBytes) + hash(afterBytes) + runtimeHash + hashMustJSON(r) + hashMustJSON(sourceBinding))), e.Spec, &sourceBinding}
 	if !consume {
 		stored, err := read(root, filepath.Join(expDir, "receipt-"+a.ID+".json"))
 		var saved Receipt

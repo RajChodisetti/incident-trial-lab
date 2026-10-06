@@ -17,6 +17,14 @@ image=incident-trial-lab.invalid/candidate-$variant@$digest
 archive=.build/candidates/$variant/image.oci.tar
 actual=$(tar -xOf "$archive" index.json | jq -er '.manifests | if length==1 then .[0].digest else error("single platform required") end')
 test "$actual" = "$digest" || { echo 'Candidate archive differs from lock' >&2; exit 1; }
+# Legacy archives have no source/binary labels and must not start a bound trial.
+manifest_hex=${digest#sha256:}
+config_hex=$(tar -xOf "$archive" "blobs/sha256/$manifest_hex" | jq -er '.config.digest | sub("^sha256:";"")')
+tar -xOf "$archive" "blobs/sha256/$config_hex" | jq -e --arg variant "$variant" '
+  .config.Labels as $labels |
+  $labels["dev.incident-trial-lab.variant"] == $variant and
+  (["source","logic","binary"] | all(.[]; $labels["dev.incident-trial-lab." + .] | test("^[0-9a-f]{64}$")))
+' >/dev/null || { echo 'Candidate image lacks source binding; rebuild and review image pins first' >&2; exit 1; }
 jq -e '.baseline_reproduced == true' "$baseline_proof" >/dev/null || { echo 'Baseline proof required' >&2; exit 1; }
 # Never reuse an existing cluster or merge the user\047s default kubeconfig.
 if "$kind" get clusters | awk -v name="$cluster" '$0==name {found=1} END {exit !found}'; then
@@ -64,6 +72,7 @@ k get pods -o json > "$evidence/pods.json"
 k get nodes -o json > "$evidence/nodes.json"
 docker exec "$node" ctr -n k8s.io content get "$digest" > "$evidence/image-manifest.json"
 config_digest=$(jq -r '.config.digest' "$evidence/image-manifest.json")
+docker exec "$node" ctr -n k8s.io content get "$config_digest" > "$evidence/image-config.json"
 observed_config=$(jq -er '.items[0].status.containerStatuses[0].image' "$evidence/pods.json")
 test "$config_digest" = "$observed_config" || { echo 'Runtime config identity does not match pinned manifest' >&2; exit 1; }
 runtime_digest=$(jq -er '.items[0].status.containerStatuses[0].imageID | split("@")[1]' "$evidence/pods.json")
@@ -83,6 +92,7 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
     sleep 1
 done
 test "$ready" = 1 || { echo 'Port forward deadline exceeded' >&2; exit 1; }
+curl --fail --silent --show-error --max-time 5 --output "$evidence/source-binding.json" "http://127.0.0.1:$port/artifact-binding"
 cp scenarios/discount-rounding/comparison-workload.json "$evidence/workload.json"
 cp "$baseline_proof" "$evidence/baseline-proof.json"
 printf '%s\n' "$digest" > "$evidence/image-digest.txt"

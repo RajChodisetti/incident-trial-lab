@@ -95,8 +95,9 @@ Coverage and reconstruction do not prove model quality or runtime image provenan
 - Held-out scenarios/cases, balanced option permutations, evaluation metrics and
   a simple comparator remain before selection-quality claims. The published seeded
   case and candidate snippets are not a held-out benchmark.
-- Source-to-image/build binding remains unimplemented; source hashes do not attest
-  the pinned runtime images. Fresh trial receipt/comparison gates remain essential.
+- The subsequent [source/artifact binding gate](source-artifact-binding.md) is
+  fixture-tested offline. Existing images/receipts lack its proof and remain
+  historical; a reviewed rebuild, pin update and fresh runtime replay are required.
 - This journal is in-memory plus an explicitly saved offline artifact, not durable
   restart orchestration or a live-provider response attestation scheme.
 - Verified Decisions API contracts/access/pricing and a new approved budget still

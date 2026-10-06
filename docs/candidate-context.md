@@ -70,9 +70,10 @@ Next prerequisites for meaningful selection evaluation:
   reconstruction. Keep held-out inputs/selection expectations separate from it.
 - Define balanced/permuted fixtures, abstention/invalid/error metrics and a simple
   comparison baseline before claims about model quality. Check other leakage paths.
-- The offline journal now preserves exact context, owner alias mapping and decision;
-  live-provider journaling and source-to-image/build binding remain before a live
-  repair claim.
+- The offline journal preserves exact context, owner alias mapping and decision.
+  The subsequent [source/artifact gate](source-artifact-binding.md) is tested with
+  fixtures; fresh bound images/replay and live-provider journaling remain before
+  a live repair claim.
 - Resolve Decisions API documentation, pricing/retention/limits and selected-project
   access, plus a newly approved request budget, before adding any provider adapter.
 

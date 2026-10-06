@@ -10,6 +10,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/RajChodisetti/incident-trial-lab/internal/artifact"
 	"github.com/RajChodisetti/incident-trial-lab/internal/baseline"
 	"github.com/RajChodisetti/incident-trial-lab/internal/evaluation"
 	"github.com/RajChodisetti/incident-trial-lab/internal/lifecycle"
@@ -27,6 +28,7 @@ type fixture struct {
 	cases        []trial.Case
 	r            trial.Report
 	manifest     []byte
+	config       []byte
 	digest       string
 }
 
@@ -57,12 +59,23 @@ func runtimeFiles(t *testing.T, f fixture, dir string) {
 	put(t, f.root, filepath.Join(dir, "image-manifest.json"), f.manifest)
 	put(t, f.root, filepath.Join(dir, "runtime-image.json"), f.manifest)
 	put(t, f.root, filepath.Join(dir, "image-digest.txt"), f.digest+"\n")
-	put(t, f.root, filepath.Join(dir, "pods.json"), fmt.Sprintf(`{"items":[{"metadata":{"uid":"pod-unit"},"spec":{"containers":[{"name":"service","image":"test.invalid/service@%s"}]},"status":{"containerStatuses":[{"name":"service","image":"sha256:%s","imageID":"test.invalid/service@%s","ready":true}]}}]}`, f.digest, strings.Repeat("a", 64), f.digest))
+	put(t, f.root, filepath.Join(dir, "pods.json"), fmt.Sprintf(`{"items":[{"metadata":{"uid":"pod-unit"},"spec":{"containers":[{"name":"service","image":"test.invalid/service@%s"}]},"status":{"containerStatuses":[{"name":"service","image":"sha256:%s","imageID":"test.invalid/service@%s","ready":true}]}}]}`, f.digest, hash(f.config), f.digest))
+	put(t, f.root, filepath.Join(dir, "image-config.json"), f.config)
+	b, err := artifact.ForBinary("fixed", strings.NewReader("offline fixture binary"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	put(t, f.root, filepath.Join(dir, "source-binding.json"), b)
 }
 func newFixture(t *testing.T) fixture {
 	t.Helper()
 	f := fixture{root: t.TempDir(), now: time.Now().UTC(), bd: "evidence/lifecycle-" + baselineID + "/baseline-unit", cd: "evidence/lifecycle-" + candidateID + "/candidate-fixed-unit"}
-	f.manifest = []byte(fmt.Sprintf(`{"config":{"digest":"sha256:%s"}}`, strings.Repeat("a", 64)))
+	b, err := artifact.ForBinary("fixed", strings.NewReader("offline fixture binary"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	f.config, _ = json.Marshal(map[string]any{"config": map[string]any{"Labels": b.Labels()}})
+	f.manifest = []byte(fmt.Sprintf(`{"config":{"digest":"sha256:%s"}}`, hash(f.config)))
 	f.digest = "sha256:" + hash(f.manifest)
 	for _, p := range []string{"scenarios/discount-rounding/workload.json", "scenarios/discount-rounding/comparison-workload.json", "scenarios/discount-rounding/contract.md", "scenarios/discount-rounding/comparison-contract.md", "deploy/local/kind.yaml", "deploy/local/baseline.json"} {
 		b, err := os.ReadFile(filepath.Join("../..", p))
@@ -101,7 +114,6 @@ func newFixture(t *testing.T) fixture {
 	deployment, _ := read(f.root, "deploy/local/baseline.json")
 	put(t, f.root, filepath.Join(f.bd, "baseline.json"), deployment)
 	putRecord(t, f, baselineID, "baseline", f.now.Add(-2*time.Minute), f.now.Add(-time.Minute), lifecycle.Completed)
-	var err error
 	f.e, err = Prepare(f.root, baselineID, f.now)
 	if err != nil {
 		t.Fatal(err)

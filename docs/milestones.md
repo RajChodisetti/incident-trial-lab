@@ -116,7 +116,15 @@ The subsequent [business/incident and offline-record slice](business-context-rec
 now projects the actual contract and observed failed baseline assertion, and records
 an exact neutral input plus owner-side mapping for validated reconstruction.
 Expected outcomes for untried candidates remain outside selector input. Held-out
-evaluation and source-to-image binding still remain; no live provider is wired.
+evaluation and a real bound image/runtime replay still remain; no live provider is wired.
+
+The subsequent [source/artifact binding slice](source-artifact-binding.md) adds
+binary/source/logic metadata to candidate build and capture paths and requires it
+when sealing or revalidating receipts. Offline fixtures verify rejection and
+selection-record linkage. No image build or runtime replay occurred; historical
+candidate images remain unbound. Next can be held-out evaluation and historical
+evidence presentation offline. A current demo requires reviewed rebuilt pins and
+a fresh owned baseline/candidate replay before actual screenshot preparation.
 
 ## Portfolio screenshot completion checklist
 
