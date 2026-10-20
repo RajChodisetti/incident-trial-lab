@@ -16,7 +16,7 @@ type decisionsTransport func(*http.Request) (*http.Response, error)
 func (f decisionsTransport) RoundTrip(r *http.Request) (*http.Response, error) { return f(r) }
 func decisionsFixture(t *testing.T) SelectionRecord {
 	t.Helper()
-	data, err := os.ReadFile("../../evidence/selection-context-offline.json")
+	data, err := os.ReadFile("../../docs/evidence/selection-context-offline.json")
 	if err != nil {
 		t.Fatal(err)
 	}

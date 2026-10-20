@@ -2,7 +2,7 @@
 
 The presentation is a three-page, dependency-free local HTML view of the actual
 source-bound replay. It presents recorded results, not a running experiment or
-live model. The private repository contains the renderer, evidence, screenshot
+live model. The repository contains the renderer, evidence, screenshot
 assets and captions; no website was hosted or LinkedIn post published.
 
 ## Open and explain it

@@ -1,8 +1,7 @@
 # Recorded deterministic demo screenshots
 
 These are actual headless-browser captures of validated persisted synthetic
-evidence, not live Decisions execution or model reasoning. Prepared for Raj's
-review; nothing has been posted to LinkedIn or made public.
+evidence, not live Decisions execution or model reasoning. Included here as reproducible portfolio evidence; publishing this repository does not publish a LinkedIn post.
 
 | Asset | Suggested caption |
 | --- | --- |
